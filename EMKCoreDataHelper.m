@@ -122,7 +122,7 @@ static EMKCoreDataHelper *EMK_sharedCoreDataHelper = nil;
     
     if (!persistentStoreCoordinator) return nil;
     //We create newContext with NSClassFromString so that this will compile even when the project is not linked to CoreData.framework
-    id newContext = [NSClassFromString(@"NSManagedObjectContext") performSelector:@selector(new)]; 
+    id newContext = [NSClassFromString(@"NSManagedObjectContext") new]; 
     [newContext setPersistentStoreCoordinator:persistentStoreCoordinator];
     
     return newContext;
