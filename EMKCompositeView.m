@@ -41,6 +41,13 @@ void EMKCompositeViewDynamicSetter(id self, SEL _cmd, id value);
 }
 
 
+#pragma mark init, dealloc and memory management
+-(void)dealloc
+{
+    [_subViews release];
+    [super dealloc];
+}
+
 
 
 #pragma mark properties
@@ -108,6 +115,14 @@ void EMKCompositeViewDynamicSetter(id self, SEL _cmd, id value);
     return [super resolveInstanceMethod:aSEL];
 }
 
+
+
+#pragma mark init, dealloc and memory management
+-(void)dealloc
+{
+    [_subViews release];
+    [super dealloc];
+}
 
 
 

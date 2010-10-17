@@ -45,39 +45,6 @@ static EMKCoreDataHelper *EMK_sharedCoreDataHelper = nil;
 
 
 
-#pragma mark properties
-@synthesize coreDataProvider = _coreDataProvider;
-
-@dynamic managedObjectContext;
--(NSManagedObjectContext*)managedObjectContext
-{
-    id coreDataProvider = self.coreDataProvider;
-   
-    return ([coreDataProvider respondsToSelector:@selector(managedObjectContext)]) ? [coreDataProvider managedObjectContext] : nil;
-}
-
-
-
-
-@dynamic managedObjectModel;
--(NSManagedObjectModel*)managedObjectModel
-{
-    id coreDataProvider = self.coreDataProvider;
-    
-    return ([coreDataProvider respondsToSelector:@selector(managedObjectModel)]) ? [coreDataProvider managedObjectModel] : nil;
-}
-
-
-
-
-@dynamic persistentStoreCoordinator;
--(NSPersistentStoreCoordinator*)persistentStoreCoordinator
-{
-    id coreDataProvider = self.coreDataProvider;
-    
-    return ([coreDataProvider respondsToSelector:@selector(persistentStoreCoordinator)]) ? [coreDataProvider persistentStoreCoordinator] : nil;
-}
-
 
 #pragma mark init, dealloc and memory management
 
@@ -112,6 +79,40 @@ static EMKCoreDataHelper *EMK_sharedCoreDataHelper = nil;
     return self;
 }
 
+
+
+#pragma mark properties
+@synthesize coreDataProvider = _coreDataProvider;
+
+@dynamic managedObjectContext;
+-(NSManagedObjectContext*)managedObjectContext
+{
+    id coreDataProvider = self.coreDataProvider;
+    
+    return ([coreDataProvider respondsToSelector:@selector(managedObjectContext)]) ? [coreDataProvider managedObjectContext] : nil;
+}
+
+
+
+
+@dynamic managedObjectModel;
+-(NSManagedObjectModel*)managedObjectModel
+{
+    id coreDataProvider = self.coreDataProvider;
+    
+    return ([coreDataProvider respondsToSelector:@selector(managedObjectModel)]) ? [coreDataProvider managedObjectModel] : nil;
+}
+
+
+
+
+@dynamic persistentStoreCoordinator;
+-(NSPersistentStoreCoordinator*)persistentStoreCoordinator
+{
+    id coreDataProvider = self.coreDataProvider;
+    
+    return ([coreDataProvider respondsToSelector:@selector(persistentStoreCoordinator)]) ? [coreDataProvider persistentStoreCoordinator] : nil;
+}
 
 
 
