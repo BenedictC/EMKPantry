@@ -1,0 +1,6 @@
+The simplest way to use these classes is to add
+
+#import "EMKPantry.h" 
+
+in the project prefix file.
+
