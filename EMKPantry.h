@@ -13,3 +13,4 @@
 #import "UIView(EMKNibLoading).h"
 #import "EMKCompositeView.h"
 #import "UIViewController(EMKInitializers).h"
+#import "NSInvocation(EMKActionInitializer).h"
