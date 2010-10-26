@@ -14,3 +14,4 @@
 #import "EMKCompositeView.h"
 #import "UIViewController(EMKInitializers).h"
 #import "NSInvocation(EMKActionInitializer).h"
+#import "UILabel(EMKResizing).h"
