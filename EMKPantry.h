@@ -15,3 +15,4 @@
 #import "UIViewController(EMKInitializers).h"
 #import "NSInvocation(EMKActionInitializer).h"
 #import "UILabel(EMKResizing).h"
+#import "UIApplication(EMKNetworkActivityParticipation).h"
