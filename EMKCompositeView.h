@@ -6,7 +6,7 @@
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface EMKCompositeView : UIView
