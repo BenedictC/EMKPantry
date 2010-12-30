@@ -11,51 +11,13 @@
 
 @interface EMKView : UIView
 {
-    NSMutableDictionary *_subViews;
+    NSMutableDictionary *_dynamicProperties;
 }
 
-@property(readonly, retain) NSMutableDictionary *subViews;
 
 @end
 
 
 
-
-@interface EMKTableViewCell : UITableViewCell
-{
-    NSMutableDictionary *_subViews;    
-}
-
-@property(readonly, retain) NSMutableDictionary *subViews;
-
-@end
-
-
-
-
-#define EMK_COMPOSITE_VIEW_IMPLEMENTION_WITHOUT_PROPERTIES(CLASSNAME) \
-@implementation CLASSNAME \
-\
-+(CLASSNAME*)view  \
-{ \
-    return (CLASSNAME*)[CLASSNAME EMK_viewWithDefaultNib]; \
-} \
-@end
-
-
-
-
-#define EMK_COMPOSITE_VIEW_IMPLEMENTION(CLASSNAME, PROPERTIES...) \
-@implementation CLASSNAME \
-\
-@dynamic PROPERTIES;\
-\
-+(CLASSNAME*)view  \
-{ \
-return (CLASSNAME*)[CLASSNAME EMK_viewWithDefaultNib]; \
-} \
-@end
-
-
-
-
+id EMKViewDynamicGetter(id self, SEL _cmd);
+void EMKViewDynamicSetter(id self, SEL _cmd, id value);

@@ -23,4 +23,4 @@
 #import "UIView(EMKNibLoading).h"
 
 #import "EMKView.h"
-
+#import "EMKTableViewCell.h"
