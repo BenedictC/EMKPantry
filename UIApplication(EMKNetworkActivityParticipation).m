@@ -9,35 +9,42 @@
 #import "UIApplication(EMKNetworkActivityParticipation).h"
 
 
-//we use an array instead of a set so that we can have multiple instances of a particpant
-NSMutableArray *EMKNetworkActivityParticipants;
+int EMKNetworkActivityParticipantCount = 0;
+
 
 
 @implementation UIApplication (EMKNetworkActivityParticipation)
 
 -(void)EMK_addNetworkActivityParticipant:(id)participant
 {
-    if (!EMKNetworkActivityParticipants)
-    {
-        EMKNetworkActivityParticipants = [[NSMutableArray arrayWithCapacity:5] retain]; //5 is an arbitary number. Can you think of a better approach?
-    }
-    
-    [EMKNetworkActivityParticipants addObject:participant];
-
-    [self setNetworkActivityIndicatorVisible:YES];
+    [self EMK_addNetworkActivityParticipant];
 }
 
 
 
 -(void)EMK_removeNetworkActivityParticipant:(id)participant
 {
-    int indexOfFirstInstance = [EMKNetworkActivityParticipants indexOfObject:participant];
+    [self EMK_removeNetworkActivityParticipant];
+}
+
+
+
+
+
+-(void)EMK_addNetworkActivityParticipant
+{
+    EMKNetworkActivityParticipantCount++;        
     
-    if (indexOfFirstInstance == NSNotFound) return;
+    [self setNetworkActivityIndicatorVisible:YES];
+}
+
+
+
+-(void)EMK_removeNetworkActivityParticipant
+{
+    EMKNetworkActivityParticipantCount--;
     
-    [EMKNetworkActivityParticipants removeObjectAtIndex:indexOfFirstInstance];
-    
-    [self setNetworkActivityIndicatorVisible:[EMKNetworkActivityParticipants count]];
+    [self setNetworkActivityIndicatorVisible:EMKNetworkActivityParticipantCount];
 }
 
 
