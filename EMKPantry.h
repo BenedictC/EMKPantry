@@ -7,12 +7,20 @@
  *
  */
 
+//Foundation.framework
 #import "NSObject(EMKAccessors).h"
+#import "NSObject(EMKInvocationProxy).h"
 #import "NSOperationQueue(EMKDefaultQueue).h"
-#import "EMKCoreDataHelper.h"
-#import "UIView(EMKNibLoading).h"
-#import "EMKCompositeView.h"
-#import "UIViewController(EMKInitializers).h"
 #import "NSInvocation(EMKActionInitializer).h"
-#import "UILabel(EMKResizing).h"
+
+//CoreData.framework
+#import "EMKCoreDataHelper.h"
+
+//UIKit.framework
 #import "UIApplication(EMKNetworkActivityParticipation).h"
+#import "UILabel(EMKResizing).h"
+#import "UIViewController(EMKInitializers).h"
+#import "UIView(EMKNibLoading).h"
+
+#import "EMKView.h"
+

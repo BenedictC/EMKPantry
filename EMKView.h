@@ -1,5 +1,5 @@
 //
-//  EMKCompositeView.h
+//  EMKView.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface EMKCompositeView : UIView
+@interface EMKView : UIView
 {
     NSMutableDictionary *_subViews;
 }
@@ -21,7 +21,7 @@
 
 
 
-@interface EMKCompositeCell : UITableViewCell
+@interface EMKTableViewCell : UITableViewCell
 {
     NSMutableDictionary *_subViews;    
 }
