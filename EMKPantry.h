@@ -12,11 +12,17 @@
 #import "NSObject(EMKInvocationProxy).h"
 #import "NSOperationQueue(EMKDefaultQueue).h"
 #import "NSInvocation(EMKActionInitializer).h"
+#import "EMKSetController.h"
 
 //CoreData.framework
+#ifdef _COREDATADEFINES_H
 #import "EMKCoreDataHelper.h"
+#import "NSFetchRequest(EMKInitializer).h"
+#endif
 
 //UIKit.framework
+#import "UIButton(EMKAccessoryButton).h"
+#import "UIView(EMKViewSearching).h"
 #import "UIApplication(EMKNetworkActivityParticipation).h"
 #import "UILabel(EMKResizing).h"
 #import "UIViewController(EMKInitializers).h"
