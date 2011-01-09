@@ -1,12 +1,14 @@
 //
 //  EMKSetController.h
-//  Jot
+//  EMKPantry
 //
 //  Created by Benedict Cohen on 06/01/2011.
-//  Copyright 2011 Electric Muffin Kitchen. All rights reserved.
+//  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+#import "EMKSetControllerSectionInfo.h"
 
 @protocol EMKSetControllerDelegate;
 
@@ -15,9 +17,12 @@
     NSArray *_objects;
     NSString * _sectionNameKeyPath;
     NSArray *_sortDescriptors;    
-    NSArray *_sortKeyPaths;        
+    NSArray *_sortKeyPaths;  
+    NSArray *_secondaryKeyPaths;      
     id _delegate; 
 
+    NSArray *_sections;
+    
     /*
      id _sections; //Array
      id _sectionsByName; //Dict?
@@ -28,8 +33,6 @@
      
      */
     
-    NSArray *_sections;
-    NSArray *_sectionNames;
     
     /*
 
@@ -52,8 +55,7 @@
 }
 
 
-
--(EMKSetController *)initWithSet:(NSSet *)objects sortKeyPaths:(NSArray *)sortKeyPaths sectionNameKeyPath:(NSString *)sectionNameKeyPath;
+-(EMKSetController *)initWithSet:(NSSet *)objects sortKeyPaths:(NSArray *)sortKeyPaths secondaryKeyPaths:(NSArray *)secondaryKeyPaths sectionNameKeyPath:(NSString *)sectionNameKeyPath;
 
 @property(nonatomic, assign) id< EMKSetControllerDelegate > delegate;
 
@@ -90,15 +92,6 @@
 
 
 // ================== PROTOCOLS ==================
-
-@protocol EMKSetControllerSectionInfo
-@property (nonatomic, readonly) NSString *name;
-@property (nonatomic, readonly) NSString *indexTitle;
-@property (nonatomic, readonly) NSUInteger numberOfObjects;
-@property (nonatomic, readonly) NSArray *objects;
-@end
-
-
 
 @protocol EMKSetControllerDelegate
 
