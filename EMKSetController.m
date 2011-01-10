@@ -246,7 +246,7 @@
     for (id object in reversedExpiredObjects)
     {
         //1. tell the delegate we're will be changing        
-        if (!didInvokeWillChangeContent && [(NSObject *)self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
+        if (!didInvokeWillChangeContent && [self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
         {
             [self.delegate setControllerWillChangeContent:self];
             didInvokeWillChangeContent = YES;
@@ -280,7 +280,7 @@
     for (id object in [cleanNewObjects sortedArrayUsingDescriptors:self.sortDescriptors]) 
     {
         //1. tell the delegate we're will be changing
-        if (!didInvokeWillChangeContent && [(NSObject *)self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
+        if (!didInvokeWillChangeContent && [self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
         {
             [self.delegate setControllerWillChangeContent:self];
             didInvokeWillChangeContent = YES;
@@ -386,7 +386,7 @@
 #pragma mark delegate invocation (private)
 -(void)invokePostUpdateDelegateMethodsWithSectionChangeDescriptions:(NSArray *)sectionChangeDescriptions objectChangeDescriptions:(NSArray *)objectChangeDescriptions
 {
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)])
+    if ([self.delegate respondsToSelector:@selector(setController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)])
     {
         //delete objects        
         for (EMKSetControllerObjectChangeDescription *deleteObjectChangeDescription in [objectChangeDescriptions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"changeType == %i", EMKSetControllerChangeDelete]])
@@ -396,7 +396,7 @@
     }
     
     
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setController:didChangeSection:atIndex:forChangeType:)])
+    if ([self.delegate respondsToSelector:@selector(setController:didChangeSection:atIndex:forChangeType:)])
     {
         //delete sections
         for (EMKSetControllerSectionChangeDescription *sectionChangeDescription in [sectionChangeDescriptions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"changeType == %i", EMKSetControllerChangeDelete]])
@@ -412,7 +412,7 @@
     }
     
     
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)])
+    if ([self.delegate respondsToSelector:@selector(setController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)])
     {
         //update objects        
         for (EMKSetControllerObjectChangeDescription *insertObjectChangeDescription in [objectChangeDescriptions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"changeType == %i", EMKSetControllerChangeUpdate]])
@@ -436,7 +436,7 @@
     }    
     
 
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setControllerDidChangeContent:)])
+    if ([self.delegate respondsToSelector:@selector(setControllerDidChangeContent:)])
     {
         //finalize        
         [self.delegate setControllerDidChangeContent:self];
@@ -470,7 +470,7 @@
 
 -(void)observeValueForSecondaryKeyPath:(NSString *)keyPath ofObject:(id)object
 {
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
+    if ([self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
     {
         [self.delegate setControllerWillChangeContent:self];
     }    
@@ -488,7 +488,7 @@
 
 -(void)observeValueForSortKeyPath:(NSString *)keyPath ofObject:(id)object
 {
-    if ([(NSObject *)self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
+    if ([self.delegate respondsToSelector:@selector(setControllerWillChangeContent:)])
     {
         [self.delegate setControllerWillChangeContent:self];
     }    

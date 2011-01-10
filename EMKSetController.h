@@ -93,7 +93,7 @@
 
 // ================== PROTOCOLS ==================
 
-@protocol EMKSetControllerDelegate
+@protocol EMKSetControllerDelegate <NSObject>
 
 enum {
 	EMKSetControllerChangeInsert = 1,
