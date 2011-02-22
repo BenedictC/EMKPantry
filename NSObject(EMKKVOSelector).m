@@ -153,16 +153,21 @@
 #pragma mark methods called from the NSObject KVODispatcherTarget
 -(void)addObservationSelector:(SEL)observationSelector forTarget:(id)target keyPath:(NSString *)keyPath
 {
-    NSString *key = [self keyForTarget:target keyPath:keyPath];
-    
-    [self.selectors setObject:NSStringFromSelector(observationSelector) forKey:key];
+    @synchronized(self)
+    {
+        NSString *key = [self keyForTarget:target keyPath:keyPath];
+        [self.selectors setObject:NSStringFromSelector(observationSelector) forKey:key];
+    }
 }
 
 
 -(void)removeObservationSelectorForTarget:(id)target ofKeyPath:(NSString *)keyPath
 {
-    NSString *key = [self keyForTarget:target keyPath:keyPath];
-    [self.selectors removeObjectForKey:key];
+    @synchronized(self)
+    {
+        NSString *key = [self keyForTarget:target keyPath:keyPath];
+        [self.selectors removeObjectForKey:key];
+    }
 }
 
 @end
@@ -242,15 +247,18 @@
 #pragma mark observer methods
 -(EMKKVODispatcher *)EMK_kvoDispatcher
 {
-    EMKKVODispatcher *dispatcher = objc_getAssociatedObject(self, [EMKKVODispatcher class]);
-    if (dispatcher == nil)
+    @synchronized(self)
     {
-        dispatcher = [[EMKKVODispatcher alloc] initWithAssociate:self];
-        objc_setAssociatedObject(self, [EMKKVODispatcher class], dispatcher, OBJC_ASSOCIATION_RETAIN);
-        [dispatcher release];
+        EMKKVODispatcher *dispatcher = objc_getAssociatedObject(self, [EMKKVODispatcher class]);
+        if (dispatcher == nil)
+        {
+            dispatcher = [[EMKKVODispatcher alloc] initWithAssociate:self];
+            objc_setAssociatedObject(self, [EMKKVODispatcher class], dispatcher, OBJC_ASSOCIATION_RETAIN);
+            [dispatcher release];
+        }
+        
+        return dispatcher;        
     }
-    
-    return dispatcher;
 }
 
 
