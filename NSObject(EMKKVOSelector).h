@@ -28,6 +28,10 @@
  -(void)refreshView;
  -(void)refreshCellValue:(NSString *)keyPath representingPersonObject:(id)person;
  
+
+ 
+ All invocations to EMK_addObserver... methods must be balanced with a call to EMK_removeObserver... . These methods cannot be used interchangable with the standard methods.
+ 
  */
 
 @interface NSObject (EMKKVOSelector)
