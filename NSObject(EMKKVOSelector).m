@@ -26,7 +26,7 @@
     In use
     ------
     U4. Target generates KVO notification and sends it to the dispatcher
-    U5. dispatcher looks up the selector based on the target, keyPath and context
+    U5. dispatcher looks up the selectors based on the target, keyPath and context
     U6. dispatcher construct invocation from selector and invokes on observer
  
     Teardown
@@ -100,52 +100,68 @@
 //U4. Target generates KVO notification and sends it to the dispatcher
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)target change:(NSDictionary *)change context:(void *)context
 {
-    //U5. dispatcher looks up the selector based on the target, keyPath and context
-    NSString *key = [self keyForTarget:target keyPath:keyPath];
-    SEL selector = NSSelectorFromString([self.selectors objectForKey:key]);
-        
-    //U6. dispatcher construct invocation from selector and invokes on observer
-    NSMethodSignature *sig = [self.associate methodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
-    [invocation setSelector:selector];
-    
-    NSUInteger numberOfArguments = [sig numberOfArguments];
-    for (uint i = 2; i < numberOfArguments; i++) 
+    //U5. dispatcher looks up the selectors based on the target, keyPath and context
+    for(NSString *key in [self keysForTarget:target keyPath:keyPath])
     {
-        switch (i)
+        SEL selector = NSSelectorFromString([self.selectors objectForKey:key]);
+        
+        if (selector == nil) continue;
+        
+        //U6. dispatcher construct invocation from selector and invokes on observer
+        NSMethodSignature *sig = [self.associate methodSignatureForSelector:selector];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
+        [invocation setSelector:selector];
+
+        NSUInteger numberOfArguments = [sig numberOfArguments];
+        for (uint i = 2; i < numberOfArguments; i++) 
         {
-            case 2: //keyPath
-                [invocation setArgument:&keyPath atIndex:i];
-                break;
-            case 3: //object
-                [invocation setArgument:&target atIndex:i];                
-                break;
-            case 4: //change
-                [invocation setArgument:&change atIndex:i];                
-                break;
-            case 5: //context
-                if (context != NULL)
-                {
-                    [invocation setArgument:context atIndex:i];                
-                }
-                break;
-            default:
-                //TODO: something's gone wrong!
-                break;
+            switch (i)
+            {
+                case 2: //keyPath
+                    [invocation setArgument:&keyPath atIndex:i];
+                    break;
+                case 3: //object
+                    [invocation setArgument:&target atIndex:i];                
+                    break;
+                case 4: //change
+                    [invocation setArgument:&change atIndex:i];                
+                    break;
+                case 5: //context
+                    if (context != NULL)
+                    {
+                        [invocation setArgument:context atIndex:i];                
+                    }
+                    break;
+                default:
+                    //TODO: something's gone wrong!
+                    break;
+            }
         }
+
+        [invocation invokeWithTarget:self.associate];
     }
-    
-    [invocation invokeWithTarget:self.associate];
 }
 
 
 
 #pragma mark private methods
--(NSString *)keyForTarget:(id)target keyPath:(NSString *)keyPath
+-(NSArray *)keysForTarget:(id)target keyPath:(NSString *)keyPath
+{
+    NSString *keyPrefix = [NSString stringWithFormat:@"%u %@", (NSUInteger)target, keyPath];
+    
+    @synchronized(self)
+    {
+        return [[self.selectors allKeys] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self BEGINSWITH %@", keyPrefix]];
+    }
+}
+
+
+
+-(NSString *)keyForTarget:(id)target keyPath:(NSString *)keyPath selector:(SEL)observationSelector
 {
     //We use the address of the target rather than its has because there could be more than one 
     //object with a given hash (espcially data objects use the hash for comparision).
-    return [NSString stringWithFormat:@"%u %@", (NSUInteger)target, keyPath];
+    return [NSString stringWithFormat:@"%u %@ %@", (NSUInteger)target, keyPath, NSStringFromSelector(observationSelector)];
 }
 
 
@@ -155,17 +171,18 @@
 {
     @synchronized(self)
     {
-        NSString *key = [self keyForTarget:target keyPath:keyPath];
+        NSString *key = [self keyForTarget:target keyPath:keyPath selector:observationSelector];
         [self.selectors setObject:NSStringFromSelector(observationSelector) forKey:key];
     }
 }
 
 
--(void)removeObservationSelectorForTarget:(id)target ofKeyPath:(NSString *)keyPath
+
+-(void)removeObservationSelector:(SEL)observationSelector forTarget:(id)target ofKeyPath:(NSString *)keyPath;
 {
     @synchronized(self)
     {
-        NSString *key = [self keyForTarget:target keyPath:keyPath];
+        NSString *key = [self keyForTarget:target keyPath:keyPath selector:observationSelector];
         [self.selectors removeObjectForKey:key];
     }
 }
@@ -225,7 +242,7 @@
 
 
 //T7. Target receives request to remove observer
--(void)EMK_removeObserver:(NSObject *)anObserver forSelectorObservationWithKeyPath:(NSString *)keyPath
+-(void)EMK_removeObserver:(NSObject *)anObserver withKeyPath:(NSString *)keyPath selector:(SEL)observationSelector;
 {
     //T8. Target fetches dispatcher from observer
     EMKKVODispatcher *dispatcher = [anObserver EMK_kvoDispatcher];
@@ -234,7 +251,7 @@
     [self removeObserver:dispatcher forKeyPath:keyPath];
     
     //T10. Target request dispatcher remove selector for keyPath
-    [dispatcher removeObservationSelectorForTarget:self ofKeyPath:keyPath];
+    [dispatcher removeObservationSelector:observationSelector forTarget:self ofKeyPath:keyPath];
 }
 
 @end

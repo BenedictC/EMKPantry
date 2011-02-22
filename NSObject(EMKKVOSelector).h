@@ -27,14 +27,14 @@
  
  -(void)refreshView;
  -(void)refreshCellValue:(NSString *)keyPath representingPersonObject:(id)person;
-
+ 
  */
 
 @interface NSObject (EMKKVOSelector)
 
 -(void)EMK_addObserver:(NSObject *)anObserver forKeyPath:(NSString *)keyPath selector:(SEL)observationSelector;
 -(void)EMK_addObserver:(NSObject *)anObserver forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context selector:(SEL)observationSelector;
--(void)EMK_removeObserver:(NSObject *)anObserver forSelectorObservationWithKeyPath:(NSString *)keyPath;
+-(void)EMK_removeObserver:(NSObject *)anObserver withKeyPath:(NSString *)keyPath selector:(SEL)observationSelector;
 @end
 
 
