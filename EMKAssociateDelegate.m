@@ -77,7 +77,8 @@
         
         //create and register a subclass of EMKAssociatedDelegate that is unique to self
         //TODO: This is naming convention does not guarentee a unique name (although a clash is unlikely). How could we ensure this is genuinally unique?
-        NSString *assocDelegateSubClassName = [NSString stringWithFormat:@"EMKAssociateDelegate-%@-0x%x", NSStringFromClass([self class]), (NSUInteger)self];
+        NSString *assocDelegateSubClassName = [NSString stringWithFormat:@"EMKAssociateDelegate-%@-0x%x-%f", NSStringFromClass([self class]), (NSUInteger)self, 
+                                                                            [NSDate timeIntervalSinceReferenceDate]];
         Class assocDelegateSubClass = objc_allocateClassPair([EMKAssociateDelegate class], [assocDelegateSubClassName UTF8String], 0);
         objc_registerClassPair(assocDelegateSubClass);
 
