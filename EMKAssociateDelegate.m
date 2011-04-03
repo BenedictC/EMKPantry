@@ -76,12 +76,19 @@
         //TODO: it would be more OO to add the creation of the subclass as a factory methods to EMKAssociatedDelegate. But doing so would add an extra method for no benefit.
         
         //create and register a subclass of EMKAssociatedDelegate that is unique to self
-        //TODO: This is naming convention does not guarentee a unique name (although a clash is unlikely). How could we ensure this is genuinally unique?
-        NSString *assocDelegateSubClassName = [NSString stringWithFormat:@"EMKAssociateDelegate-%@-0x%x-%f", NSStringFromClass([self class]), (NSUInteger)self, 
-                                                                            [NSDate timeIntervalSinceReferenceDate]];
-        Class assocDelegateSubClass = objc_allocateClassPair([EMKAssociateDelegate class], [assocDelegateSubClassName UTF8String], 0);
+        //TODO: The class name will be unique, but this code is not thread safe.
+        int subClassCounter = 0;
+        NSString *assocDelegateSubClassName = nil;        
+        do 
+        {
+            assocDelegateSubClassName = [NSString stringWithFormat:@"EMKAssociateDelegate-%@-0x%x-%i", NSStringFromClass([self class]), (NSUInteger)self, subClassCounter];
+            subClassCounter++;
+        } while (NSClassFromString(assocDelegateSubClassName));
+        
+        Class assocDelegateSubClass = objc_allocateClassPair([EMKAssociateDelegate class], [assocDelegateSubClassName UTF8String], 0);        
         objc_registerClassPair(assocDelegateSubClass);
 
+        
         //create an instance of the delegate and store it as an associated object
         aDelegate = [assocDelegateSubClass new];            
         objc_setAssociatedObject(self, associateKey, aDelegate, OBJC_ASSOCIATION_RETAIN);
