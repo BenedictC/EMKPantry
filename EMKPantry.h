@@ -8,19 +8,19 @@
  */
 
 //Foundation.framework
+#import "EMKScalarArray.h"
 #import "NSObject(EMKAccessors).h"
-#import "NSObject(EMKInvocationProxy).h"
 #import "NSOperationQueue(EMKDefaultQueue).h"
 #import "NSInvocation(EMKActionInitializer).h"
 #import "NSObject(EMKKVOSelector).h"
-
+#import "NSMethodSignature(EMKMethodTypeEncoding).h"
 #import "EMKSetController.h"
 #import "EMKAssociateDelegate.h"
 
 
 //CoreData.framework
 #ifdef _COREDATADEFINES_H
-
+#import "NSManagedObject(EMKFetchRequest).h"
 #endif
 
 
@@ -32,6 +32,7 @@
 #import "UILabel(EMKResizing).h"
 #import "UIViewController(EMKInitializers).h"
 #import "UIView(EMKNibLoading).h"
+#import "UINavigationController(EMKNavigationStackArchiving).h"
 
 #import "EMKView.h"
 #import "EMKTableViewCell.h"
