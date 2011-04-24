@@ -8,7 +8,8 @@
  */
 
 //Foundation.framework
-#import "EMKScalarArray.h"
+#import "EMKTypedArray.h"
+#import "EMKMutableTypedArray.h"
 #import "NSObject(EMKAccessors).h"
 #import "NSOperationQueue(EMKDefaultQueue).h"
 #import "NSInvocation(EMKActionInitializer).h"

@@ -9,25 +9,18 @@
 #import <Foundation/Foundation.h>
 
 //TODO: rename to EMKTypedArray?
-@interface EMKTypedArray : NSObject 
+@interface EMKTypedArray : NSObject <NSCopying>
 {
     
 }
 +(id)typedArrayWithTypeSizeof:(NSUInteger)size;
-+(id)typedArrayWithTypeSizeof:(NSUInteger)size defaultValue:(void *)defaultValue;
++(id)typedArrayWithTypeSizeof:(NSUInteger)size bytes:(const void *)bytes count:(NSUInteger)count;
 
 -(id)initWithTypeSizeof:(NSUInteger)size;
-//designated initializer
--(id)initWithTypeSizeof:(NSUInteger)size defaultValue:(void *)defaultValue;
+-(id)initWithTypeSizeof:(NSUInteger)size bytes:(const void *)bytes count:(NSUInteger)count; //designated initializer
 
+
+-(NSUInteger)typeSize;
+-(NSUInteger)count;
 -(void)getValue:(void *)buffer atIndex:(NSUInteger)index;
--(void)setValue:(const void *)buffer atIndex:(NSUInteger)index;
--(void)addValue:(const void *)buffer;
-
--(NSUInteger)lastIndex;
--(void)cropLastIndexTo:(NSUInteger)aIndex;
-
-@property(readonly, nonatomic) NSUInteger typeSize;
--(void)getDefaultValue:(void *)buffer;
--(const void *)defaultValue;
 @end
