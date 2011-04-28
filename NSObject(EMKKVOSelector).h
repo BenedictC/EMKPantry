@@ -39,6 +39,7 @@
 -(void)EMK_addObserver:(NSObject *)anObserver forKeyPath:(NSString *)keyPath selector:(SEL)observationSelector;
 -(void)EMK_addObserver:(NSObject *)anObserver forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context selector:(SEL)observationSelector;
 -(void)EMK_removeObserver:(NSObject *)anObserver withKeyPath:(NSString *)keyPath selector:(SEL)observationSelector;
+-(BOOL)EMK_isObject:(id)possibleObserver observerOfKeyPath:(NSString *)keyPath withSelector:(SEL)selector;
 @end
 
 
