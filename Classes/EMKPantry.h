@@ -33,7 +33,7 @@
 #import "UILabel(EMKResizing).h"
 #import "UIViewController(EMKInitializers).h"
 #import "UIView(EMKNibLoading).h"
-#import "UINavigationController(EMKNavigationStackArchiving).h"
+#import "EMKStateArchiving.h"
 
 #import "EMKView.h"
 #import "EMKTableViewCell.h"
