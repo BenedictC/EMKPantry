@@ -50,6 +50,13 @@
 
 
 
++(id)typedArrayWithTypedArray:(EMKTypedArray *)typedArray defaultValue:(const void *)defaultValue
+{
+    return  [[[self alloc] initWithTypedArray:typedArray defaultValue:defaultValue] autorelease];
+}
+
+
+
 #pragma mark state mutators and accessors
 @dynamic data;
 //@synthesize readWriteLock = readWriteLock_;
@@ -296,6 +303,17 @@
         }
     }
     
+    return self;
+}
+
+
+
+-(id)initWithTypedArray:(EMKTypedArray *)typedArray defaultValue:(const void *)defaultValue
+{
+    self = [self initWithTypeSizeof:typedArray.typeSize defaultValue:defaultValue];
+    
+    self.data = [[typedArray.data mutableCopy] autorelease];
+
     return self;
 }
 

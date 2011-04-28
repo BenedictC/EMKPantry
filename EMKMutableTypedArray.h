@@ -15,10 +15,11 @@
 
 +(id)typedArrayWithTypeSizeof:(NSUInteger)size defaultValue:(const void *)defaultValue;
 +(id)typedArrayWithTypeSizeof:(NSUInteger)size bytes:(const void *)bytes count:(NSUInteger)count defaultValue:(const void *)defaultValue;
++(id)typedArrayWithTypedArray:(EMKTypedArray *)typedArray defaultValue:(const void *)defaultValue;
 
 -(id)initWithTypeSizeof:(NSUInteger)size defaultValue:(const void *)defaultValue;
 -(id)initWithTypeSizeof:(NSUInteger)size bytes:(const void *)bytes count:(NSUInteger)count defaultValue:(const void *)defaultValue; //designated initializer
-
+-(id)initWithTypedArray:(EMKTypedArray *)typedArray defaultValue:(const void *)defaultValue;
 
 -(void)getDefaultValue:(void *)buffer;
 -(const void *)defaultValue;
@@ -32,6 +33,6 @@
 
 
 
-//@interface EMKTypedArray (NSMutableCopying) <NSMutableCopying>
-//@end
+@interface EMKTypedArray (NSMutableCopying) <NSMutableCopying>
+@end
 
