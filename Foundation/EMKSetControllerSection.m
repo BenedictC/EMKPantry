@@ -15,7 +15,8 @@
 #pragma mark memory management
 -(id)initWithName:(NSString *)name
 {
-    if (self = [super init])
+    self = [super init];
+    if (self)
     {
         _name = name;
         _objects = [NSArray new];

@@ -14,14 +14,14 @@
 
 @interface EMKSetController : NSObject 
 {
-    NSArray *_objects;
-    NSString * _sectionNameKeyPath;
-    NSArray *_sortDescriptors;    
-    NSArray *_sortKeyPaths;  
-    NSArray *_secondaryKeyPaths;      
-    id _delegate; 
+    NSArray *objects_;
+    NSString *sectionNameKeyPath_;
+    NSArray *sortDescriptors_;    
+    NSArray *sortKeyPaths_;  
+    NSArray *secondaryKeyPaths_;      
+    id delegate_; 
 
-    NSArray *_sections;
+    NSArray *sections_;
     
     /*
      id _sections; //Array

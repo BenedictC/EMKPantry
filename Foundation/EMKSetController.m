@@ -54,8 +54,8 @@
         [sortKeyPathsCopy addObject:[[keyPath copy] autorelease]];
         [sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:keyPath ascending:YES] autorelease]];
     }
-    _sortKeyPaths = [sortKeyPathsCopy retain];
-    _sortDescriptors = [sortDescriptors retain];
+    sortKeyPaths_ = [sortKeyPathsCopy retain];
+    sortDescriptors_ = [sortDescriptors retain];
 
     
     //2. store secondaryKeyPaths
@@ -64,12 +64,12 @@
     {
         [secondaryKeyPathsCopy addObject:[[secondaryKeyPath copy] autorelease]];
     }
-    _secondaryKeyPaths = ([secondaryKeyPathsCopy count]) ? [secondaryKeyPathsCopy retain] : nil;
+    secondaryKeyPaths_ = ([secondaryKeyPathsCopy count]) ? [secondaryKeyPathsCopy retain] : nil;
     
     
     //3. Sort, store and observe objects
-    _objects = (objects) ? [[objects sortedArrayUsingDescriptors:_sortDescriptors] retain] : [NSArray new];
-    for (id object in _objects)
+    objects_ = (objects) ? [[objects sortedArrayUsingDescriptors:sortDescriptors_] retain] : [NSArray new];
+    for (id object in objects_)
     {
         [self observeObject:object];
     }
@@ -78,15 +78,15 @@
     //4. Create sections
     NSArray *sections = [NSArray array];
     
-    _sectionNameKeyPath = [sectionNameKeyPath copy];        
-    if (_sectionNameKeyPath)
+    sectionNameKeyPath_ = [sectionNameKeyPath copy];        
+    if (sectionNameKeyPath_)
     {
         EMKSetControllerSection *currentSection = nil;
         NSString *nextSectionName = nil;            
         
-        for (id object in _objects)
+        for (id object in objects_)
         {
-            nextSectionName = [object valueForKeyPath:_sectionNameKeyPath];
+            nextSectionName = [object valueForKeyPath:sectionNameKeyPath_];
             if (!currentSection || ![nextSectionName isEqualToString:currentSection.name])
             {
                 currentSection = [[[EMKSetControllerSection alloc] initWithName:nextSectionName] autorelease];
@@ -101,11 +101,11 @@
     else
     {
         EMKSetControllerSection *singleSection = [[[EMKSetControllerSection alloc] initWithName:nil] autorelease];        
-        [singleSection setObjects:_objects];
+        [singleSection setObjects:objects_];
         sections = [NSArray arrayWithObject:singleSection];
     }
     
-    _sections = [sections retain];
+    sections_ = [sections retain];
 
 
     
@@ -117,16 +117,16 @@
 
 -(void)dealloc
 {
-    for (id object in _objects)
+    for (id object in objects_)
     {
         [self unobserveObject:object];
     }
     
-    [_objects release];
-    [_sectionNameKeyPath release];
-    [_sortDescriptors release];    
-    [_sortKeyPaths release];        
-    [_sections release];
+    [objects_ release];
+    [sectionNameKeyPath_ release];
+    [sortDescriptors_ release];    
+    [sortKeyPaths_ release];        
+    [sections_ release];
     
     
     [super dealloc];
@@ -137,13 +137,14 @@
 
 
 #pragma mark properties
-@synthesize objects = _objects;
-@synthesize secondaryKeyPaths = _secondaryKeyPaths;
-@synthesize sectionNameKeyPath = _sectionNameKeyPath;
-@synthesize sortDescriptors = _sortDescriptors;
-@synthesize sortKeyPaths = _sortKeyPaths;
-@synthesize delegate = _delegate;
-@synthesize sections = _sections;
+//TODO: EMKSetController needs to KVO a mutable set
+@synthesize objects = objects_;
+@synthesize secondaryKeyPaths = secondaryKeyPaths_;
+@synthesize sectionNameKeyPath = sectionNameKeyPath_;
+@synthesize sortDescriptors = sortDescriptors_;
+@synthesize sortKeyPaths = sortKeyPaths_;
+@synthesize delegate = delegate_;
+@synthesize sections = sections_;
 
 
 
@@ -217,11 +218,6 @@
 
 
 //objects manipulation methods
-
-
-//TODO: KVO all objects for ANY changes?
-    //KVO for changes to sort keys?
-     //Replace sortDescriptors with sortKeyPaths and observe each key path
 -(void)addObjects:(NSSet *)newObjects removeObjects:(NSSet *)expiredObjects
 {
     BOOL didInvokeWillChangeContent = NO;
@@ -262,14 +258,14 @@
         [objectChangeDescriptions addObject:[EMKSetControllerObjectChangeDescription objectChangeDescriptionWithObject:object preIndex:[NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex] postIndex:nil changeType:EMKSetControllerChangeDelete]];
         NSPredicate *removeObjectPredicate = [NSPredicate predicateWithFormat:@"self != %@", object];
         [section setObjects:[section.objects filteredArrayUsingPredicate:removeObjectPredicate]];
-        _objects = [[self.objects filteredArrayUsingPredicate:removeObjectPredicate] retain];        
+        objects_ = [[self.objects filteredArrayUsingPredicate:removeObjectPredicate] retain];        
         [self unobserveObject:object];        
         
         //4. if the section is empty and will not be required when adding objects, then remove it
         if ([section.objects count] == 0 && ![confirmedSectionNames containsObject:section.name])
         {
             NSPredicate *removeSectionPredicate = [NSPredicate predicateWithFormat:@"SELF != %@", section];
-            _sections = [[self.sections filteredArrayUsingPredicate:removeSectionPredicate] retain];
+            sections_ = [[self.sections filteredArrayUsingPredicate:removeSectionPredicate] retain];
             [sectionChangeDescriptions addObject:[EMKSetControllerSectionChangeDescription sectionChangeDescriptionWithSection:section index:sectionIndex changeType: EMKSetControllerChangeDelete]];
         }
     }
@@ -296,13 +292,13 @@
         {
             section = [[[EMKSetControllerSection alloc] initWithName:sectionName] autorelease];
             NSSortDescriptor *sortBySectionName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
-            _sections = [[[self.sections arrayByAddingObject:section] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortBySectionName]] retain];
+            sections_ = [[[self.sections arrayByAddingObject:section] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortBySectionName]] retain];
             sectionIndex = [self.sections indexOfObject:section];
             [sectionChangeDescriptions addObject:[EMKSetControllerSectionChangeDescription sectionChangeDescriptionWithSection:section index:sectionIndex changeType:EMKSetControllerChangeInsert]];
         }
         
         //4. add the object to the added section objects
-        _objects = [[[self.objects arrayByAddingObject:object] sortedArrayUsingDescriptors:self.sortDescriptors] retain];
+        objects_ = [[[self.objects arrayByAddingObject:object] sortedArrayUsingDescriptors:self.sortDescriptors] retain];
         [section setObjects:[[section.objects arrayByAddingObject:object] sortedArrayUsingDescriptors:self.sortDescriptors]];
         int rowIndex = [section.objects indexOfObject:object];
         [objectChangeDescriptions addObject:[EMKSetControllerObjectChangeDescription objectChangeDescriptionWithObject:object preIndex:[NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex] postIndex:nil changeType:EMKSetControllerChangeInsert]];
@@ -450,9 +446,9 @@
 #pragma mark object observation methods (private)
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSLog(@"Change at %@ of %@", keyPath, object);
+//    NSLog(@"Change at %@ of %@", keyPath, object);
     
-    if ([self.secondaryKeyPaths containsObject:keyPath]) //TODO: it wouldbe cheaper to use context
+    if ([self.secondaryKeyPaths containsObject:keyPath]) //it may be cheaper to use context
     {
         [self observeValueForSecondaryKeyPath:keyPath ofObject:object];
     }
@@ -510,7 +506,7 @@
         [preSection  setObjects:[preSection.objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != %@", object]]];
         if ([preSection.objects count] == 0)
         {
-            _sections = [[self.sections filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != %@", preSection]] retain];
+            sections_ = [[self.sections filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != %@", preSection]] retain];
             [sectionChangeDescriptions addObject:[EMKSetControllerSectionChangeDescription sectionChangeDescriptionWithSection:preSection index:preIndexPath.section changeType:EMKSetControllerChangeDelete]];
         }
         
@@ -520,7 +516,7 @@
             //create new section and added to _sections and sort
             postSection = [[[EMKSetControllerSection alloc] initWithName:postSectionName] autorelease];
             NSSortDescriptor *sortBySectionName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
-            _sections = [[[self.sections arrayByAddingObject:postSection] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortBySectionName]] retain];
+            sections_ = [[[self.sections arrayByAddingObject:postSection] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortBySectionName]] retain];
             int postSectionIndex = [self.sections indexOfObject:postSection];
             
             [sectionChangeDescriptions addObject:[EMKSetControllerSectionChangeDescription sectionChangeDescriptionWithSection:postSection index:postSectionIndex changeType:EMKSetControllerChangeInsert]];
@@ -531,7 +527,7 @@
     }
     
     //add object to objects
-    _objects = [[self.objects sortedArrayUsingDescriptors:self.sortDescriptors] retain];
+    objects_ = [[self.objects sortedArrayUsingDescriptors:self.sortDescriptors] retain];
 
     
     //create the object change description
