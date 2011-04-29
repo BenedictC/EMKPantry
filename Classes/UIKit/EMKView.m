@@ -13,7 +13,13 @@
 
 
 #pragma mark -
-#pragma mark EMKCompositeView
+#pragma mark EMKView
+id EMKViewDynamicGetter(id self, SEL _cmd);
+void EMKViewDynamicSetter(id self, SEL _cmd, id value);
+
+const char *EMKViewDynamicPropertiesKey = "EMKViewDynamicPropertiesKey";
+
+
 
 @implementation EMKView
 
@@ -22,26 +28,18 @@
 {
     if (EMK_selectorIsGetter(aSEL))
     {
-        class_addMethod([self class], aSEL, (IMP)EMKViewDynamicGetter, "@@:");
+        class_addMethod(self, aSEL, (IMP)EMKViewDynamicGetter, "@@:");
         return YES;
     }
     
     
     if (EMK_selectorIsSetter(aSEL))
     {
-        class_addMethod([self class], aSEL, (IMP)EMKViewDynamicSetter, "v@:@");    
+        class_addMethod(self, aSEL, (IMP)EMKViewDynamicSetter, "v@:@");    
         return YES;
     }
     
     return [super resolveInstanceMethod:aSEL];
-}
-
-
-#pragma mark memory management
--(void)dealloc
-{
-    [_dynamicProperties release];
-    [super dealloc];
 }
 
 
@@ -51,28 +49,35 @@
 #pragma mark instance methods
 -(void)setValue:(id)value forKey:(NSString *)key
 {
-    if (!_dynamicProperties) _dynamicProperties = [[NSMutableDictionary dictionaryWithCapacity:5] retain]; //5 is a guess of how many subviews an average composite view will have
+    NSMutableDictionary *dynamicProperties = objc_getAssociatedObject(self, EMKViewDynamicPropertiesKey);
+    if (dynamicProperties == nil)
+    {
+        dynamicProperties = [NSMutableDictionary dictionaryWithCapacity:5]; //5 is a guess of how many subviews an average composite view will have
+        objc_setAssociatedObject(self, EMKViewDynamicPropertiesKey, dynamicProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     
-    [_dynamicProperties setObject:value forKey:key];
+    
+    [dynamicProperties setObject:value forKey:key];
 }
+
 
 
 -(id)valueForKey:(NSString *)key
 {
-    if (!_dynamicProperties) _dynamicProperties = [[NSMutableDictionary dictionaryWithCapacity:5] retain]; //5 is a guess of how many subviews an average composite view will have
+    NSMutableDictionary *dynamicProperties = objc_getAssociatedObject(self, EMKViewDynamicPropertiesKey);    
+    if (dynamicProperties == nil)
+    {
+        dynamicProperties = [NSMutableDictionary dictionaryWithCapacity:5]; //5 is a guess of how many subviews an average composite view will have
+        objc_setAssociatedObject(self, EMKViewDynamicPropertiesKey, dynamicProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+
     
-    return [_dynamicProperties valueForKey:key];
+    return [dynamicProperties valueForKey:key];
 }
 
 
 
 @end
-
-
-
-
-
-
 
 
 

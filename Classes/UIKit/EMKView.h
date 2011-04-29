@@ -11,13 +11,8 @@
 
 @interface EMKView : UIView
 {
-    NSMutableDictionary *_dynamicProperties;
 }
 
 
 @end
 
-
-
-id EMKViewDynamicGetter(id self, SEL _cmd);
-void EMKViewDynamicSetter(id self, SEL _cmd, id value);

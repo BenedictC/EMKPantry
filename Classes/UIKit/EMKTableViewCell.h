@@ -11,7 +11,6 @@
 
 @interface EMKTableViewCell : UITableViewCell
 {
-    NSMutableDictionary *_dynamicProperties;    
 }
 
 
