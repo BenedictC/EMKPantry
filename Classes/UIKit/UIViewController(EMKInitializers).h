@@ -6,13 +6,12 @@
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface UIViewController (EMKInitializers)
 
 +(id)EMK_defaultNibName;
-
 +(id)EMK_viewControllerWithDefaultNib;
 
 -(id)EMK_initWithDefaultNib;
