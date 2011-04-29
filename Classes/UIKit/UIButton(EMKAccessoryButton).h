@@ -6,7 +6,7 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface UIButton (EMKAccessoryButton)
