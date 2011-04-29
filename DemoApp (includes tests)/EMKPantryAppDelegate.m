@@ -7,8 +7,7 @@
 //
 
 #import "EMKPantryAppDelegate.h"
-#import "EMKPantryViewController.h"
-#import "EMKTestView.h"
+#import "EMKRootViewController.h"
 
 
 
@@ -49,59 +48,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {    
     // Add the view controller's view to the window and display.
-    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:self.viewController] autorelease];
+    EMKRootViewController *rootVC = [EMKRootViewController EMK_viewControllerWithDefaultNib];
+    
+    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
     [self.window addSubview:navController.view];
-//    self.viewController.view.frame = [[UIScreen mainScreen] applicationFrame];
     [self.window makeKeyAndVisible];
     
-    
-    
-    
-    
-    
-    
-    //Create an array
-    CGPoint points[2] = {CGPointMake(10,10), CGPointMake(20, 20)};
-    EMKMutableTypedArray *pointArray = [EMKMutableTypedArray typedArrayWithTypeSizeof:sizeof(CGPoint) bytes:points count:2 defaultValue:&CGPointZero];
+    self.viewController = navController;
 
-    CGPoint value;
-    uint i, pointCount;
-    for (i = 0, pointCount = [pointArray count]; i < pointCount; i++)
-    {
-        [pointArray getValue:&value atIndex:i];
-        NSLog(@"%i: %f, %f", i, value.x, value.y);
-    }
-    //0: 10, 10
-    //1: 20, 20
-    
-    
-    //add a value
-    CGPoint point = (CGPoint){.x = 40, .y = 40};
-    [pointArray setValue:&point atIndex:3];
-    
-    for (i = 0, pointCount = [pointArray count]; i < pointCount; i++)
-    {
-        [pointArray getValue:&value atIndex:i];
-        NSLog(@"%i: %f, %f", i, value.x, value.y);
-    }
-    //0: 10, 10
-    //1: 20, 20
-    //2: 0, 0
-    //3: 40, 40
-    
-    
-    //shrink the array
-    [pointArray trimToLength:2];
-
-    for (i = 0, pointCount = [pointArray count]; i < pointCount; i++)
-    {
-        [pointArray getValue:&value atIndex:i];
-        NSLog(@"%i: %f, %f", i, value.x, value.y);
-    }
-    //0: 10, 10
-    //1: 20, 20
-    
-    
     
     
     return YES;
