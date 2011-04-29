@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "EMKSetController.h"
 
 @interface EMKSetControllerObjectChangeDescription : NSObject 
 {
