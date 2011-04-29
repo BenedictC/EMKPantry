@@ -7,27 +7,25 @@
 //
 
 #import "UIView(EMKNibLoading).h"
-#import <objc/runtime.h>
 
 
 @implementation UIView (EMKNibLoading)
 
 
-
-+(NSString*)EMK_defaultNibName
++(NSString *)EMK_defaultNibName
 {
     return NSStringFromClass(self);
 }
 
 
 
-+(id)EMK_viewWithNib:(NSString*)nibName
++(id)EMK_viewWithNibNamed:(NSString *)nibName
 {
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil];
-
-    for (id nibItem in nibContents)
+    
+    for (id<NSObject> nibItem in nibContents)
     {
-        if ([nibItem isKindOfClass:[UIView class]]) return nibItem;
+        if ([nibItem isKindOfClass:self]) return nibItem;
     }
     
     return nil;
@@ -35,11 +33,27 @@
 
 
 
-
 +(id)EMK_viewWithDefaultNib
 {
-    return [self EMK_viewWithNib:[[self class] EMK_defaultNibName]];
+    return [self EMK_viewWithNibNamed:[self EMK_defaultNibName]];
 }
+
+
+
+//#ifdef >IOS4
++(id)EMK_viewWithNib:(UINib *)nib
+{
+    NSArray *nibContents = [nib instantiateWithOwner:nil options:nil];
+    
+    for (id<NSObject> nibItem in nibContents)
+    {
+        if ([nibItem isKindOfClass:self]) return nibItem;
+    }
+    
+    return nil;
+}
+//#endif
+
 
 
 @end
