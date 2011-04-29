@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'EMKPantry' target in the 'EMKPantry' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#import "EMKPantry.h"
+#import "EMKWip.h"
