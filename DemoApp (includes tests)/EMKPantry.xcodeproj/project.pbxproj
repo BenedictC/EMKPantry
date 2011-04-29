@@ -12,8 +12,19 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		28D7ACF80DDB3853001CB0EB /* EMKPantryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* EMKPantryViewController.m */; };
-		B5145BB9126B079900336F35 /* EMKTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5145BB8126B079900336F35 /* EMKTestView.m */; };
+		28D7ACF80DDB3853001CB0EB /* EMKSetControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* EMKSetControllerViewController.m */; };
+		B534C3CA136AF425009F0A7B /* EMKTypedArrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3C8136AF425009F0A7B /* EMKTypedArrayViewController.m */; };
+		B534C3CB136AF425009F0A7B /* EMKTypedArrayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B534C3C9136AF425009F0A7B /* EMKTypedArrayViewController.xib */; };
+		B534C3D4136AF4BD009F0A7B /* EMKAssociateDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3D2136AF4BC009F0A7B /* EMKAssociateDelegateViewController.m */; };
+		B534C3D5136AF4BD009F0A7B /* EMKAssociateDelegateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B534C3D3136AF4BD009F0A7B /* EMKAssociateDelegateViewController.xib */; };
+		B534C3D9136AF522009F0A7B /* EMKViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3D7136AF521009F0A7B /* EMKViewViewController.m */; };
+		B534C3DA136AF522009F0A7B /* EMKViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B534C3D8136AF522009F0A7B /* EMKViewViewController.xib */; };
+		B534C3DE136AF568009F0A7B /* EMKOperationAndInvocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3DC136AF567009F0A7B /* EMKOperationAndInvocationViewController.m */; };
+		B534C3DF136AF568009F0A7B /* EMKOperationAndInvocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B534C3DD136AF568009F0A7B /* EMKOperationAndInvocationViewController.xib */; };
+		B534C3E2136B1E59009F0A7B /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3E1136B1E59009F0A7B /* EMKStateArchiving.m */; };
+		B534C3E3136B1E59009F0A7B /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3E1136B1E59009F0A7B /* EMKStateArchiving.m */; };
+		B534C3EA136B1FDD009F0A7B /* EMKTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = B534C3E8136B1FDD009F0A7B /* EMKTestView.m */; };
+		B534C3EB136B1FDD009F0A7B /* EMKTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B534C3E9136B1FDD009F0A7B /* EMKTestView.xib */; };
 		B55A1127136AC35900248869 /* EMKObjectMappingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10F4136AC35900248869 /* EMKObjectMappingTableViewController.m */; };
 		B55A1128136AC35900248869 /* EMKObjectMappingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10F4136AC35900248869 /* EMKObjectMappingTableViewController.m */; };
 		B55A1129136AC35900248869 /* EMKSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10F6136AC35900248869 /* EMKSetController.m */; };
@@ -24,12 +35,6 @@
 		B55A112E136AC35900248869 /* EMKSetControllerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10FA136AC35900248869 /* EMKSetControllerSection.m */; };
 		B55A112F136AC35900248869 /* EMKSetControllerSectionChangeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10FC136AC35900248869 /* EMKSetControllerSectionChangeDescription.m */; };
 		B55A1130136AC35900248869 /* EMKSetControllerSectionChangeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A10FC136AC35900248869 /* EMKSetControllerSectionChangeDescription.m */; };
-		B55A1131136AC35900248869 /* objectDetailsController in Resources */ = {isa = PBXBuildFile; fileRef = B55A10FE136AC35900248869 /* objectDetailsController */; };
-		B55A1132136AC35900248869 /* objectDetailsController in Resources */ = {isa = PBXBuildFile; fileRef = B55A10FE136AC35900248869 /* objectDetailsController */; };
-		B55A1133136AC35900248869 /* Reference.txt in Resources */ = {isa = PBXBuildFile; fileRef = B55A10FF136AC35900248869 /* Reference.txt */; };
-		B55A1134136AC35900248869 /* Reference.txt in Resources */ = {isa = PBXBuildFile; fileRef = B55A10FF136AC35900248869 /* Reference.txt */; };
-		B55A1135136AC35900248869 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = B55A1100136AC35900248869 /* TODO */; };
-		B55A1136136AC35900248869 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = B55A1100136AC35900248869 /* TODO */; };
 		B55A1162136AC49C00248869 /* NSManagedObject(EMKFetchRequest).m in Sources */ = {isa = PBXBuildFile; fileRef = B55A113A136AC49C00248869 /* NSManagedObject(EMKFetchRequest).m */; };
 		B55A1163136AC49C00248869 /* NSManagedObject(EMKFetchRequest).m in Sources */ = {isa = PBXBuildFile; fileRef = B55A113A136AC49C00248869 /* NSManagedObject(EMKFetchRequest).m */; };
 		B55A1164136AC49C00248869 /* EMKAssociateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A113E136AC49C00248869 /* EMKAssociateDelegate.m */; };
@@ -48,8 +53,6 @@
 		B55A1171136AC49C00248869 /* NSObject(EMKKVOSelector).m in Sources */ = {isa = PBXBuildFile; fileRef = B55A114A136AC49C00248869 /* NSObject(EMKKVOSelector).m */; };
 		B55A1172136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m in Sources */ = {isa = PBXBuildFile; fileRef = B55A114C136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m */; };
 		B55A1173136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m in Sources */ = {isa = PBXBuildFile; fileRef = B55A114C136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m */; };
-		B55A1174136AC49C00248869 /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A114F136AC49C00248869 /* EMKStateArchiving.m */; };
-		B55A1175136AC49C00248869 /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A114F136AC49C00248869 /* EMKStateArchiving.m */; };
 		B55A1176136AC49C00248869 /* EMKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A1151136AC49C00248869 /* EMKTableViewCell.m */; };
 		B55A1177136AC49C00248869 /* EMKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A1151136AC49C00248869 /* EMKTableViewCell.m */; };
 		B55A1178136AC49C00248869 /* EMKView.m in Sources */ = {isa = PBXBuildFile; fileRef = B55A1153136AC49C00248869 /* EMKView.m */; };
@@ -76,6 +79,10 @@
 		B56B1822135EDCF000184810 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B56B1820135EDCF000184810 /* InfoPlist.strings */; };
 		B56B182E135EF00000184810 /* EMKTypedArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B56B182D135EF00000184810 /* EMKTypedArrayTest.m */; };
 		B56B1878135EF10900184810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B1877135EF10900184810 /* SenTestingKit.framework */; };
+		B56D521D136AE55700716455 /* EMKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D521B136AE55600716455 /* EMKRootViewController.m */; };
+		B56D521E136AE55700716455 /* EMKRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56D521C136AE55600716455 /* EMKRootViewController.xib */; };
+		B56D5220136AE56D00716455 /* EMKSetControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56D521F136AE56D00716455 /* EMKSetControllerViewController.xib */; };
+		B56D5222136AE57600716455 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B56D5221136AE57600716455 /* MainWindow.xib */; };
 		B5BB924D136430E7004C97C0 /* EMKMutableTypedArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BB924C136430E7004C97C0 /* EMKMutableTypedArrayTest.m */; };
 /* End PBXBuildFile section */
 
@@ -86,13 +93,28 @@
 		1D6058910D05DD3D006BFB54 /* EMKPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMKPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28D7ACF60DDB3853001CB0EB /* EMKPantryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKPantryViewController.h; sourceTree = "<group>"; };
-		28D7ACF70DDB3853001CB0EB /* EMKPantryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKPantryViewController.m; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* EMKSetControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* EMKSetControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetControllerViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* EMKPantry_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKPantry_Prefix.pch; path = "DemoApp (includes tests)/EMKPantry_Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* EMKPantry-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EMKPantry-Info.plist"; path = "DemoApp (includes tests)/EMKPantry-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		B5145BB7126B079900336F35 /* EMKTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKTestView.h; path = Views/EMKTestView.h; sourceTree = SOURCE_ROOT; };
-		B5145BB8126B079900336F35 /* EMKTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKTestView.m; path = Views/EMKTestView.m; sourceTree = SOURCE_ROOT; };
+		B534C3C7136AF425009F0A7B /* EMKTypedArrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTypedArrayViewController.h; sourceTree = "<group>"; };
+		B534C3C8136AF425009F0A7B /* EMKTypedArrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTypedArrayViewController.m; sourceTree = "<group>"; };
+		B534C3C9136AF425009F0A7B /* EMKTypedArrayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKTypedArrayViewController.xib; sourceTree = "<group>"; };
+		B534C3D1136AF4BC009F0A7B /* EMKAssociateDelegateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKAssociateDelegateViewController.h; sourceTree = "<group>"; };
+		B534C3D2136AF4BC009F0A7B /* EMKAssociateDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKAssociateDelegateViewController.m; sourceTree = "<group>"; };
+		B534C3D3136AF4BD009F0A7B /* EMKAssociateDelegateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKAssociateDelegateViewController.xib; sourceTree = "<group>"; };
+		B534C3D6136AF521009F0A7B /* EMKViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKViewViewController.h; sourceTree = "<group>"; };
+		B534C3D7136AF521009F0A7B /* EMKViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKViewViewController.m; sourceTree = "<group>"; };
+		B534C3D8136AF522009F0A7B /* EMKViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKViewViewController.xib; sourceTree = "<group>"; };
+		B534C3DB136AF567009F0A7B /* EMKOperationAndInvocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKOperationAndInvocationViewController.h; sourceTree = "<group>"; };
+		B534C3DC136AF567009F0A7B /* EMKOperationAndInvocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKOperationAndInvocationViewController.m; sourceTree = "<group>"; };
+		B534C3DD136AF568009F0A7B /* EMKOperationAndInvocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKOperationAndInvocationViewController.xib; sourceTree = "<group>"; };
+		B534C3E0136B1E59009F0A7B /* EMKStateArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKStateArchiving.h; sourceTree = "<group>"; };
+		B534C3E1136B1E59009F0A7B /* EMKStateArchiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKStateArchiving.m; sourceTree = "<group>"; };
+		B534C3E7136B1FDD009F0A7B /* EMKTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTestView.h; sourceTree = "<group>"; };
+		B534C3E8136B1FDD009F0A7B /* EMKTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTestView.m; sourceTree = "<group>"; };
+		B534C3E9136B1FDD009F0A7B /* EMKTestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKTestView.xib; sourceTree = "<group>"; };
 		B55A10F3136AC35900248869 /* EMKObjectMappingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKObjectMappingTableViewController.h; sourceTree = "<group>"; };
 		B55A10F4136AC35900248869 /* EMKObjectMappingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKObjectMappingTableViewController.m; sourceTree = "<group>"; };
 		B55A10F5136AC35900248869 /* EMKSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetController.h; sourceTree = "<group>"; };
@@ -104,9 +126,6 @@
 		B55A10FB136AC35900248869 /* EMKSetControllerSectionChangeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerSectionChangeDescription.h; sourceTree = "<group>"; };
 		B55A10FC136AC35900248869 /* EMKSetControllerSectionChangeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetControllerSectionChangeDescription.m; sourceTree = "<group>"; };
 		B55A10FD136AC35900248869 /* EMKSetControllerSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerSectionInfo.h; sourceTree = "<group>"; };
-		B55A10FE136AC35900248869 /* objectDetailsController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectDetailsController; sourceTree = "<group>"; };
-		B55A10FF136AC35900248869 /* Reference.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Reference.txt; sourceTree = "<group>"; };
-		B55A1100136AC35900248869 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		B55A1139136AC49C00248869 /* NSManagedObject(EMKFetchRequest).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject(EMKFetchRequest).h"; sourceTree = "<group>"; };
 		B55A113A136AC49C00248869 /* NSManagedObject(EMKFetchRequest).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject(EMKFetchRequest).m"; sourceTree = "<group>"; };
 		B55A113B136AC49C00248869 /* EMKPantry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKPantry.h; sourceTree = "<group>"; };
@@ -126,8 +145,6 @@
 		B55A114A136AC49C00248869 /* NSObject(EMKKVOSelector).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject(EMKKVOSelector).m"; sourceTree = "<group>"; };
 		B55A114B136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue(EMKDefaultQueue).h"; sourceTree = "<group>"; };
 		B55A114C136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue(EMKDefaultQueue).m"; sourceTree = "<group>"; };
-		B55A114E136AC49C00248869 /* EMKStateArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKStateArchiving.h; sourceTree = "<group>"; };
-		B55A114F136AC49C00248869 /* EMKStateArchiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKStateArchiving.m; sourceTree = "<group>"; };
 		B55A1150136AC49C00248869 /* EMKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTableViewCell.h; sourceTree = "<group>"; };
 		B55A1151136AC49C00248869 /* EMKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTableViewCell.m; sourceTree = "<group>"; };
 		B55A1152136AC49C00248869 /* EMKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKView.h; sourceTree = "<group>"; };
@@ -159,6 +176,11 @@
 		B56B182C135EF00000184810 /* EMKTypedArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTypedArrayTest.h; sourceTree = "<group>"; };
 		B56B182D135EF00000184810 /* EMKTypedArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTypedArrayTest.m; sourceTree = "<group>"; };
 		B56B1877135EF10900184810 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B56D521A136AE55600716455 /* EMKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKRootViewController.h; sourceTree = "<group>"; };
+		B56D521B136AE55600716455 /* EMKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKRootViewController.m; sourceTree = "<group>"; };
+		B56D521C136AE55600716455 /* EMKRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKRootViewController.xib; sourceTree = "<group>"; };
+		B56D521F136AE56D00716455 /* EMKSetControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMKSetControllerViewController.xib; sourceTree = "<group>"; };
+		B56D5221136AE57600716455 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		B5BB924B136430E7004C97C0 /* EMKMutableTypedArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKMutableTypedArrayTest.h; sourceTree = "<group>"; };
 		B5BB924C136430E7004C97C0 /* EMKMutableTypedArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKMutableTypedArrayTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,9 +215,9 @@
 		080E96DDFE201D6D7F000001 /* Demo App */ = {
 			isa = PBXGroup;
 			children = (
+				B534C3E6136B1FCA009F0A7B /* Views */,
 				B5DA0F4612EC5D50005735D2 /* App Delegate */,
 				B5DA0F4512EC5D40005735D2 /* View Controllers */,
-				B5145BB5126B077A00336F35 /* Views */,
 				29B97315FDCFA39411CA2CEA /* Supporting Files */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				1D6058910D05DD3D006BFB54 /* EMKPantry.app */,
@@ -237,19 +259,47 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		B5145BB5126B077A00336F35 /* Views */ = {
+		B534C3C4136AF339009F0A7B /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				B5145BB7126B079900336F35 /* EMKTestView.h */,
-				B5145BB8126B079900336F35 /* EMKTestView.m */,
+				B56B182C135EF00000184810 /* EMKTypedArrayTest.h */,
+				B56B182D135EF00000184810 /* EMKTypedArrayTest.m */,
+				B5BB924B136430E7004C97C0 /* EMKMutableTypedArrayTest.h */,
+				B5BB924C136430E7004C97C0 /* EMKMutableTypedArrayTest.m */,
 			);
-			path = Views;
-			sourceTree = SOURCE_ROOT;
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		B534C3C5136AF34D009F0A7B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		B534C3C6136AF355009F0A7B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		B534C3E6136B1FCA009F0A7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B534C3E7136B1FDD009F0A7B /* EMKTestView.h */,
+				B534C3E8136B1FDD009F0A7B /* EMKTestView.m */,
+				B534C3E9136B1FDD009F0A7B /* EMKTestView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
 		};
 		B55A10C8136AC35900248869 /* WorkInProgress */ = {
 			isa = PBXGroup;
 			children = (
 				B55A118C136AC5F200248869 /* EMKWip.h */,
+				B534C3E0136B1E59009F0A7B /* EMKStateArchiving.h */,
+				B534C3E1136B1E59009F0A7B /* EMKStateArchiving.m */,
 				B55A10F3136AC35900248869 /* EMKObjectMappingTableViewController.h */,
 				B55A10F4136AC35900248869 /* EMKObjectMappingTableViewController.m */,
 				B55A10F5136AC35900248869 /* EMKSetController.h */,
@@ -261,9 +311,6 @@
 				B55A10FB136AC35900248869 /* EMKSetControllerSectionChangeDescription.h */,
 				B55A10FC136AC35900248869 /* EMKSetControllerSectionChangeDescription.m */,
 				B55A10FD136AC35900248869 /* EMKSetControllerSectionInfo.h */,
-				B55A10FE136AC35900248869 /* objectDetailsController */,
-				B55A10FF136AC35900248869 /* Reference.txt */,
-				B55A1100136AC35900248869 /* TODO */,
 			);
 			name = WorkInProgress;
 			path = ../WorkInProgress;
@@ -295,10 +342,10 @@
 			children = (
 				B55A113D136AC49C00248869 /* EMKAssociateDelegate.h */,
 				B55A113E136AC49C00248869 /* EMKAssociateDelegate.m */,
-				B55A113F136AC49C00248869 /* EMKMutableTypedArray.h */,
-				B55A1140136AC49C00248869 /* EMKMutableTypedArray.m */,
 				B55A1141136AC49C00248869 /* EMKTypedArray.h */,
 				B55A1142136AC49C00248869 /* EMKTypedArray.m */,
+				B55A113F136AC49C00248869 /* EMKMutableTypedArray.h */,
+				B55A1140136AC49C00248869 /* EMKMutableTypedArray.m */,
 				B55A1143136AC49C00248869 /* NSInvocation(EMKActionInitializer).h */,
 				B55A1144136AC49C00248869 /* NSInvocation(EMKActionInitializer).m */,
 				B55A1145136AC49C00248869 /* NSMethodSignature(EMKMethodTypeEncoding).h */,
@@ -316,8 +363,6 @@
 		B55A114D136AC49C00248869 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				B55A114E136AC49C00248869 /* EMKStateArchiving.h */,
-				B55A114F136AC49C00248869 /* EMKStateArchiving.m */,
 				B55A1150136AC49C00248869 /* EMKTableViewCell.h */,
 				B55A1151136AC49C00248869 /* EMKTableViewCell.m */,
 				B55A1152136AC49C00248869 /* EMKView.h */,
@@ -378,10 +423,9 @@
 		B56B182B135EDD1800184810 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B56B182C135EF00000184810 /* EMKTypedArrayTest.h */,
-				B56B182D135EF00000184810 /* EMKTypedArrayTest.m */,
-				B5BB924B136430E7004C97C0 /* EMKMutableTypedArrayTest.h */,
-				B5BB924C136430E7004C97C0 /* EMKMutableTypedArrayTest.m */,
+				B534C3C6136AF355009F0A7B /* CoreData */,
+				B534C3C4136AF339009F0A7B /* Foundation */,
+				B534C3C5136AF34D009F0A7B /* UIKit */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -389,8 +433,24 @@
 		B5DA0F4512EC5D40005735D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				28D7ACF60DDB3853001CB0EB /* EMKPantryViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* EMKPantryViewController.m */,
+				B56D521A136AE55600716455 /* EMKRootViewController.h */,
+				B56D521B136AE55600716455 /* EMKRootViewController.m */,
+				B56D521C136AE55600716455 /* EMKRootViewController.xib */,
+				28D7ACF60DDB3853001CB0EB /* EMKSetControllerViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* EMKSetControllerViewController.m */,
+				B56D521F136AE56D00716455 /* EMKSetControllerViewController.xib */,
+				B534C3C7136AF425009F0A7B /* EMKTypedArrayViewController.h */,
+				B534C3C8136AF425009F0A7B /* EMKTypedArrayViewController.m */,
+				B534C3C9136AF425009F0A7B /* EMKTypedArrayViewController.xib */,
+				B534C3D1136AF4BC009F0A7B /* EMKAssociateDelegateViewController.h */,
+				B534C3D2136AF4BC009F0A7B /* EMKAssociateDelegateViewController.m */,
+				B534C3D3136AF4BD009F0A7B /* EMKAssociateDelegateViewController.xib */,
+				B534C3D6136AF521009F0A7B /* EMKViewViewController.h */,
+				B534C3D7136AF521009F0A7B /* EMKViewViewController.m */,
+				B534C3D8136AF522009F0A7B /* EMKViewViewController.xib */,
+				B534C3DB136AF567009F0A7B /* EMKOperationAndInvocationViewController.h */,
+				B534C3DC136AF567009F0A7B /* EMKOperationAndInvocationViewController.m */,
+				B534C3DD136AF568009F0A7B /* EMKOperationAndInvocationViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = SOURCE_ROOT;
@@ -400,6 +460,7 @@
 			children = (
 				1D3623240D0F684500981E51 /* EMKPantryAppDelegate.h */,
 				1D3623250D0F684500981E51 /* EMKPantryAppDelegate.m */,
+				B56D5221136AE57600716455 /* MainWindow.xib */,
 			);
 			name = "App Delegate";
 			sourceTree = SOURCE_ROOT;
@@ -477,9 +538,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55A1131136AC35900248869 /* objectDetailsController in Resources */,
-				B55A1133136AC35900248869 /* Reference.txt in Resources */,
-				B55A1135136AC35900248869 /* TODO in Resources */,
+				B56D521E136AE55700716455 /* EMKRootViewController.xib in Resources */,
+				B56D5220136AE56D00716455 /* EMKSetControllerViewController.xib in Resources */,
+				B56D5222136AE57600716455 /* MainWindow.xib in Resources */,
+				B534C3CB136AF425009F0A7B /* EMKTypedArrayViewController.xib in Resources */,
+				B534C3D5136AF4BD009F0A7B /* EMKAssociateDelegateViewController.xib in Resources */,
+				B534C3DA136AF522009F0A7B /* EMKViewViewController.xib in Resources */,
+				B534C3DF136AF568009F0A7B /* EMKOperationAndInvocationViewController.xib in Resources */,
+				B534C3EB136B1FDD009F0A7B /* EMKTestView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,9 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56B1822135EDCF000184810 /* InfoPlist.strings in Resources */,
-				B55A1132136AC35900248869 /* objectDetailsController in Resources */,
-				B55A1134136AC35900248869 /* Reference.txt in Resources */,
-				B55A1136136AC35900248869 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,8 +582,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* EMKPantryAppDelegate.m in Sources */,
-				28D7ACF80DDB3853001CB0EB /* EMKPantryViewController.m in Sources */,
-				B5145BB9126B079900336F35 /* EMKTestView.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* EMKSetControllerViewController.m in Sources */,
 				B55A1127136AC35900248869 /* EMKObjectMappingTableViewController.m in Sources */,
 				B55A1129136AC35900248869 /* EMKSetController.m in Sources */,
 				B55A112B136AC35900248869 /* EMKSetControllerObjectChangeDescription.m in Sources */,
@@ -535,7 +597,6 @@
 				B55A116E136AC49C00248869 /* NSObject(EMKAccessors).m in Sources */,
 				B55A1170136AC49C00248869 /* NSObject(EMKKVOSelector).m in Sources */,
 				B55A1172136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m in Sources */,
-				B55A1174136AC49C00248869 /* EMKStateArchiving.m in Sources */,
 				B55A1176136AC49C00248869 /* EMKTableViewCell.m in Sources */,
 				B55A1178136AC49C00248869 /* EMKView.m in Sources */,
 				B55A117A136AC49C00248869 /* UIApplication(EMKNetworkActivityParticipation).m in Sources */,
@@ -545,6 +606,13 @@
 				B55A1182136AC49C00248869 /* UIView(EMKNibLoading).m in Sources */,
 				B55A1184136AC49C00248869 /* UIView(EMKViewSearching).m in Sources */,
 				B55A1186136AC49C00248869 /* UIViewController(EMKInitializers).m in Sources */,
+				B56D521D136AE55700716455 /* EMKRootViewController.m in Sources */,
+				B534C3CA136AF425009F0A7B /* EMKTypedArrayViewController.m in Sources */,
+				B534C3D4136AF4BD009F0A7B /* EMKAssociateDelegateViewController.m in Sources */,
+				B534C3D9136AF522009F0A7B /* EMKViewViewController.m in Sources */,
+				B534C3DE136AF568009F0A7B /* EMKOperationAndInvocationViewController.m in Sources */,
+				B534C3E2136B1E59009F0A7B /* EMKStateArchiving.m in Sources */,
+				B534C3EA136B1FDD009F0A7B /* EMKTestView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +636,6 @@
 				B55A116F136AC49C00248869 /* NSObject(EMKAccessors).m in Sources */,
 				B55A1171136AC49C00248869 /* NSObject(EMKKVOSelector).m in Sources */,
 				B55A1173136AC49C00248869 /* NSOperationQueue(EMKDefaultQueue).m in Sources */,
-				B55A1175136AC49C00248869 /* EMKStateArchiving.m in Sources */,
 				B55A1177136AC49C00248869 /* EMKTableViewCell.m in Sources */,
 				B55A1179136AC49C00248869 /* EMKView.m in Sources */,
 				B55A117B136AC49C00248869 /* UIApplication(EMKNetworkActivityParticipation).m in Sources */,
@@ -578,6 +645,7 @@
 				B55A1183136AC49C00248869 /* UIView(EMKNibLoading).m in Sources */,
 				B55A1185136AC49C00248869 /* UIView(EMKViewSearching).m in Sources */,
 				B55A1187136AC49C00248869 /* UIViewController(EMKInitializers).m in Sources */,
+				B534C3E3136B1E59009F0A7B /* EMKStateArchiving.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
