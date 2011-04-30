@@ -12,6 +12,8 @@
 @interface NSInvocation (EMKActionInitializer)
 
 
++(NSInvocation*)EMK_invocationWithTarget:(id)target action:(SEL)action;
 +(NSInvocation*)EMK_invocationWithTarget:(id)target action:(SEL)action sender:(id)sender;
++(NSInvocation*)EMK_invocationWithTarget:(id)target action:(SEL)action sender:(id)sender forEvent:(UIEvent *)event;
 
 @end
