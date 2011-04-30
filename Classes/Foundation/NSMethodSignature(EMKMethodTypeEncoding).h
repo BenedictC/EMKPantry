@@ -11,7 +11,7 @@
 
 @interface NSMethodSignature (EMKMethodTypeEncoding)
 
-+(const char *)EMK_typesForMethodWithReturnType:(const char *)returnType argumentTypes:(const char *)firstArgumentTypes, ...;
-
++(const char *)EMK_typesForMethodWithReturnType:(const char *)returnType argumentTypes:(const char *)firstArgumentType, ...;
++(NSMethodSignature *)EMK_signatureForMethodWithReturnType:(const char *)returnType argumentTypes:(const char *)firstArgumentType, ...;
 
 @end
