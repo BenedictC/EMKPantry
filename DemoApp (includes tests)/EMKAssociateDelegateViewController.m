@@ -52,7 +52,7 @@
     [super viewDidLoad];
 
     SEL selector = @selector(textField:shouldChangeCharactersInRange:replacementString:);        
-    const char *types = [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(BOOL) argumentTypes:@encode(UITextField), @encode(NSRange), @encode(NSString), NULL];
+    const char *types = [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(BOOL) argumentTypes:@encode(UITextField*), @encode(NSRange), @encode(NSString), NULL];
     
     //fetch the associate delegate from the object
     EMKAssociateDelegate *delegate1 = [self.textField1 EMK_associateDelegate];
