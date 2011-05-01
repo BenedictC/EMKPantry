@@ -67,7 +67,7 @@
 
     //set up subvcs
     NSMutableDictionary *subVCs = [NSMutableDictionary dictionaryWithCapacity:10];
-    [subVCs setObject:[EMKSetControllerViewController class] forKey:@"EMKSetController"];
+    [subVCs setObject:[EMKSetControllerViewController class] forKey:@"EMKSetController (WIP)"];
     [subVCs setObject:[EMKTypedArrayViewController class] forKey:@"EMKTypedArray"];
     [subVCs setObject:[EMKAssociateDelegateViewController class] forKey:@"EMKAssociateDelegate"];
     [subVCs setObject:[EMKViewViewController class] forKey:@"EMKView"];    

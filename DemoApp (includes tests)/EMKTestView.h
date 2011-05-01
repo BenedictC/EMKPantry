@@ -12,8 +12,8 @@
 @interface EMKTestView : EMKView
 @end
 @interface EMKTestView (subviews)
-@property(readwrite, retain) IBOutlet UISlider *slider;
-@property(readwrite, retain) IBOutlet UISwitch *switchView;
-@property(readwrite, retain) IBOutlet UIProgressView *progress;
+@property(readwrite, retain, nonatomic) IBOutlet UISlider *slider;
+@property(readwrite, retain, nonatomic) IBOutlet UISwitch *switchView;
+@property(readwrite, retain, nonatomic) IBOutlet UIProgressView *progress;
 @end
 

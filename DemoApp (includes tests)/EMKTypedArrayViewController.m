@@ -33,17 +33,36 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
 
-- (void)viewDidLoad
+
+
+
+#pragma mark - View lifecycle
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    
-    
-    
-    
+    [super viewDidAppear:animated];
+    [self testTypedArray];
+}
+
+
+
+
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)testTypedArray
+{
     //Create an array
     CGPoint points[2] = {CGPointMake(10,10), CGPointMake(20, 20)};
     EMKMutableTypedArray *pointArray = [EMKMutableTypedArray typedArrayWithTypeSizeof:sizeof(CGPoint) bytes:points count:2 defaultValue:&CGPointZero];
@@ -119,10 +138,7 @@
     //        NSLog(@"get %i: %f", oldI, value);
     //    }
     
-    return;
     
-    
-    //    [self testViewLoading];
     //    float defaultValue = 12345;
     //    EMKScalarArray *floatArray = [EMKScalarArray scalarArrayWithScalarSizeof:sizeof(float) capacity:5 defaultValue:&defaultValue];
     //    
@@ -142,19 +158,6 @@
     //        NSLog(@"%i: %f", i, a);
     //    }
     
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

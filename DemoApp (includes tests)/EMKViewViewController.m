@@ -72,6 +72,9 @@
 -(void)testViewLoading
 {
     self.testView = [EMKTestView EMK_viewWithDefaultNib];
+    CGRect frame = self.testView.frame;
+    frame.origin = CGPointZero;
+    self.testView.frame = frame;
     [self.view addSubview:self.testView];
     
     [self performSelector:@selector(setSliderValue:) withObject:[NSNumber numberWithFloat:0.0] afterDelay:0];
