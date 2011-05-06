@@ -1,9 +1,9 @@
 //
 //  EMKStateArchiving.h
-//  Jot
+//  EMKPantry
 //
 //  Created by Benedict Cohen on 28/04/2011.
-//  Copyright 2011 Electric Muffin Kitchen. All rights reserved.
+//  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,10 +13,7 @@
 @protocol EMKStateRestoration <NSObject>
 @required
 //returns YES if the dependant view controllers were successfully restored.
--(BOOL)restoreDependantViewControllers:(UIViewController *)navStackViewController;
-
-@optional
--(id<EMKStateRestoration>)restorerForViewController:(UIViewController *)viewController;
+-(BOOL)restoreDependantViewControllers:(UIViewController *)nextNavStackViewController;
 @end
 
 
@@ -34,7 +31,7 @@
 #pragma mark UITabBarController, EMKStateArchiving protocol
 @interface UITabBarController (EMKStateArchiving)
 //Returns NSData to pass to EMK_restoreViewControllersFromArchive
--(NSData *)EMK_archiveViewControllers;
+-(NSData *)EMK_archiveViewControllersWithArchivingDelegate:(id<NSObject>)archivingDelegate;
 //Returns YES if at least 1 view controller was restored
 -(BOOL)EMK_restoreViewControllersFromArchive:(NSData *)navStackData withRootViewControllerRestorer:(id<EMKStateRestoration>)rootRestorer;
 
@@ -47,3 +44,15 @@
  
 */
 @end
+
+
+@protocol UITabBarController_EMKArchivingDelegate <NSObject>
+-(NSString *)EMK_tabBarController:(UITabBarController *)tabBarController keyForTab:(UIViewController *)tab;
+@end
+
+
+@protocol UITabBarController_EMKUnarchivingDelegate <NSObject>
+-(id<EMKStateRestoration>)EMK_tabBarController:(UITabBarController *)tabBarController rootRestorerForTabWithKey:(NSString *)tabKey;
+-(void)EMK_tabBarController:(UITabBarController *)tabBarController didRestoreTab:(UIViewController *)viewController withKey:(NSString *)tabKey;
+@end
+
