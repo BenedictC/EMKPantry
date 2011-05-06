@@ -1,5 +1,5 @@
 //
-//  wip.h
+//  EMKWip.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 29/04/2011.

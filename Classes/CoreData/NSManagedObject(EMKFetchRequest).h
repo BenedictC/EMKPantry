@@ -1,9 +1,9 @@
 //
 //  NSManagedObject(EMKFetchRequest).h
-//  Jot
+//  EMKPantry
 //
 //  Created by Benedict Cohen on 17/03/2011.
-//  Copyright 2011 Electric Muffin Kitchen. All rights reserved.
+//  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
 #import <CoreData/CoreData.h>
