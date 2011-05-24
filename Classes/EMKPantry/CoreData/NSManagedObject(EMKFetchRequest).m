@@ -6,7 +6,7 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#ifdef _COREDATADEFINES_H
+
 
 #import "NSManagedObject(EMKFetchRequest).h"
 
@@ -56,5 +56,3 @@
 }
 
 @end
-
-#endif
