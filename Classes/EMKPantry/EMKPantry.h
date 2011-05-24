@@ -39,9 +39,9 @@
 
 //CoreData.framework
 //==================
-#ifdef _COREDATADEFINES_H
+//#ifdef _COREDATADEFINES_H
 #import "NSManagedObject(EMKFetchRequest).h"
-#endif
+//#endif
 
 
 
