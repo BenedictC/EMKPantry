@@ -12,7 +12,7 @@
 @implementation NSObject (EMKAccessors)
 
 
--(BOOL)EMK_hasGetterForProperty:(NSString*)propertyName
+-(BOOL)EMK_hasGetterForProperty:(NSString *)propertyName
 {
     SEL getterSelector = NSSelectorFromString(propertyName);
     
@@ -22,7 +22,7 @@
 
 
 
--(BOOL)EMK_hasSetterForProperty:(NSString*)propertyName
+-(BOOL)EMK_hasSetterForProperty:(NSString *)propertyName
 {
     NSString *propertyNameHead = [[propertyName substringToIndex:1] uppercaseString];
     NSString *propertyNameTail = [propertyName substringFromIndex:1];
@@ -82,3 +82,18 @@ NSString* EMK_propertyNameFromSetter(SEL setter)
     return nil;
 }
 
+
+
+
+SEL EMK_getterSelectorForPropertyName(NSString *propertyName)
+{
+    return NSSelectorFromString(propertyName);
+}
+
+
+
+
+SEL EMK_setterSelectorForPropertyName(NSString *propertyName)
+{
+    return NSSelectorFromString([NSString stringWithFormat:@"set%@:", [propertyName capitalizedString]]);
+}
