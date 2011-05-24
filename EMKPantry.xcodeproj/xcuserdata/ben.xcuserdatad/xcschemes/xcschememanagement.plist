@@ -14,6 +14,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>com.electricmuffinkitchen.emkpantry.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>com.electricmuffinkitchen.emkwip.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>B56B1814135EDCF000184810</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B58A91AC138BD59800C7BEC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B58A91BA138BD5B400C7BEC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

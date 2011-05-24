@@ -1,0 +1,1005 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		B55A1189136AC54700248869 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55A1188136AC54700248869 /* CoreData.framework */; };
+		B55A118B136AC55F00248869 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55A118A136AC55F00248869 /* CoreData.framework */; };
+		B56B1818135EDCF000184810 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B1817135EDCF000184810 /* UIKit.framework */; };
+		B56B181A135EDCF000184810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B1819135EDCF000184810 /* Foundation.framework */; };
+		B56B181C135EDCF000184810 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B181B135EDCF000184810 /* CoreGraphics.framework */; };
+		B56B1878135EF10900184810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B1877135EF10900184810 /* SenTestingKit.framework */; };
+		B58A91B0138BD59800C7BEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91AF138BD59800C7BEC3 /* Foundation.framework */; };
+		B58A91BC138BD5B500C7BEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91AF138BD59800C7BEC3 /* Foundation.framework */; };
+		B58A921F138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91F8138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).h */; };
+		B58A9220138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91F9138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).m */; };
+		B58A9221138BD89A00C7BEC3 /* EMKPantry.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */; };
+		B58A9222138BD89A00C7BEC3 /* EMKAssociateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FC138BD89A00C7BEC3 /* EMKAssociateDelegate.h */; };
+		B58A9223138BD89A00C7BEC3 /* EMKAssociateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91FD138BD89A00C7BEC3 /* EMKAssociateDelegate.m */; };
+		B58A9224138BD89A00C7BEC3 /* EMKMutableTypedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FE138BD89A00C7BEC3 /* EMKMutableTypedArray.h */; };
+		B58A9225138BD89A00C7BEC3 /* EMKMutableTypedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91FF138BD89A00C7BEC3 /* EMKMutableTypedArray.m */; };
+		B58A9226138BD89A00C7BEC3 /* EMKTypedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9200138BD89A00C7BEC3 /* EMKTypedArray.h */; };
+		B58A9227138BD89A00C7BEC3 /* EMKTypedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9201138BD89A00C7BEC3 /* EMKTypedArray.m */; };
+		B58A9228138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9202138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).h */; };
+		B58A9229138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9203138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).m */; };
+		B58A922A138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9204138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).h */; };
+		B58A922B138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9205138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).m */; };
+		B58A922C138BD89A00C7BEC3 /* NSObject(EMKAccessors).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9206138BD89A00C7BEC3 /* NSObject(EMKAccessors).h */; };
+		B58A922D138BD89A00C7BEC3 /* NSObject(EMKAccessors).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9207138BD89A00C7BEC3 /* NSObject(EMKAccessors).m */; };
+		B58A922E138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9208138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).h */; };
+		B58A922F138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9209138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).m */; };
+		B58A9230138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A920A138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).h */; };
+		B58A9231138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A920B138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).m */; };
+		B58A9232138BD89A00C7BEC3 /* EMKTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A920D138BD89A00C7BEC3 /* EMKTableViewCell.h */; };
+		B58A9233138BD89A00C7BEC3 /* EMKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A920E138BD89A00C7BEC3 /* EMKTableViewCell.m */; };
+		B58A9234138BD89A00C7BEC3 /* EMKView.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A920F138BD89A00C7BEC3 /* EMKView.h */; };
+		B58A9235138BD89A00C7BEC3 /* EMKView.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9210138BD89A00C7BEC3 /* EMKView.m */; };
+		B58A9236138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9211138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).h */; };
+		B58A9237138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9212138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).m */; };
+		B58A9238138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9213138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).h */; };
+		B58A9239138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9214138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).m */; };
+		B58A923A138BD89A00C7BEC3 /* UILabel(EMKResizing).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9215138BD89A00C7BEC3 /* UILabel(EMKResizing).h */; };
+		B58A923B138BD89A00C7BEC3 /* UILabel(EMKResizing).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9216138BD89A00C7BEC3 /* UILabel(EMKResizing).m */; };
+		B58A923C138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9217138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).h */; };
+		B58A923D138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9218138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).m */; };
+		B58A923E138BD89A00C7BEC3 /* UIView(EMKNibLoading).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A9219138BD89A00C7BEC3 /* UIView(EMKNibLoading).h */; };
+		B58A923F138BD89A00C7BEC3 /* UIView(EMKNibLoading).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A921A138BD89A00C7BEC3 /* UIView(EMKNibLoading).m */; };
+		B58A9240138BD89A00C7BEC3 /* UIView(EMKViewSearching).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A921B138BD89A00C7BEC3 /* UIView(EMKViewSearching).h */; };
+		B58A9241138BD89A00C7BEC3 /* UIView(EMKViewSearching).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A921C138BD89A00C7BEC3 /* UIView(EMKViewSearching).m */; };
+		B58A9242138BD89A00C7BEC3 /* UIViewController(EMKInitializers).h in Headers */ = {isa = PBXBuildFile; fileRef = B58A921D138BD89A00C7BEC3 /* UIViewController(EMKInitializers).h */; };
+		B58A9243138BD89A00C7BEC3 /* UIViewController(EMKInitializers).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A921E138BD89A00C7BEC3 /* UIViewController(EMKInitializers).m */; };
+		B58A925A138BD8A700C7BEC3 /* EMKObjectMappingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9246138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.m */; };
+		B58A925B138BD8A700C7BEC3 /* EMKSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9248138BD8A600C7BEC3 /* EMKSetController.m */; };
+		B58A925C138BD8A700C7BEC3 /* EMKSetControllerObjectChangeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A924A138BD8A600C7BEC3 /* EMKSetControllerObjectChangeDescription.m */; };
+		B58A925D138BD8A700C7BEC3 /* EMKSetControllerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A924C138BD8A600C7BEC3 /* EMKSetControllerSection.m */; };
+		B58A925E138BD8A700C7BEC3 /* EMKSetControllerSectionChangeDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A924E138BD8A600C7BEC3 /* EMKSetControllerSectionChangeDescription.m */; };
+		B58A925F138BD8A700C7BEC3 /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9251138BD8A600C7BEC3 /* EMKStateArchiving.m */; };
+		B58A9260138BD8A700C7BEC3 /* EMKWebCacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */; };
+		B58A9261138BD8A700C7BEC3 /* NSFileHandle(EMKTemporaryFile).m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9256138BD8A600C7BEC3 /* NSFileHandle(EMKTemporaryFile).m */; };
+		B58A9262138BD8A700C7BEC3 /* objectDetailsController in Resources */ = {isa = PBXBuildFile; fileRef = B58A9257138BD8A600C7BEC3 /* objectDetailsController */; };
+		B58A9263138BD8A700C7BEC3 /* Reference.txt in Resources */ = {isa = PBXBuildFile; fileRef = B58A9258138BD8A600C7BEC3 /* Reference.txt */; };
+		B58A9264138BD8A700C7BEC3 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = B58A9259138BD8A700C7BEC3 /* TODO */; };
+		B58A9268138BD8E200C7BEC3 /* EMKPantry-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B58A9266138BD8E200C7BEC3 /* EMKPantry-Info.plist */; };
+		B58A9269138BD8E200C7BEC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9267138BD8E200C7BEC3 /* main.m */; };
+		B58A926D138BD8F700C7BEC3 /* EMKTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A926B138BD8F700C7BEC3 /* EMKTestView.m */; };
+		B58A926E138BD8F700C7BEC3 /* EMKTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A926C138BD8F700C7BEC3 /* EMKTestView.xib */; };
+		B58A9272138BD90B00C7BEC3 /* EMKPantryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9270138BD90B00C7BEC3 /* EMKPantryAppDelegate.m */; };
+		B58A9273138BD90B00C7BEC3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A9271138BD90B00C7BEC3 /* MainWindow.xib */; };
+		B58A9286138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9275138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.m */; };
+		B58A9287138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A9276138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.xib */; };
+		B58A9288138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9278138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.m */; };
+		B58A9289138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A9279138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.xib */; };
+		B58A928A138BD94F00C7BEC3 /* EMKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A927B138BD94F00C7BEC3 /* EMKRootViewController.m */; };
+		B58A928B138BD94F00C7BEC3 /* EMKRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A927C138BD94F00C7BEC3 /* EMKRootViewController.xib */; };
+		B58A928C138BD94F00C7BEC3 /* EMKSetControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A927D138BD94F00C7BEC3 /* EMKSetControllerViewController.xib */; };
+		B58A928D138BD94F00C7BEC3 /* EMKSetControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A927F138BD94F00C7BEC3 /* EMKSetControllerViewController.m */; };
+		B58A928E138BD94F00C7BEC3 /* EMKTypedArrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9281138BD94F00C7BEC3 /* EMKTypedArrayViewController.m */; };
+		B58A928F138BD94F00C7BEC3 /* EMKTypedArrayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A9282138BD94F00C7BEC3 /* EMKTypedArrayViewController.xib */; };
+		B58A9290138BD94F00C7BEC3 /* EMKViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9284138BD94F00C7BEC3 /* EMKViewViewController.m */; };
+		B58A9291138BD94F00C7BEC3 /* EMKViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58A9285138BD94F00C7BEC3 /* EMKViewViewController.xib */; };
+		B58A9296138BD97100C7BEC3 /* EMKMutableTypedArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9293138BD97100C7BEC3 /* EMKMutableTypedArrayTest.m */; };
+		B58A9297138BD97100C7BEC3 /* EMKTypedArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9295138BD97100C7BEC3 /* EMKTypedArrayTest.m */; };
+		B58A92A1138BDA0800C7BEC3 /* EMKPantryTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B58A929E138BDA0800C7BEC3 /* EMKPantryTests-Info.plist */; };
+		B58A92A2138BDA0800C7BEC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58A92A0138BDA0800C7BEC3 /* InfoPlist.strings */; };
+		B58A92A3138BDC6F00C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */; };
+		B58A92A4138BDC7300C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* EMKPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMKPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B55A1188136AC54700248869 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B55A118A136AC55F00248869 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B56B1815135EDCF000184810 /* EMKPantryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EMKPantryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B56B1817135EDCF000184810 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B56B1819135EDCF000184810 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B56B181B135EDCF000184810 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B56B1877135EF10900184810 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcom.electricmuffinkitchen.emkpantry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58A91AF138BD59800C7BEC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcom.electricmuffinkitchen.emkwip.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58A91F8138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject(EMKFetchRequest).h"; sourceTree = "<group>"; };
+		B58A91F9138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject(EMKFetchRequest).m"; sourceTree = "<group>"; };
+		B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKPantry.h; sourceTree = "<group>"; };
+		B58A91FC138BD89A00C7BEC3 /* EMKAssociateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKAssociateDelegate.h; sourceTree = "<group>"; };
+		B58A91FD138BD89A00C7BEC3 /* EMKAssociateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKAssociateDelegate.m; sourceTree = "<group>"; };
+		B58A91FE138BD89A00C7BEC3 /* EMKMutableTypedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKMutableTypedArray.h; sourceTree = "<group>"; };
+		B58A91FF138BD89A00C7BEC3 /* EMKMutableTypedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKMutableTypedArray.m; sourceTree = "<group>"; };
+		B58A9200138BD89A00C7BEC3 /* EMKTypedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTypedArray.h; sourceTree = "<group>"; };
+		B58A9201138BD89A00C7BEC3 /* EMKTypedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTypedArray.m; sourceTree = "<group>"; };
+		B58A9202138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation(EMKActionInitializer).h"; sourceTree = "<group>"; };
+		B58A9203138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation(EMKActionInitializer).m"; sourceTree = "<group>"; };
+		B58A9204138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature(EMKMethodTypeEncoding).h"; sourceTree = "<group>"; };
+		B58A9205138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature(EMKMethodTypeEncoding).m"; sourceTree = "<group>"; };
+		B58A9206138BD89A00C7BEC3 /* NSObject(EMKAccessors).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject(EMKAccessors).h"; sourceTree = "<group>"; };
+		B58A9207138BD89A00C7BEC3 /* NSObject(EMKAccessors).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject(EMKAccessors).m"; sourceTree = "<group>"; };
+		B58A9208138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject(EMKKVOSelector).h"; sourceTree = "<group>"; };
+		B58A9209138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject(EMKKVOSelector).m"; sourceTree = "<group>"; };
+		B58A920A138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue(EMKDefaultQueue).h"; sourceTree = "<group>"; };
+		B58A920B138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue(EMKDefaultQueue).m"; sourceTree = "<group>"; };
+		B58A920D138BD89A00C7BEC3 /* EMKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKTableViewCell.h; sourceTree = "<group>"; };
+		B58A920E138BD89A00C7BEC3 /* EMKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKTableViewCell.m; sourceTree = "<group>"; };
+		B58A920F138BD89A00C7BEC3 /* EMKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKView.h; sourceTree = "<group>"; };
+		B58A9210138BD89A00C7BEC3 /* EMKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKView.m; sourceTree = "<group>"; };
+		B58A9211138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication(EMKNetworkActivityParticipation).h"; sourceTree = "<group>"; };
+		B58A9212138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication(EMKNetworkActivityParticipation).m"; sourceTree = "<group>"; };
+		B58A9213138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton(EMKAccessoryButton).h"; sourceTree = "<group>"; };
+		B58A9214138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton(EMKAccessoryButton).m"; sourceTree = "<group>"; };
+		B58A9215138BD89A00C7BEC3 /* UILabel(EMKResizing).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel(EMKResizing).h"; sourceTree = "<group>"; };
+		B58A9216138BD89A00C7BEC3 /* UILabel(EMKResizing).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel(EMKResizing).m"; sourceTree = "<group>"; };
+		B58A9217138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController(EMKRootViewController).h"; sourceTree = "<group>"; };
+		B58A9218138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController(EMKRootViewController).m"; sourceTree = "<group>"; };
+		B58A9219138BD89A00C7BEC3 /* UIView(EMKNibLoading).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView(EMKNibLoading).h"; sourceTree = "<group>"; };
+		B58A921A138BD89A00C7BEC3 /* UIView(EMKNibLoading).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView(EMKNibLoading).m"; sourceTree = "<group>"; };
+		B58A921B138BD89A00C7BEC3 /* UIView(EMKViewSearching).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView(EMKViewSearching).h"; sourceTree = "<group>"; };
+		B58A921C138BD89A00C7BEC3 /* UIView(EMKViewSearching).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView(EMKViewSearching).m"; sourceTree = "<group>"; };
+		B58A921D138BD89A00C7BEC3 /* UIViewController(EMKInitializers).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController(EMKInitializers).h"; sourceTree = "<group>"; };
+		B58A921E138BD89A00C7BEC3 /* UIViewController(EMKInitializers).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController(EMKInitializers).m"; sourceTree = "<group>"; };
+		B58A9245138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKObjectMappingTableViewController.h; sourceTree = "<group>"; };
+		B58A9246138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKObjectMappingTableViewController.m; sourceTree = "<group>"; };
+		B58A9247138BD8A600C7BEC3 /* EMKSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetController.h; sourceTree = "<group>"; };
+		B58A9248138BD8A600C7BEC3 /* EMKSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetController.m; sourceTree = "<group>"; };
+		B58A9249138BD8A600C7BEC3 /* EMKSetControllerObjectChangeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerObjectChangeDescription.h; sourceTree = "<group>"; };
+		B58A924A138BD8A600C7BEC3 /* EMKSetControllerObjectChangeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetControllerObjectChangeDescription.m; sourceTree = "<group>"; };
+		B58A924B138BD8A600C7BEC3 /* EMKSetControllerSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerSection.h; sourceTree = "<group>"; };
+		B58A924C138BD8A600C7BEC3 /* EMKSetControllerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetControllerSection.m; sourceTree = "<group>"; };
+		B58A924D138BD8A600C7BEC3 /* EMKSetControllerSectionChangeDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerSectionChangeDescription.h; sourceTree = "<group>"; };
+		B58A924E138BD8A600C7BEC3 /* EMKSetControllerSectionChangeDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKSetControllerSectionChangeDescription.m; sourceTree = "<group>"; };
+		B58A924F138BD8A600C7BEC3 /* EMKSetControllerSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKSetControllerSectionInfo.h; sourceTree = "<group>"; };
+		B58A9250138BD8A600C7BEC3 /* EMKStateArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKStateArchiving.h; sourceTree = "<group>"; };
+		B58A9251138BD8A600C7BEC3 /* EMKStateArchiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKStateArchiving.m; sourceTree = "<group>"; };
+		B58A9252138BD8A600C7BEC3 /* EMKWebCacheController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKWebCacheController.h; sourceTree = "<group>"; };
+		B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKWebCacheController.m; sourceTree = "<group>"; };
+		B58A9254138BD8A600C7BEC3 /* EMKWip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKWip.h; sourceTree = "<group>"; };
+		B58A9255138BD8A600C7BEC3 /* NSFileHandle(EMKTemporaryFile).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle(EMKTemporaryFile).h"; sourceTree = "<group>"; };
+		B58A9256138BD8A600C7BEC3 /* NSFileHandle(EMKTemporaryFile).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileHandle(EMKTemporaryFile).m"; sourceTree = "<group>"; };
+		B58A9257138BD8A600C7BEC3 /* objectDetailsController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectDetailsController; sourceTree = "<group>"; };
+		B58A9258138BD8A600C7BEC3 /* Reference.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Reference.txt; sourceTree = "<group>"; };
+		B58A9259138BD8A700C7BEC3 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		B58A9265138BD8E200C7BEC3 /* EMKPantry_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKPantry_Prefix.pch; path = "EMKPantry/Demo App/EMKPantry_Prefix.pch"; sourceTree = "<group>"; };
+		B58A9266138BD8E200C7BEC3 /* EMKPantry-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EMKPantry-Info.plist"; path = "EMKPantry/Demo App/EMKPantry-Info.plist"; sourceTree = "<group>"; };
+		B58A9267138BD8E200C7BEC3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "EMKPantry/Demo App/main.m"; sourceTree = "<group>"; };
+		B58A926A138BD8F700C7BEC3 /* EMKTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKTestView.h; path = "Demo App/EMKTestView.h"; sourceTree = "<group>"; };
+		B58A926B138BD8F700C7BEC3 /* EMKTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKTestView.m; path = "Demo App/EMKTestView.m"; sourceTree = "<group>"; };
+		B58A926C138BD8F700C7BEC3 /* EMKTestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKTestView.xib; path = "Demo App/EMKTestView.xib"; sourceTree = "<group>"; };
+		B58A926F138BD90B00C7BEC3 /* EMKPantryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKPantryAppDelegate.h; path = "Demo App/EMKPantryAppDelegate.h"; sourceTree = "<group>"; };
+		B58A9270138BD90B00C7BEC3 /* EMKPantryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKPantryAppDelegate.m; path = "Demo App/EMKPantryAppDelegate.m"; sourceTree = "<group>"; };
+		B58A9271138BD90B00C7BEC3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = "Demo App/MainWindow.xib"; sourceTree = "<group>"; };
+		B58A9274138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKAssociateDelegateViewController.h; path = "Demo App/EMKAssociateDelegateViewController.h"; sourceTree = "<group>"; };
+		B58A9275138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKAssociateDelegateViewController.m; path = "Demo App/EMKAssociateDelegateViewController.m"; sourceTree = "<group>"; };
+		B58A9276138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKAssociateDelegateViewController.xib; path = "Demo App/EMKAssociateDelegateViewController.xib"; sourceTree = "<group>"; };
+		B58A9277138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKOperationAndInvocationViewController.h; path = "Demo App/EMKOperationAndInvocationViewController.h"; sourceTree = "<group>"; };
+		B58A9278138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKOperationAndInvocationViewController.m; path = "Demo App/EMKOperationAndInvocationViewController.m"; sourceTree = "<group>"; };
+		B58A9279138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKOperationAndInvocationViewController.xib; path = "Demo App/EMKOperationAndInvocationViewController.xib"; sourceTree = "<group>"; };
+		B58A927A138BD94F00C7BEC3 /* EMKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKRootViewController.h; path = "Demo App/EMKRootViewController.h"; sourceTree = "<group>"; };
+		B58A927B138BD94F00C7BEC3 /* EMKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKRootViewController.m; path = "Demo App/EMKRootViewController.m"; sourceTree = "<group>"; };
+		B58A927C138BD94F00C7BEC3 /* EMKRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKRootViewController.xib; path = "Demo App/EMKRootViewController.xib"; sourceTree = "<group>"; };
+		B58A927D138BD94F00C7BEC3 /* EMKSetControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKSetControllerViewController.xib; path = "Demo App/EMKSetControllerViewController.xib"; sourceTree = "<group>"; };
+		B58A927E138BD94F00C7BEC3 /* EMKSetControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKSetControllerViewController.h; path = "Demo App/EMKSetControllerViewController.h"; sourceTree = "<group>"; };
+		B58A927F138BD94F00C7BEC3 /* EMKSetControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKSetControllerViewController.m; path = "Demo App/EMKSetControllerViewController.m"; sourceTree = "<group>"; };
+		B58A9280138BD94F00C7BEC3 /* EMKTypedArrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKTypedArrayViewController.h; path = "Demo App/EMKTypedArrayViewController.h"; sourceTree = "<group>"; };
+		B58A9281138BD94F00C7BEC3 /* EMKTypedArrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKTypedArrayViewController.m; path = "Demo App/EMKTypedArrayViewController.m"; sourceTree = "<group>"; };
+		B58A9282138BD94F00C7BEC3 /* EMKTypedArrayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKTypedArrayViewController.xib; path = "Demo App/EMKTypedArrayViewController.xib"; sourceTree = "<group>"; };
+		B58A9283138BD94F00C7BEC3 /* EMKViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKViewViewController.h; path = "Demo App/EMKViewViewController.h"; sourceTree = "<group>"; };
+		B58A9284138BD94F00C7BEC3 /* EMKViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKViewViewController.m; path = "Demo App/EMKViewViewController.m"; sourceTree = "<group>"; };
+		B58A9285138BD94F00C7BEC3 /* EMKViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EMKViewViewController.xib; path = "Demo App/EMKViewViewController.xib"; sourceTree = "<group>"; };
+		B58A9292138BD97100C7BEC3 /* EMKMutableTypedArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKMutableTypedArrayTest.h; path = Tests/EMKPantry/Foundation/EMKMutableTypedArrayTest.h; sourceTree = SOURCE_ROOT; };
+		B58A9293138BD97100C7BEC3 /* EMKMutableTypedArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKMutableTypedArrayTest.m; path = Tests/EMKPantry/Foundation/EMKMutableTypedArrayTest.m; sourceTree = SOURCE_ROOT; };
+		B58A9294138BD97100C7BEC3 /* EMKTypedArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKTypedArrayTest.h; path = Tests/EMKPantry/Foundation/EMKTypedArrayTest.h; sourceTree = SOURCE_ROOT; };
+		B58A9295138BD97100C7BEC3 /* EMKTypedArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKTypedArrayTest.m; path = Tests/EMKPantry/Foundation/EMKTypedArrayTest.m; sourceTree = SOURCE_ROOT; };
+		B58A929E138BDA0800C7BEC3 /* EMKPantryTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EMKPantryTests-Info.plist"; path = "Tests/Supporting Files/EMKPantryTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B58A929F138BDA0800C7BEC3 /* EMKPantryTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EMKPantryTests-Prefix.pch"; path = "Tests/Supporting Files/EMKPantryTests-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		B58A92A0138BDA0800C7BEC3 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "Tests/Supporting Files/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55A1189136AC54700248869 /* CoreData.framework in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				B58A92A3138BDC6F00C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a in Frameworks */,
+				B58A92A4138BDC7300C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56B1811135EDCF000184810 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55A118B136AC55F00248869 /* CoreData.framework in Frameworks */,
+				B56B1818135EDCF000184810 /* UIKit.framework in Frameworks */,
+				B56B181A135EDCF000184810 /* Foundation.framework in Frameworks */,
+				B56B181C135EDCF000184810 /* CoreGraphics.framework in Frameworks */,
+				B56B1878135EF10900184810 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58A91AA138BD59800C7BEC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A91B0138BD59800C7BEC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58A91B8138BD5B400C7BEC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A91BC138BD5B500C7BEC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Demo App */ = {
+			isa = PBXGroup;
+			children = (
+				B534C3E6136B1FCA009F0A7B /* Views */,
+				B5DA0F4612EC5D50005735D2 /* App Delegate */,
+				B5DA0F4512EC5D40005735D2 /* View Controllers */,
+				29B97315FDCFA39411CA2CEA /* Supporting Files */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				1D6058910D05DD3D006BFB54 /* EMKPantry.app */,
+			);
+			name = "Demo App";
+			sourceTree = SOURCE_ROOT;
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */,
+				B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */,
+				B55A1137136AC49C00248869 /* Classes */,
+				080E96DDFE201D6D7F000001 /* Demo App */,
+				B56B181D135EDCF000184810 /* Tests */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B58A9265138BD8E200C7BEC3 /* EMKPantry_Prefix.pch */,
+				B58A9266138BD8E200C7BEC3 /* EMKPantry-Info.plist */,
+				B58A9267138BD8E200C7BEC3 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B55A1188136AC54700248869 /* CoreData.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B534C3E6136B1FCA009F0A7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B58A926A138BD8F700C7BEC3 /* EMKTestView.h */,
+				B58A926B138BD8F700C7BEC3 /* EMKTestView.m */,
+				B58A926C138BD8F700C7BEC3 /* EMKTestView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B55A1137136AC49C00248869 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91AE138BD59800C7BEC3 /* Frameworks */,
+				B58A91F6138BD89A00C7BEC3 /* EMKPantry */,
+				B58A9244138BD8A600C7BEC3 /* EMKWip */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		B56B1816135EDCF000184810 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B55A118A136AC55F00248869 /* CoreData.framework */,
+				B56B1819135EDCF000184810 /* Foundation.framework */,
+				B56B181B135EDCF000184810 /* CoreGraphics.framework */,
+				B56B1817135EDCF000184810 /* UIKit.framework */,
+				B56B1877135EF10900184810 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B56B181D135EDCF000184810 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91A0138BD56E00C7BEC3 /* EMKPantry */,
+				B58A91A6138BD56E00C7BEC3 /* EMKWip */,
+				B56B181E135EDCF000184810 /* Supporting Files */,
+				B56B1816135EDCF000184810 /* Frameworks */,
+				B56B1815135EDCF000184810 /* EMKPantryTests.octest */,
+			);
+			name = Tests;
+			path = ../Tests;
+			sourceTree = "<group>";
+		};
+		B56B181E135EDCF000184810 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B58A929E138BDA0800C7BEC3 /* EMKPantryTests-Info.plist */,
+				B58A929F138BDA0800C7BEC3 /* EMKPantryTests-Prefix.pch */,
+				B58A92A0138BDA0800C7BEC3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B58A91A0138BD56E00C7BEC3 /* EMKPantry */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91A1138BD56E00C7BEC3 /* Foundation */,
+			);
+			path = EMKPantry;
+			sourceTree = "<group>";
+		};
+		B58A91A1138BD56E00C7BEC3 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B58A9292138BD97100C7BEC3 /* EMKMutableTypedArrayTest.h */,
+				B58A9293138BD97100C7BEC3 /* EMKMutableTypedArrayTest.m */,
+				B58A9294138BD97100C7BEC3 /* EMKTypedArrayTest.h */,
+				B58A9295138BD97100C7BEC3 /* EMKTypedArrayTest.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		B58A91A6138BD56E00C7BEC3 /* EMKWip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EMKWip;
+			sourceTree = "<group>";
+		};
+		B58A91AE138BD59800C7BEC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91AF138BD59800C7BEC3 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			path = ../EMKPantry;
+			sourceTree = "<group>";
+		};
+		B58A91F6138BD89A00C7BEC3 /* EMKPantry */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91F7138BD89A00C7BEC3 /* CoreData */,
+				B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */,
+				B58A91FB138BD89A00C7BEC3 /* Foundation */,
+				B58A920C138BD89A00C7BEC3 /* UIKit */,
+			);
+			name = EMKPantry;
+			path = Classes/EMKPantry;
+			sourceTree = SOURCE_ROOT;
+		};
+		B58A91F7138BD89A00C7BEC3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91F8138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).h */,
+				B58A91F9138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B58A91FB138BD89A00C7BEC3 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B58A91FC138BD89A00C7BEC3 /* EMKAssociateDelegate.h */,
+				B58A91FD138BD89A00C7BEC3 /* EMKAssociateDelegate.m */,
+				B58A91FE138BD89A00C7BEC3 /* EMKMutableTypedArray.h */,
+				B58A91FF138BD89A00C7BEC3 /* EMKMutableTypedArray.m */,
+				B58A9200138BD89A00C7BEC3 /* EMKTypedArray.h */,
+				B58A9201138BD89A00C7BEC3 /* EMKTypedArray.m */,
+				B58A9202138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).h */,
+				B58A9203138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).m */,
+				B58A9204138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).h */,
+				B58A9205138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).m */,
+				B58A9206138BD89A00C7BEC3 /* NSObject(EMKAccessors).h */,
+				B58A9207138BD89A00C7BEC3 /* NSObject(EMKAccessors).m */,
+				B58A9208138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).h */,
+				B58A9209138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).m */,
+				B58A920A138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).h */,
+				B58A920B138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		B58A920C138BD89A00C7BEC3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B58A920D138BD89A00C7BEC3 /* EMKTableViewCell.h */,
+				B58A920E138BD89A00C7BEC3 /* EMKTableViewCell.m */,
+				B58A920F138BD89A00C7BEC3 /* EMKView.h */,
+				B58A9210138BD89A00C7BEC3 /* EMKView.m */,
+				B58A9211138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).h */,
+				B58A9212138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).m */,
+				B58A9213138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).h */,
+				B58A9214138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).m */,
+				B58A9215138BD89A00C7BEC3 /* UILabel(EMKResizing).h */,
+				B58A9216138BD89A00C7BEC3 /* UILabel(EMKResizing).m */,
+				B58A9217138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).h */,
+				B58A9218138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).m */,
+				B58A9219138BD89A00C7BEC3 /* UIView(EMKNibLoading).h */,
+				B58A921A138BD89A00C7BEC3 /* UIView(EMKNibLoading).m */,
+				B58A921B138BD89A00C7BEC3 /* UIView(EMKViewSearching).h */,
+				B58A921C138BD89A00C7BEC3 /* UIView(EMKViewSearching).m */,
+				B58A921D138BD89A00C7BEC3 /* UIViewController(EMKInitializers).h */,
+				B58A921E138BD89A00C7BEC3 /* UIViewController(EMKInitializers).m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B58A9244138BD8A600C7BEC3 /* EMKWip */ = {
+			isa = PBXGroup;
+			children = (
+				B58A9245138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.h */,
+				B58A9246138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.m */,
+				B58A9247138BD8A600C7BEC3 /* EMKSetController.h */,
+				B58A9248138BD8A600C7BEC3 /* EMKSetController.m */,
+				B58A9249138BD8A600C7BEC3 /* EMKSetControllerObjectChangeDescription.h */,
+				B58A924A138BD8A600C7BEC3 /* EMKSetControllerObjectChangeDescription.m */,
+				B58A924B138BD8A600C7BEC3 /* EMKSetControllerSection.h */,
+				B58A924C138BD8A600C7BEC3 /* EMKSetControllerSection.m */,
+				B58A924D138BD8A600C7BEC3 /* EMKSetControllerSectionChangeDescription.h */,
+				B58A924E138BD8A600C7BEC3 /* EMKSetControllerSectionChangeDescription.m */,
+				B58A924F138BD8A600C7BEC3 /* EMKSetControllerSectionInfo.h */,
+				B58A9250138BD8A600C7BEC3 /* EMKStateArchiving.h */,
+				B58A9251138BD8A600C7BEC3 /* EMKStateArchiving.m */,
+				B58A9252138BD8A600C7BEC3 /* EMKWebCacheController.h */,
+				B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */,
+				B58A9254138BD8A600C7BEC3 /* EMKWip.h */,
+				B58A9255138BD8A600C7BEC3 /* NSFileHandle(EMKTemporaryFile).h */,
+				B58A9256138BD8A600C7BEC3 /* NSFileHandle(EMKTemporaryFile).m */,
+				B58A9257138BD8A600C7BEC3 /* objectDetailsController */,
+				B58A9258138BD8A600C7BEC3 /* Reference.txt */,
+				B58A9259138BD8A700C7BEC3 /* TODO */,
+			);
+			name = EMKWip;
+			path = Classes/EMKWip;
+			sourceTree = SOURCE_ROOT;
+		};
+		B5DA0F4512EC5D40005735D2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B58A9274138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.h */,
+				B58A9275138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.m */,
+				B58A9276138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.xib */,
+				B58A9277138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.h */,
+				B58A9278138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.m */,
+				B58A9279138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.xib */,
+				B58A927A138BD94F00C7BEC3 /* EMKRootViewController.h */,
+				B58A927B138BD94F00C7BEC3 /* EMKRootViewController.m */,
+				B58A927C138BD94F00C7BEC3 /* EMKRootViewController.xib */,
+				B58A927D138BD94F00C7BEC3 /* EMKSetControllerViewController.xib */,
+				B58A927E138BD94F00C7BEC3 /* EMKSetControllerViewController.h */,
+				B58A927F138BD94F00C7BEC3 /* EMKSetControllerViewController.m */,
+				B58A9280138BD94F00C7BEC3 /* EMKTypedArrayViewController.h */,
+				B58A9281138BD94F00C7BEC3 /* EMKTypedArrayViewController.m */,
+				B58A9282138BD94F00C7BEC3 /* EMKTypedArrayViewController.xib */,
+				B58A9283138BD94F00C7BEC3 /* EMKViewViewController.h */,
+				B58A9284138BD94F00C7BEC3 /* EMKViewViewController.m */,
+				B58A9285138BD94F00C7BEC3 /* EMKViewViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = SOURCE_ROOT;
+		};
+		B5DA0F4612EC5D50005735D2 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B58A926F138BD90B00C7BEC3 /* EMKPantryAppDelegate.h */,
+				B58A9270138BD90B00C7BEC3 /* EMKPantryAppDelegate.m */,
+				B58A9271138BD90B00C7BEC3 /* MainWindow.xib */,
+			);
+			name = "App Delegate";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B58A91AB138BD59800C7BEC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A921F138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).h in Headers */,
+				B58A9221138BD89A00C7BEC3 /* EMKPantry.h in Headers */,
+				B58A9222138BD89A00C7BEC3 /* EMKAssociateDelegate.h in Headers */,
+				B58A9224138BD89A00C7BEC3 /* EMKMutableTypedArray.h in Headers */,
+				B58A9226138BD89A00C7BEC3 /* EMKTypedArray.h in Headers */,
+				B58A9228138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).h in Headers */,
+				B58A922A138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).h in Headers */,
+				B58A922C138BD89A00C7BEC3 /* NSObject(EMKAccessors).h in Headers */,
+				B58A922E138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).h in Headers */,
+				B58A9230138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).h in Headers */,
+				B58A9232138BD89A00C7BEC3 /* EMKTableViewCell.h in Headers */,
+				B58A9234138BD89A00C7BEC3 /* EMKView.h in Headers */,
+				B58A9236138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).h in Headers */,
+				B58A9238138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).h in Headers */,
+				B58A923A138BD89A00C7BEC3 /* UILabel(EMKResizing).h in Headers */,
+				B58A923C138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).h in Headers */,
+				B58A923E138BD89A00C7BEC3 /* UIView(EMKNibLoading).h in Headers */,
+				B58A9240138BD89A00C7BEC3 /* UIView(EMKViewSearching).h in Headers */,
+				B58A9242138BD89A00C7BEC3 /* UIViewController(EMKInitializers).h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58A91B9138BD5B400C7BEC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Demo App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Demo App" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Demo App";
+			productName = EMKPantry;
+			productReference = 1D6058910D05DD3D006BFB54 /* EMKPantry.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B56B1814135EDCF000184810 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B56B1828135EDCF000184810 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				B56B1810135EDCF000184810 /* Sources */,
+				B56B1811135EDCF000184810 /* Frameworks */,
+				B56B1812135EDCF000184810 /* Resources */,
+				B56B1813135EDCF000184810 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = EMKPantryTests;
+			productReference = B56B1815135EDCF000184810 /* EMKPantryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B58A91AC138BD59800C7BEC3 /* com.electricmuffinkitchen.emkpantry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B58A91B4138BD59800C7BEC3 /* Build configuration list for PBXNativeTarget "com.electricmuffinkitchen.emkpantry" */;
+			buildPhases = (
+				B58A91A9138BD59800C7BEC3 /* Sources */,
+				B58A91AA138BD59800C7BEC3 /* Frameworks */,
+				B58A91AB138BD59800C7BEC3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.electricmuffinkitchen.emkpantry;
+			productName = com.electricmuffinkitchen.emkpantry;
+			productReference = B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B58A91BA138BD5B400C7BEC3 /* com.electricmuffinkitchen.emkwip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B58A91C0138BD5B500C7BEC3 /* Build configuration list for PBXNativeTarget "com.electricmuffinkitchen.emkwip" */;
+			buildPhases = (
+				B58A91B7138BD5B400C7BEC3 /* Sources */,
+				B58A91B8138BD5B400C7BEC3 /* Frameworks */,
+				B58A91B9138BD5B400C7BEC3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.electricmuffinkitchen.emkwip;
+			productName = com.electricmuffinkitchen.emkwip;
+			productReference = B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Benedict Cohen";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EMKPantry" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B58A91AC138BD59800C7BEC3 /* com.electricmuffinkitchen.emkpantry */,
+				B58A91BA138BD5B400C7BEC3 /* com.electricmuffinkitchen.emkwip */,
+				B56B1814135EDCF000184810 /* Tests */,
+				1D6058900D05DD3D006BFB54 /* Demo App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A9262138BD8A700C7BEC3 /* objectDetailsController in Resources */,
+				B58A9263138BD8A700C7BEC3 /* Reference.txt in Resources */,
+				B58A9264138BD8A700C7BEC3 /* TODO in Resources */,
+				B58A9268138BD8E200C7BEC3 /* EMKPantry-Info.plist in Resources */,
+				B58A926E138BD8F700C7BEC3 /* EMKTestView.xib in Resources */,
+				B58A9273138BD90B00C7BEC3 /* MainWindow.xib in Resources */,
+				B58A9287138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.xib in Resources */,
+				B58A9289138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.xib in Resources */,
+				B58A928B138BD94F00C7BEC3 /* EMKRootViewController.xib in Resources */,
+				B58A928C138BD94F00C7BEC3 /* EMKSetControllerViewController.xib in Resources */,
+				B58A928F138BD94F00C7BEC3 /* EMKTypedArrayViewController.xib in Resources */,
+				B58A9291138BD94F00C7BEC3 /* EMKViewViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56B1812135EDCF000184810 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A92A1138BDA0800C7BEC3 /* EMKPantryTests-Info.plist in Resources */,
+				B58A92A2138BDA0800C7BEC3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B56B1813135EDCF000184810 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A925A138BD8A700C7BEC3 /* EMKObjectMappingTableViewController.m in Sources */,
+				B58A925B138BD8A700C7BEC3 /* EMKSetController.m in Sources */,
+				B58A925C138BD8A700C7BEC3 /* EMKSetControllerObjectChangeDescription.m in Sources */,
+				B58A925D138BD8A700C7BEC3 /* EMKSetControllerSection.m in Sources */,
+				B58A925E138BD8A700C7BEC3 /* EMKSetControllerSectionChangeDescription.m in Sources */,
+				B58A925F138BD8A700C7BEC3 /* EMKStateArchiving.m in Sources */,
+				B58A9260138BD8A700C7BEC3 /* EMKWebCacheController.m in Sources */,
+				B58A9261138BD8A700C7BEC3 /* NSFileHandle(EMKTemporaryFile).m in Sources */,
+				B58A9269138BD8E200C7BEC3 /* main.m in Sources */,
+				B58A926D138BD8F700C7BEC3 /* EMKTestView.m in Sources */,
+				B58A9272138BD90B00C7BEC3 /* EMKPantryAppDelegate.m in Sources */,
+				B58A9286138BD94F00C7BEC3 /* EMKAssociateDelegateViewController.m in Sources */,
+				B58A9288138BD94F00C7BEC3 /* EMKOperationAndInvocationViewController.m in Sources */,
+				B58A928A138BD94F00C7BEC3 /* EMKRootViewController.m in Sources */,
+				B58A928D138BD94F00C7BEC3 /* EMKSetControllerViewController.m in Sources */,
+				B58A928E138BD94F00C7BEC3 /* EMKTypedArrayViewController.m in Sources */,
+				B58A9290138BD94F00C7BEC3 /* EMKViewViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56B1810135EDCF000184810 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A9296138BD97100C7BEC3 /* EMKMutableTypedArrayTest.m in Sources */,
+				B58A9297138BD97100C7BEC3 /* EMKTypedArrayTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58A91A9138BD59800C7BEC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58A9220138BD89A00C7BEC3 /* NSManagedObject(EMKFetchRequest).m in Sources */,
+				B58A9223138BD89A00C7BEC3 /* EMKAssociateDelegate.m in Sources */,
+				B58A9225138BD89A00C7BEC3 /* EMKMutableTypedArray.m in Sources */,
+				B58A9227138BD89A00C7BEC3 /* EMKTypedArray.m in Sources */,
+				B58A9229138BD89A00C7BEC3 /* NSInvocation(EMKActionInitializer).m in Sources */,
+				B58A922B138BD89A00C7BEC3 /* NSMethodSignature(EMKMethodTypeEncoding).m in Sources */,
+				B58A922D138BD89A00C7BEC3 /* NSObject(EMKAccessors).m in Sources */,
+				B58A922F138BD89A00C7BEC3 /* NSObject(EMKKVOSelector).m in Sources */,
+				B58A9231138BD89A00C7BEC3 /* NSOperationQueue(EMKDefaultQueue).m in Sources */,
+				B58A9233138BD89A00C7BEC3 /* EMKTableViewCell.m in Sources */,
+				B58A9235138BD89A00C7BEC3 /* EMKView.m in Sources */,
+				B58A9237138BD89A00C7BEC3 /* UIApplication(EMKNetworkActivityParticipation).m in Sources */,
+				B58A9239138BD89A00C7BEC3 /* UIButton(EMKAccessoryButton).m in Sources */,
+				B58A923B138BD89A00C7BEC3 /* UILabel(EMKResizing).m in Sources */,
+				B58A923D138BD89A00C7BEC3 /* UINavigationController(EMKRootViewController).m in Sources */,
+				B58A923F138BD89A00C7BEC3 /* UIView(EMKNibLoading).m in Sources */,
+				B58A9241138BD89A00C7BEC3 /* UIView(EMKViewSearching).m in Sources */,
+				B58A9243138BD89A00C7BEC3 /* UIViewController(EMKInitializers).m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58A91B7138BD5B400C7BEC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Demo App/EMKPantry_Prefix.pch";
+				HEADER_SEARCH_PATHS = "../Classes/**";
+				INFOPLIST_FILE = "./Demo App/EMKPantry-Info.plist";
+				PRODUCT_NAME = EMKPantry;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Demo App/EMKPantry_Prefix.pch";
+				HEADER_SEARCH_PATHS = "../Classes/**";
+				INFOPLIST_FILE = "./Demo App/EMKPantry-Info.plist";
+				PRODUCT_NAME = EMKPantry;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B56B1829135EDCF000184810 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMKPantryTests/EMKPantryTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "EMKPantryTests/EMKPantryTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B56B182A135EDCF000184810 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMKPantryTests/EMKPantryTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "EMKPantryTests/EMKPantryTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		B58A91B5138BD59800C7BEC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/com_electricmuffinkitchen_emkpantry.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ./Classes/EMKPantry/EMKPantry.h;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B58A91B6138BD59800C7BEC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/com_electricmuffinkitchen_emkpantry.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ./Classes/EMKPantry/EMKPantry.h;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		B58A91C1138BD5B500C7BEC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/com_electricmuffinkitchen_emkwip.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ./Classes/EMKWip/EMKWip.h;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B58A91C2138BD5B500C7BEC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/com_electricmuffinkitchen_emkwip.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ./Classes/EMKWip/EMKWip.h;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Demo App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B56B1828135EDCF000184810 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B56B1829135EDCF000184810 /* Debug */,
+				B56B182A135EDCF000184810 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B58A91B4138BD59800C7BEC3 /* Build configuration list for PBXNativeTarget "com.electricmuffinkitchen.emkpantry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B58A91B5138BD59800C7BEC3 /* Debug */,
+				B58A91B6138BD59800C7BEC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B58A91C0138BD5B500C7BEC3 /* Build configuration list for PBXNativeTarget "com.electricmuffinkitchen.emkwip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B58A91C1138BD5B500C7BEC3 /* Debug */,
+				B58A91C2138BD5B500C7BEC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EMKPantry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

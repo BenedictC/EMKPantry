@@ -16,6 +16,7 @@
 +(NSEntityDescription *)EMK_defaultEntityInContext:(NSManagedObjectContext *)context;
 +(NSString *)EMK_defaultEntityName;
 
++(id)EMK_insertNewDefaultEntityInContext:(NSManagedObjectContext *)context;
 @end
 
 

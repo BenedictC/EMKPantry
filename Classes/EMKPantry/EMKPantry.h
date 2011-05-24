@@ -7,6 +7,13 @@
  *
  */
 
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#endif
+
+
 //TODO: Wrap imports inside #ifdef that check availabilty of required APIs. 
 //The checks should probably be added to the .h/.m files too.
 

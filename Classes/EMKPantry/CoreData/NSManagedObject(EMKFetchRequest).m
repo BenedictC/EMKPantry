@@ -6,6 +6,8 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
+#ifdef _COREDATADEFINES_H
+
 #import "NSManagedObject(EMKFetchRequest).h"
 
 
@@ -40,12 +42,19 @@
 
 
 
-
-
 +(NSString *)EMK_defaultEntityName
 {
     SEL defaultEntityNameSelector = @selector(defaultEntityName);
     return([self respondsToSelector:defaultEntityNameSelector]) ? [self performSelector:defaultEntityNameSelector] : NSStringFromClass(self);
 }
 
+
+
++(id)EMK_insertNewDefaultEntityInContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:[self EMK_defaultEntityName] inManagedObjectContext:context];
+}
+
 @end
+
+#endif

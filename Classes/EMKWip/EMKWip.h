@@ -6,6 +6,12 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#endif
+
 #import "EMKStateArchiving.h"
 
 #import "EMKObjectMappingTableViewController.h"

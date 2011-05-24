@@ -263,8 +263,8 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "0"
-         filePath = "/Volumes/Users/ben/Development/EMK/EMKPantry/Classes/Foundation/NSMethodSignature(EMKMethodTypeEncoding).m"
+         isPathRelative = "1"
+         filePath = "Classes/Foundation/NSMethodSignature(EMKMethodTypeEncoding).m"
          timestampString = "325867997.2589"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -272,20 +272,6 @@
          endingLineNumber = "57"
          landmarkName = "EMK_NSMethodSignature_typesForMethodWithReturnType()"
          landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "0"
-         filePath = "/Volumes/Users/ben/Development/EMK/EMKPantry/Classes/UIKit/EMKView.m"
-         timestampString = "325962650.581132"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-setValue:forKey:"
-         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
