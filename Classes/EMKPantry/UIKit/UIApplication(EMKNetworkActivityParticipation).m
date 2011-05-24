@@ -15,27 +15,12 @@ int EMKNetworkActivityParticipantCount = 0;
 
 @implementation UIApplication (EMKNetworkActivityParticipation)
 
--(void)EMK_addNetworkActivityParticipant:(id)participant
-{
-    [self EMK_addNetworkActivityParticipant];
-}
-
-
-
--(void)EMK_removeNetworkActivityParticipant:(id)participant
-{
-    [self EMK_removeNetworkActivityParticipant];
-}
-
-
-
-
 
 -(void)EMK_addNetworkActivityParticipant
 {
     EMKNetworkActivityParticipantCount++;        
     
-    [self setNetworkActivityIndicatorVisible:YES];
+    [self setNetworkActivityIndicatorVisible:(EMKNetworkActivityParticipantCount > 0)];
 }
 
 
@@ -44,7 +29,7 @@ int EMKNetworkActivityParticipantCount = 0;
 {
     EMKNetworkActivityParticipantCount--;
     
-    [self setNetworkActivityIndicatorVisible:EMKNetworkActivityParticipantCount];
+    [self setNetworkActivityIndicatorVisible:(EMKNetworkActivityParticipantCount > 0)];
 }
 
 

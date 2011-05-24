@@ -11,9 +11,6 @@
 
 @interface UIApplication (EMKNetworkActivityParticipation)
 
--(void)EMK_addNetworkActivityParticipant:(id)participant __attribute__((deprecated));
--(void)EMK_removeNetworkActivityParticipant:(id)participant __attribute__((deprecated));
-
 
 -(void)EMK_addNetworkActivityParticipant;
 -(void)EMK_removeNetworkActivityParticipant;
