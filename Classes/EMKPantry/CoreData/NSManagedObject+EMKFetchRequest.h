@@ -1,5 +1,5 @@
 //
-//  NSManagedObject(EMKFetchRequest).h
+//  NSManagedObject+EMKFetchRequest.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 17/03/2011.

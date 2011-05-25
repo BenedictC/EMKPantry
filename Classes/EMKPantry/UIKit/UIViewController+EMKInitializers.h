@@ -1,5 +1,5 @@
 //
-//  UIViewController(EMKInitializers).h
+//  UIViewController+EMKInitializers.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 21/10/2010.

@@ -1,5 +1,5 @@
 //
-//  UIApplication(EMKNetworkActivityParticipation).h
+//  UIApplication+EMKNetworkActivityParticipation.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 09/11/2010.

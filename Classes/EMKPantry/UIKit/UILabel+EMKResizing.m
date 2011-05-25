@@ -1,12 +1,12 @@
 //
-//  UILabel(EMKResizing).m
+//  UILabel+EMKResizing.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 26/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "UILabel(EMKResizing).h"
+#import "UILabel+EMKResizing.h"
 
 
 @implementation UILabel (EMKResizing)

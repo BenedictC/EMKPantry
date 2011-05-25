@@ -1,12 +1,12 @@
 //
-//  NSOperationQueue(EMKDefaultQueue).m
+//  NSOperationQueue+EMKDefaultQueue.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "NSOperationQueue(EMKDefaultQueue).h"
+#import "NSOperationQueue+EMKDefaultQueue.h"
 
     NSOperationQueue *EMK_defaultOperationQueue;
 

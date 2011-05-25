@@ -1,12 +1,12 @@
 //
-//  NSObject(EMKAccessors).m
+//  NSObject+EMKAccessors.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "NSObject(EMKAccessors).h"
+#import "NSObject+EMKAccessors.h"
 
 
 @implementation NSObject (EMKAccessors)

@@ -1,12 +1,12 @@
 //
-//  UIViewController(EMKInitializers).m
+//  UIViewController+EMKInitializers.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 21/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "UIViewController(EMKInitializers).h"
+#import "UIViewController+EMKInitializers.h"
 
 
 @implementation UIViewController (EMKInitializers)

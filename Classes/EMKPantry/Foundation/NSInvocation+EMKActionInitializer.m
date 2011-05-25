@@ -1,13 +1,13 @@
 //
-//  NSInvocation(EMKActionInitializer).m
+//  NSInvocation+EMKActionInitializer.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 25/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "NSInvocation(EMKActionInitializer).h"
-#import "NSMethodSignature(EMKMethodTypeEncoding).h"
+#import "NSInvocation+EMKActionInitializer.h"
+#import "NSMethodSignature+EMKMethodTypeEncoding.h"
 
 @implementation NSInvocation (EMKActionInitializer)
 

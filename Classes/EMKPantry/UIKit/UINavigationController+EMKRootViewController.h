@@ -1,5 +1,5 @@
 //
-//  UINavigationController(EMKRootViewController).h
+//  UINavigationController+EMKRootViewController.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 27/04/2011.

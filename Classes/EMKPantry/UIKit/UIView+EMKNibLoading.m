@@ -1,12 +1,12 @@
 //
-//  UIView(EMKNibLoading).m
+//  UIView+EMKNibLoading.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "UIView(EMKNibLoading).h"
+#import "UIView+EMKNibLoading.h"
 
 
 @implementation UIView (EMKNibLoading)

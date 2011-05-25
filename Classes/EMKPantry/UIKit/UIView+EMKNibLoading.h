@@ -1,5 +1,5 @@
 //
-//  UIView(EMKNibLoading).h
+//  UIView+EMKNibLoading.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.

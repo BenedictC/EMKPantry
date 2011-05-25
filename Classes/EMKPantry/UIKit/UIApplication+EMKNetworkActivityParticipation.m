@@ -1,12 +1,12 @@
 //
-//  UIApplication(EMKNetworkActivityParticipation).m
+//  UIApplication+EMKNetworkActivityParticipation.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 09/11/2010.
 //  Copyright 2010 Benedict Cohen. All rights reserved.
 //
 
-#import "UIApplication(EMKNetworkActivityParticipation).h"
+#import "UIApplication+EMKNetworkActivityParticipation.h"
 
 
 int EMKNetworkActivityParticipantCount = 0;

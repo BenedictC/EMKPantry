@@ -1,12 +1,12 @@
 //
-//  NSObject(EMKKVOSelector).m
+//  NSObject+EMKKVOSelector.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 20/02/2011.
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import "NSObject(EMKKVOSelector).h"
+#import "NSObject+EMKKVOSelector.h"
 #import <objc/runtime.h>
 
 /*!

@@ -1,12 +1,12 @@
 //
-//  UIView(EMKViewSearching).m
+//  UIView+EMKViewSearching.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 01/01/2011.
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import "UIView(EMKViewSearching).h"
+#import "UIView+EMKViewSearching.h"
 
 
 @implementation UIView (EMKViewSearching)

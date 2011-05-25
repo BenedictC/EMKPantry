@@ -1,5 +1,5 @@
 //
-//  NSFileHandle(EMKTemporaryFile).h
+//  NSFileHandle+EMKTemporaryFile.h
 //  PresentationCaster
 //
 //  Created by Benedict Cohen on 15/11/2010.

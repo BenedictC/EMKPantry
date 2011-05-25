@@ -1,13 +1,13 @@
 //
-//  UIButton(EMKAccessoryButton).m
+//  UIButton+EMKAccessoryButton.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 03/01/2011.
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import "UIButton(EMKAccessoryButton).h"
-#import "UIView(EMKViewSearching).h"
+#import "UIButton+EMKAccessoryButton.h"
+#import "UIView+EMKViewSearching.h"
 
 
 

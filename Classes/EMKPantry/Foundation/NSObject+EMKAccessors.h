@@ -1,5 +1,5 @@
 //
-//  NSObject(EMKAccessors).h
+//  NSObject+EMKAccessors.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 16/10/2010.

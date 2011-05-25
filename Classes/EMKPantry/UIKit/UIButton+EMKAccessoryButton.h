@@ -1,5 +1,5 @@
 //
-//  UIButton(EMKAccessoryButton).h
+//  UIButton+EMKAccessoryButton.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 03/01/2011.

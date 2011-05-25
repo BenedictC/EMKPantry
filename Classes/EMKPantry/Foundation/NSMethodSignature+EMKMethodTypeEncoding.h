@@ -1,5 +1,5 @@
 //
-//  NSMethodSignature(EMKMethodTypeEncoding).h
+//  NSMethodSignature+EMKMethodTypeEncoding.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 20/03/2011.

@@ -22,4 +22,4 @@
 #import "EMKStateArchiving.h"
 #import "EMKWebCacheController.h"
 #import "EMKObjectMappingTableViewController.h"
-#import "NSFileHandle(EMKTemporaryFile).h"
+#import "NSFileHandle+EMKTemporaryFile.h"

@@ -1,12 +1,12 @@
 //
-//  NSFileHandle(EMKTemporaryFile).m
+//  NSFileHandle+EMKTemporaryFile.m
 //  PresentationCaster
 //
 //  Created by Benedict Cohen on 15/11/2010.
 //  Copyright 2010 Electric Muffin Kitchen. All rights reserved.
 //
 
-#import "NSFileHandle(EMKTemporaryFile).h"
+#import "NSFileHandle+EMKTemporaryFile.h"
 
 
 @implementation NSFileHandle (EMKTemporaryFile)

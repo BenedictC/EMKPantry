@@ -1,5 +1,5 @@
 //
-//  NSInvocation(EMKActionInitializer).h
+//  NSInvocation+EMKActionInitializer.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 25/10/2010.

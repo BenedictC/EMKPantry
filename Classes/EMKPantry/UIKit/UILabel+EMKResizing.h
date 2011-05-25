@@ -1,5 +1,5 @@
 //
-//  UILabel(EMKResizing).h
+//  UILabel+EMKResizing.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 26/10/2010.
