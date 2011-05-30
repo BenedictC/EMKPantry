@@ -10,7 +10,7 @@
 
 #import <objc/runtime.h>
 #import "NSObject+EMKAccessors.h"
-
+#import "NSMethodSignature+EMKMethodTypeEncoding.h"
 
 
 id EMKTableViewCellDynamicGetter(id self, SEL _cmd);
@@ -29,14 +29,14 @@ const char *EMKTableViewCellDynamicPropertiesKey = "EMKTableViewCellDynamicPrope
 {
     if (EMK_selectorIsGetter(aSEL))
     {
-        class_addMethod(self, aSEL, (IMP)EMKTableViewCellDynamicGetter, "@@:");
+        class_addMethod(self, aSEL, (IMP)EMKTableViewCellDynamicGetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(id) argumentTypes:NULL]);
         return YES;
     }
     
     
     if (EMK_selectorIsSetter(aSEL))
     {
-        class_addMethod(self, aSEL, (IMP)EMKTableViewCellDynamicSetter, "v@:@");    
+        class_addMethod(self, aSEL, (IMP)EMKTableViewCellDynamicSetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(void) argumentTypes:@encode(id), NULL]);    
         return YES;
     }
     

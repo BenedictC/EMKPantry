@@ -52,9 +52,11 @@ BOOL EMK_selectorIsSetter(SEL selector)
     NSString *methodName = NSStringFromSelector(selector);    
     int methodNameLength  = [methodName length];
     
-    return (   methodNameLength > 4 //4 = strlen("set:")
-            && [methodName rangeOfString:@":"].length == methodNameLength
-            && [methodName rangeOfString:@"set"].location == 0);
+    BOOL isValidLength = methodNameLength > 4; //4 = strlen("set:");
+    BOOL isPrefixCorrect = [methodName rangeOfString:@"set"].location == 0;
+    BOOL isSuffixCorrect = [methodName rangeOfString:@":"].location == methodNameLength-1;
+
+    return (isValidLength && isPrefixCorrect && isSuffixCorrect);
 }
 
 
@@ -73,10 +75,12 @@ NSString* EMK_propertyNameFromSetter(SEL setter)
         NSString *setterString = NSStringFromSelector(setter);
         int setterStringLength = [setterString length];
         
-        NSString *propertyNameHead = [[setterString substringWithRange:(NSRange){.location = 4, .length = 1}] lowercaseString]; //4 = strlen("set:")
-        NSString *propertyNameTail = [[setterString substringWithRange:(NSRange){.location = 4, .length = setterStringLength - 4}] substringFromIndex:1]; //4 = strlen("set:")
+        if (setterStringLength < 5) return nil;
         
-        return [NSString stringWithFormat:@"%@%@", propertyNameHead, propertyNameTail];
+        NSString *propertyNameHead = [setterString substringWithRange:(NSRange){.location = 3, .length = 1}]; //4 = strlen("set:")
+        NSString *propertyNameTail = [setterString substringWithRange:(NSRange){.location = 4, .length = setterStringLength - 5}]; //4 = strlen("set:")
+        
+        return [NSString stringWithFormat:@"%@%@", [propertyNameHead  lowercaseString], propertyNameTail];
     }
     
     return nil;
@@ -95,5 +99,10 @@ SEL EMK_getterSelectorForPropertyName(NSString *propertyName)
 
 SEL EMK_setterSelectorForPropertyName(NSString *propertyName)
 {
-    return NSSelectorFromString([NSString stringWithFormat:@"set%@:", [propertyName capitalizedString]]);
+    if ([propertyName length] < 1) return NULL;
+    
+    NSString *firstLetter = [propertyName substringToIndex:1];
+    NSString *tail = [propertyName substringFromIndex:1];
+
+    return NSSelectorFromString([NSString stringWithFormat:@"set%@%@:", [firstLetter uppercaseString], tail]);
 }

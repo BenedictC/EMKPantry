@@ -28,14 +28,14 @@ const char *EMKViewDynamicPropertiesKey = "EMKViewDynamicPropertiesKey";
 {
     if (EMK_selectorIsGetter(aSEL))
     {
-        class_addMethod(self, aSEL, (IMP)EMKViewDynamicGetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(id) argumentTypes:nil]);
+        class_addMethod(self, aSEL, (IMP)EMKViewDynamicGetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(id) argumentTypes:NULL]);
         return YES;
     }
     
     
     if (EMK_selectorIsSetter(aSEL))
     {
-        class_addMethod(self, aSEL, (IMP)EMKViewDynamicSetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(void) argumentTypes:@encode(id), nil]);    
+        class_addMethod(self, aSEL, (IMP)EMKViewDynamicSetter, [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(void) argumentTypes:@encode(id), NULL]);    
         return YES;
     }
     

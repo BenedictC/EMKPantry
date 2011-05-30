@@ -63,6 +63,5 @@ const char *EMK_NSMethodSignature_typesForMethodWithReturnType(const char *retur
         argumentType = va_arg(arguments, const char *);
     }
     
-    NSLog(@"%@", types);
     return [types UTF8String];
 }
