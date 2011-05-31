@@ -14,21 +14,18 @@
 
 -(BOOL)EMK_hasGetterForProperty:(NSString *)propertyName
 {
-    SEL getterSelector = NSSelectorFromString(propertyName);
+    SEL selector = EMK_getterSelectorForPropertyName(propertyName);
     
-    return [self respondsToSelector:getterSelector];
+    return selector != NULL && [self respondsToSelector:selector];
 }
 
 
 
 -(BOOL)EMK_hasSetterForProperty:(NSString *)propertyName
 {
-    NSString *propertyNameHead = [[propertyName substringToIndex:1] uppercaseString];
-    NSString *propertyNameTail = [propertyName substringFromIndex:1];
+    SEL selector = EMK_setterSelectorForPropertyName(propertyName);
     
-    SEL setterSelector = NSSelectorFromString([NSString stringWithFormat:@"set%@%@:", propertyNameHead, propertyNameTail]);
-    
-    return [self respondsToSelector:setterSelector];
+    return selector != NULL && [self respondsToSelector:selector];
 }
 
 @end
