@@ -21,7 +21,6 @@
 
 
 
-
 -(BOOL)EMK_hasSetterForProperty:(NSString *)propertyName
 {
     NSString *propertyNameHead = [[propertyName substringToIndex:1] uppercaseString];
@@ -32,55 +31,106 @@
     return [self respondsToSelector:setterSelector];
 }
 
-
 @end
 
 
-BOOL EMK_selectorIsGetter(SEL selector)
+
+BOOL EMK_selectorIsGetter(SEL getter)
 {
-    NSString *methodName = NSStringFromSelector(selector);
+    const char *methodName = (const char *)getter;
     
-    return ([methodName rangeOfString:@":"].location == NSNotFound);
+    int i = 0;
+    while (methodName[i] != '\0')
+    {
+        switch(i)
+        {
+        case 0:
+            if (('A'-1 < methodName[0] && methodName[0] < '^')) return NO;
+            break;
+                
+        default:
+            if (methodName[i] == ':') return NO;
+            break;
+        }
+        
+        i++;
+    }
+    
+    return YES;
 }
 
     
 
 
 
-BOOL EMK_selectorIsSetter(SEL selector)
+BOOL EMK_selectorIsSetter(SEL setter)
 {
-    NSString *methodName = NSStringFromSelector(selector);    
-    int methodNameLength  = [methodName length];
-    
-    BOOL isValidLength = methodNameLength > 4; //4 = strlen("set:");
-    BOOL isPrefixCorrect = [methodName rangeOfString:@"set"].location == 0;
-    BOOL isSuffixCorrect = [methodName rangeOfString:@":"].location == methodNameLength-1;
+    const char *methodName = (const char *)setter;    
 
-    return (isValidLength && isPrefixCorrect && isSuffixCorrect);
+    int i = 0;
+    while (methodName[i] != '\0')
+    {
+        switch (i)
+        {
+        case 0:        
+            if (methodName[0] != 's') return NO;
+            break;
+
+        case 1:                        
+            if (methodName[1] != 'e') return NO;        
+            break;
+                
+        case 2:                        
+            if (methodName[2] != 't') return NO;        
+            break;        
+                
+        case 3:                        
+            if (!('A'-1 < methodName[3] && methodName[3] < 'a')) return NO;
+            break;
+                
+        default:
+            if (methodName[i] == ':' && methodName[i+1] != '\0') return NO;
+            break;
+        }
+        
+        i++;
+    }
+    
+    return (i>4 && methodName[i-1] == ':');
 }
 
 
 
-NSString* EMK_propertyNameFromGetter(SEL getter)
+NSString *EMK_propertyNameFromGetter(SEL getter)
 {
     return (EMK_selectorIsGetter(getter)) ? NSStringFromSelector(getter) : nil;
 }
 
 
 
-NSString* EMK_propertyNameFromSetter(SEL setter)
+NSString *EMK_propertyNameFromSetter(SEL setter)
 {
     if (EMK_selectorIsSetter(setter))
     {
-        NSString *setterString = NSStringFromSelector(setter);
-        int setterStringLength = [setterString length];
+        char *setterString = strdup((const char *)setter);
         
-        if (setterStringLength < 5) return nil;
+        BOOL isUpperCase = (setterString[3] > 'A'-1) && (setterString[3] < 'Z'+1);
+        setterString[3] = (isUpperCase) ? setterString[3] + ('a' - 'A') : setterString[3];
+        int i = 4;
+        while(TRUE)
+        {
+            if (setterString[i+1] == '\0')
+            {
+                setterString[i] = '\0';
+                break;
+            }
+            i++;
+        }
         
-        NSString *propertyNameHead = [setterString substringWithRange:(NSRange){.location = 3, .length = 1}]; //4 = strlen("set:")
-        NSString *propertyNameTail = [setterString substringWithRange:(NSRange){.location = 4, .length = setterStringLength - 5}]; //4 = strlen("set:")
+        NSString *result = [NSString stringWithCString:&(setterString[3]) encoding:NSUTF8StringEncoding];
+        free(setterString);
         
-        return [NSString stringWithFormat:@"%@%@", [propertyNameHead  lowercaseString], propertyNameTail];
+        return result;
     }
     
     return nil;
@@ -91,7 +141,8 @@ NSString* EMK_propertyNameFromSetter(SEL setter)
 
 SEL EMK_getterSelectorForPropertyName(NSString *propertyName)
 {
-    return NSSelectorFromString(propertyName);
+    SEL result = NSSelectorFromString(propertyName);
+    return (EMK_selectorIsGetter(result)) ? result : NULL;
 }
 
 
@@ -104,5 +155,7 @@ SEL EMK_setterSelectorForPropertyName(NSString *propertyName)
     NSString *firstLetter = [propertyName substringToIndex:1];
     NSString *tail = [propertyName substringFromIndex:1];
 
-    return NSSelectorFromString([NSString stringWithFormat:@"set%@%@:", [firstLetter uppercaseString], tail]);
+    SEL setter = NSSelectorFromString([NSString stringWithFormat:@"set%@%@:", [firstLetter uppercaseString], tail]);
+    
+    return (EMK_selectorIsSetter(setter)) ? setter : NULL;
 }

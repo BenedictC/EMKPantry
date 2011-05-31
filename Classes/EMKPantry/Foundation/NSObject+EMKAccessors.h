@@ -19,8 +19,8 @@
 @end
 
 
-BOOL EMK_selectorIsGetter(SEL selector);
-BOOL EMK_selectorIsSetter(SEL selector);
+BOOL EMK_selectorIsGetter(SEL setter);
+BOOL EMK_selectorIsSetter(SEL setter);
 
 NSString* EMK_propertyNameFromGetter(SEL getter);
 NSString* EMK_propertyNameFromSetter(SEL setter);
