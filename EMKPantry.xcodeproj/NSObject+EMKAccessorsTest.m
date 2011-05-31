@@ -194,14 +194,24 @@
 
 -(void)testEMK_hasGetterForProperty
 {
+    NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:[NSData data]] autorelease];
     
+    STAssertTrue([parser EMK_hasGetterForProperty:@"delegate"], @"EMK_hasGetterForProperty failed");
+
+    STAssertTrue(![parser EMK_hasGetterForProperty:@"Arfdelegate"], @"EMK_hasGetterForProperty failed");
+    STAssertTrue(![parser EMK_hasGetterForProperty:@"setDelegate:"], @"EMK_hasGetterForProperty failed");
 }
 
 
 
 -(void)testEMK_hasSetterForProperty
 {
+    NSXMLParser *parser = [[[NSXMLParser alloc] initWithData:[NSData data]] autorelease];
     
+    STAssertTrue([parser EMK_hasSetterForProperty:@"delegate"], @"EMK_hasSetterForProperty failed");
+    
+    STAssertTrue(![parser EMK_hasSetterForProperty:@"Arfdelegate"], @"EMK_hasSetterForProperty failed");
+    STAssertTrue(![parser EMK_hasSetterForProperty:@"setDelegate:"], @"EMK_hasSetterForProperty failed");
 }
 
 
