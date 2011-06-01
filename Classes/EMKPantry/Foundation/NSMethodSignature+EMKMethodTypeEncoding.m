@@ -18,6 +18,13 @@ const char *EMK_NSMethodSignature_typesForMethodWithReturnType(const char *retur
 
 +(const char *)EMK_typesForMethodWithReturnType:(const char *)returnType argumentTypes:(const char *)firstArgumentType, ...
 {
+    if (returnType == NULL)
+    {
+        NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@:]: Failed to specify returnType.", NSStringFromClass([self class]), NSStringFromSelector(_cmd)];
+        [[NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil] raise];
+        return nil;
+    }
+    
     va_list arguments;
     va_start(arguments, firstArgumentType);
 
