@@ -12,6 +12,8 @@
 #import <CoreData/CoreData.h>
 #endif
 
+#import "EMKPantry.h"
+
 #import "EMKSetController.h"
 #import "EMKSetControllerObjectChangeDescription.h"
 #import "EMKSetControllerSection.h"
@@ -23,3 +25,9 @@
 #import "EMKWebCacheController.h"
 #import "EMKObjectMappingTableViewController.h"
 #import "NSFileHandle+EMKTemporaryFile.h"
+
+#import "NSObject+EMKMethodReplacement.h"
+#import "NSObject+EMKRuntimeProperties.h"
+
+#import "UINavigationBar+EMKBackgroundView.h"
+#import "UIImage+EMKTintedImage.h"
