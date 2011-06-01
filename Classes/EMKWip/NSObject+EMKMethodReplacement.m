@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+EMKMethodReplacement.h"
+#import <objc/runtime.h>
 
 
 

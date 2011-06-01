@@ -9,7 +9,6 @@
 #import "NSObject+EMKRuntimeProperties.h"
 #import "NSMethodSignature+EMKMethodTypeEncoding.h"
 
-
 #pragma mark -
 #pragma mark EMKRuntimePropertyAttributes interface
 
@@ -212,6 +211,7 @@ void EMKDynamicScalarSetter(id self, SEL _cmd, void *);
 }
 
 
+
 -(const void *)EMK_getValueForScalarProperty:(NSString *)propertyName
 {
     EMKRuntimePropertyAttributes *propertyAttribs = [EMKRuntimePropertyAttributes propertyAttributesForProperty:propertyName ofClass:[self class]];
@@ -229,7 +229,7 @@ void EMKDynamicScalarSetter(id self, SEL _cmd, void *);
     
     NSData *data = [NSData dataWithBytes:value length:propertyAttribs.size];
     
-    objc_setAssociatedObject(self, propertyAttribs.key, data, propertyAttribs.policy);
+    objc_setAssociatedObject(self, propertyAttribs.key, data, OBJC_ASSOCIATION_RETAIN);
 }
 
 
