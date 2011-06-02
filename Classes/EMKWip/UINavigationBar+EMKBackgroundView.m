@@ -8,7 +8,7 @@
 
 #import "UINavigationBar+EMKBackgroundView.h"
 #import "NSObject+EMKRuntimeProperties.h"
-#import "NSObject+EMKMethodReplacement.h"
+#import "NSObject+EMKMethodSwizzling.h"
 
 @implementation UINavigationBar (EMKBackgroundView)
 
