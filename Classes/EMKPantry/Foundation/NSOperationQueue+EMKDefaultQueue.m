@@ -8,7 +8,6 @@
 
 #import "NSOperationQueue+EMKDefaultQueue.h"
 
-    NSOperationQueue *EMK_defaultOperationQueue;
 
 
 @implementation NSOperationQueue (EMKDefaultQueue)
@@ -16,16 +15,19 @@
 
 +(NSOperationQueue*)EMK_defaultQueue
 {
+    static NSOperationQueue *defaultOperationQueue = nil;
+    
     @synchronized (self)
     {
-        if (!EMK_defaultOperationQueue) EMK_defaultOperationQueue = [NSOperationQueue new];
+        if (defaultOperationQueue == nil)
+        {
+            defaultOperationQueue = [NSOperationQueue new];   
+        }
     }
 
     
-    return EMK_defaultOperationQueue;
+    return defaultOperationQueue;
 }
 
-
-//EMK_defaultOperationQueue could observe itself and release its self when the queue is empty but that seems unnecassery.
 
 @end
