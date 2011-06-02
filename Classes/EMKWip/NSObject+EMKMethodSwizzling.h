@@ -1,5 +1,5 @@
 //
-//  NSObject+EMKMethodReplacement.h
+//  NSObject+EMKMethodSwizzling.h
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 28/05/2011.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (EMKMethodReplacement)
+@interface NSObject (EMKMethodSwizzling)
 
 //These methods work fine when replacing methods implemented on a class or a superclass.
 //They do not work if the method to be replaced is implemented in a category.

@@ -1,22 +1,22 @@
 //
-//  NSObject+EMKMethodReplacement.m
+//  NSObject+EMKMethodSwizzling.m
 //  EMKPantry
 //
 //  Created by Benedict Cohen on 28/05/2011.
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import "NSObject+EMKMethodReplacement.h"
+#import "NSObject+EMKMethodSwizzling.h"
 #import <objc/runtime.h>
 
 
 
-NSString * const EMKMethodReplacementReplacementImplementations = @"EMKMethodReplacementReplacementImplementations";
+NSString * const EMKMethodSwizzlingReplacementImplementations = @"EMKMethodSwizzlingReplacementImplementations";
 
 
 
 
-@implementation NSObject (EMKMethodReplacement)
+@implementation NSObject (EMKMethodSwizzling)
 
 #pragma mark method replacement
 +(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementation:(IMP)newImplementation
@@ -38,11 +38,11 @@ NSString * const EMKMethodReplacementReplacementImplementations = @"EMKMethodRep
     }
 
     //2b. store key
-    CFMutableDictionaryRef imps = (CFMutableDictionaryRef)objc_getAssociatedObject(self, EMKMethodReplacementReplacementImplementations);
+    CFMutableDictionaryRef imps = (CFMutableDictionaryRef)objc_getAssociatedObject(self, EMKMethodSwizzlingReplacementImplementations);
     if (imps == NULL)
     {
         imps = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
-        objc_setAssociatedObject(self, EMKMethodReplacementReplacementImplementations, (id)imps, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, EMKMethodSwizzlingReplacementImplementations, (id)imps, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     CFDictionarySetValue(imps, key, originalImp);
     
@@ -79,7 +79,7 @@ NSString * const EMKMethodReplacementReplacementImplementations = @"EMKMethodRep
     Class class = self;
     while (imp == NULL)
     {
-        CFMutableDictionaryRef imps = (CFMutableDictionaryRef)objc_getAssociatedObject(class, EMKMethodReplacementReplacementImplementations);
+        CFMutableDictionaryRef imps = (CFMutableDictionaryRef)objc_getAssociatedObject(class, EMKMethodSwizzlingReplacementImplementations);
         
         if (imps != NULL)
         {
