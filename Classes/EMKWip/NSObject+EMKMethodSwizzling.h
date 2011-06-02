@@ -15,7 +15,7 @@
 //This is due to the face that the order that categories are loaded and added to a class are not
 //known at compile time.
 //It would be possible to manage the order that methods are called once they've been loaded,
-//providing that?????
+//providing that all methods were added with these methods rather than overriding directly with a category
 +(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementation:(IMP)newImplementation;
 +(IMP)EMK_instanceMethodForSelector:(SEL)selector replacedByImplementation:(IMP)laterImplementation;
 
