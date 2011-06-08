@@ -1,5 +1,5 @@
 //
-//  EMKSectionController.m
+//  EMKSectionsController.m
 //  SectionKeyPathDemo
 //
 //  Created by Benedict Cohen on 04/06/2011.
@@ -10,19 +10,13 @@
 
 
 @interface EMKSectionsController ()
+@property(readwrite, nonatomic, assign) int avalibleDelegateMethods;
 @property(readwrite, nonatomic, retain) NSIndexSet *availableIndexes;
-@property(readwrite, nonatomic, retain) NSArray *availableSectionNames;
+@property(readwrite, nonatomic, retain) NSIndexSet *availableNonPassiveIndexes;
 
 @property(readwrite, nonatomic, retain) NSArray *arrangedSections;
 @property(readwrite, nonatomic, retain) NSArray *arrangedSectionIndexTitles;
 
-
-@property(readwrite, nonatomic, retain) EMKSectionsController *sectionsControllerPriorToUpdate;
-@property(readwrite, nonatomic, assign) BOOL isArchive;
-@property(readwrite, nonatomic, assign) BOOL hasChangesPending;
-@property(readwrite, nonatomic, assign) BOOL isUpdating;
-@property(readwrite, nonatomic, retain) id updateContext;
-@property(readwrite, nonatomic, assign) int avalibleDelegateMethods;
 
 -(void)calculateArrangedSections;
 -(void)invalidateArrangedSections;
@@ -31,14 +25,16 @@
 @end
 
 
-enum EMKSectionControllerDelegateMethods
+enum EMKSectionsControllerDelegateMethods
 {
     EMKSectionsControllerDelegateSectionNameForSectionMethod  = 1 << 0,
     
     EMKSectionsControllerDelegateSectionIndexTitleForSectionMethod = 1 << 1,    
     EMKSectionsControllerDelegateSectionIndexTitleForStaticSectionNameMethod = 1 << 2,    
     
-    EMKSectionsControllerDelegateObjectAtIndexOfSectionMethod = 1 << 3,
+    EMKSectionsControllerDelegateNumberOfObjectsInSectionMethod = 1 << 3,    
+    EMKSectionsControllerDelegateObjectAtIndexOfSectionMethod = 1 << 4,
+    
 };
 
 
@@ -47,14 +43,24 @@ enum EMKSectionControllerDelegateMethods
 @implementation EMKSectionsController
 
 #pragma mark class methods
++(id)sectionsControllerWithStaticSectionNames:(NSArray *)staticSectionNames passiveStaticSectionNames:(NSArray *)passiveStaticSectionNames delegate:(id<EMKSectionsControllerDelegate>)delegate
+{
+    EMKSectionsController *sectionController = [[self new] autorelease];
+    sectionController.staticSectionNames = staticSectionNames;
+    sectionController.passiveStaticSectionNames = passiveStaticSectionNames;
+    sectionController.delegate = delegate;
+    
+    return sectionController;    
+}
 
 
 
 #pragma mark properties
 //In
 @synthesize avalibleDelegateMethods = avalibleDelegateMethods_;
+@synthesize availableNonPassiveIndexes = availableNonPassiveIndexes_;
 @synthesize delegate = delegate_;
--(void)setDelegate:(id<EMKSectionControllerDelegate>)delegate
+-(void)setDelegate:(id<EMKSectionsControllerDelegate>)delegate
 {
     if (delegate == delegate_) return;
 
@@ -63,26 +69,31 @@ enum EMKSectionControllerDelegateMethods
     delegate_ = delegate;
     
     int avalibleDelegateMethods = 0;
-    if ([delegate respondsToSelector:@selector(sectionController:sectionNameForSection:)])
+    if ([delegate respondsToSelector:@selector(sectionsController:sectionNameForSection:)])
     {
         avalibleDelegateMethods = avalibleDelegateMethods | EMKSectionsControllerDelegateSectionNameForSectionMethod;
     }
     else
     {
-        NSLog(@"WARNING: %@(%p) does not respond to sectionController:sectionIndexTitleForSection:", NSStringFromClass([delegate class]), delegate);
+        NSLog(@"WARNING: %@(%p) does not respond to sectionsController:sectionIndexTitleForSection:", NSStringFromClass([delegate class]), delegate);
     }
     
-    if ([delegate respondsToSelector:@selector(sectionController:sectionIndexTitleForSection:)])
+    if ([delegate respondsToSelector:@selector(sectionsController:sectionIndexTitleForSection:)])
     {
         avalibleDelegateMethods = avalibleDelegateMethods | EMKSectionsControllerDelegateSectionIndexTitleForSectionMethod;
     }
 
-    if ([delegate respondsToSelector:@selector(sectionController:sectionIndexTitleForStaticSectionName:)])
+    if ([delegate respondsToSelector:@selector(sectionsController:sectionIndexTitleForStaticSectionName:)])
     {
         avalibleDelegateMethods = avalibleDelegateMethods | EMKSectionsControllerDelegateSectionIndexTitleForStaticSectionNameMethod;
     }
+    
+    if ([delegate respondsToSelector:@selector(sectionsController:numberOfObjectsInSection:)])
+    {
+        avalibleDelegateMethods = avalibleDelegateMethods | EMKSectionsControllerDelegateNumberOfObjectsInSectionMethod;
+    }
 
-    if ([delegate respondsToSelector:@selector(sectionController:objectAtIndex:ofSection:)])
+    if ([delegate respondsToSelector:@selector(sectionsController:objectAtIndex:ofSection:)])
     {
         avalibleDelegateMethods = avalibleDelegateMethods | EMKSectionsControllerDelegateObjectAtIndexOfSectionMethod;
     }
@@ -157,7 +168,7 @@ enum EMKSectionControllerDelegateMethods
         }
         
         
-        return 0;
+        return NSOrderedSame;
     };
     
     self.sectionNameComparator = comparator;
@@ -166,10 +177,11 @@ enum EMKSectionControllerDelegateMethods
 }
 
 
+
 @synthesize sections = sections_;
 -(void)setSections:(NSArray *)sections
 {
-    if (sections == sections_) return;
+    if ([sections isEqualToArray:sections_]) return;
     
     [self invalidateArrangedSections];    
 
@@ -178,28 +190,21 @@ enum EMKSectionControllerDelegateMethods
 }
 
 
-@synthesize staticSectionNameForIndexTitleHeadSelectionSnapping = staticSectionNameForIndexTitleHeadSelectionSnapping_;
--(void)setStaticSectionNameForIndexTitleHeadSelectionSnapping:(NSString *)staticSectionNameForIndexTitleHeadSelectionSnapping
+@synthesize passiveStaticSectionNames = passiveStaticSectionNames_;
+-(void)setPassiveStaticSectionNames:(NSArray *)passiveStaticSectionNames
 {
-    if (staticSectionNameForIndexTitleHeadSelectionSnapping == staticSectionNameForIndexTitleHeadSelectionSnapping_) return;
+    if (passiveStaticSectionNames == passiveStaticSectionNames_) return;
     
     [self invalidateArrangedSections];
 
-    [staticSectionNameForIndexTitleHeadSelectionSnapping_ release];
-    staticSectionNameForIndexTitleHeadSelectionSnapping_ = [staticSectionNameForIndexTitleHeadSelectionSnapping copy];
+    [passiveStaticSectionNames_ release];
+    passiveStaticSectionNames_ = [passiveStaticSectionNames copy];
 }
 
 
 
 //Out
 @synthesize availableIndexes = availableIndexes_; //private
-@synthesize availableSectionNames = arrangedSectionNames_; //private
--(NSArray *)availableSectionNames
-{
-    [self calculateArrangedSections];
-    return arrangedSectionNames_;
-}
-
 
 @synthesize arrangedSections = arrangedSections_;
 -(NSArray *)arrangedSections
@@ -218,72 +223,6 @@ enum EMKSectionControllerDelegateMethods
 
 
 
-//Updating
-@synthesize isUpdating = isUpdating_;
-@synthesize isArchive = isArchive_;
-@synthesize updateContext = updateContext_;
-@synthesize hasChangesPending = hasChangesPending_;
--(BOOL)hasChangesPending
-{
-    if (!self.isUpdating)
-    {
-        NSLog(@"WARNING: Accessed hasChangesPending while not updating");
-        return NO;
-    }
-    
-    return hasChangesPending_;
-}
-
-
-
-@synthesize sectionsControllerPriorToUpdate = sectionsControllerPriorToUpdate_;
--(EMKSectionsController *)sectionsControllerPriorToUpdate
-{
-    if (!self.isUpdating)
-    {
-        NSLog(@"WARNING: Accessed sectionsControllerPriorToUpdate while not updating");
-        return nil;
-    }
-    
-    return sectionsControllerPriorToUpdate_;
-}
-
-
-
--(void)beginUpdate:(id)context
-{
-    if (self.isUpdating)
-    {
-		NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@:]: Attempted to beginUpdate before ending pervious update", NSStringFromClass([self class]), NSStringFromSelector(_cmd)];
-        [[NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil] raise];
-        return;
-    }
-    
-    //update self
-    self.updateContext = context;
-    self.isUpdating = YES;
-    
-    //create clone
-    EMKSectionsController *clone = [[self copy] autorelease];
-    clone.isUpdating = NO;
-    clone.isArchive = YES;
-    self.sectionsControllerPriorToUpdate = clone;
-}
-
-
-
--(void)endUpdate
-{
-    self.isUpdating = NO;
-    self.hasChangesPending = NO;
-    self.updateContext = nil;    
-    self.sectionsControllerPriorToUpdate = nil;
-}
-
-
-
-
-
 
 #pragma mark memory managment
 -(id)copy
@@ -292,15 +231,13 @@ enum EMKSectionControllerDelegateMethods
     clone->arrangedSectionIndexTitles_ = [self.arrangedSectionIndexTitles copy];
     clone->arrangedSections_ = [self.arrangedSections copy];
     clone->availableIndexes_ = [self.availableIndexes copy];
-    clone.isArchive = self.isArchive;
-    clone.isUpdating = self.isUpdating;
-    clone.updateContext = self.updateContext;
+    clone->availableNonPassiveIndexes_ = [self.availableNonPassiveIndexes copy];
     
     clone->delegate_ = self.delegate;
     clone->hidesIndexTitleForStaticSectionNamesAbscentFromSections_ = self.hidesIndexTitleForStaticSectionNamesAbscentFromSections;
     clone->staticSectionNames_ = [self.staticSectionNames copy];
     clone->sections_ = [self.sections copy];
-    clone->staticSectionNameForIndexTitleHeadSelectionSnapping_ = [self.staticSectionNameForIndexTitleHeadSelectionSnapping copy];
+    clone->passiveStaticSectionNames_ = [self.passiveStaticSectionNames copy];
     
     //Out
     clone->arrangedSections_ = [self.arrangedSections copy];
@@ -312,13 +249,12 @@ enum EMKSectionControllerDelegateMethods
 
 -(void)dealloc
 {
-    [arrangedSectionNames_ release];
     [staticSectionNames_ release];
     [sections_ release];
     [arrangedSectionIndexTitles_ release];
     [arrangedSections_ release];
     [availableIndexes_ release];
-    [updateContext_ release];
+    [availableNonPassiveIndexes_ release];
     
     [super dealloc];
 }
@@ -329,12 +265,6 @@ enum EMKSectionControllerDelegateMethods
 //TODO: Rename these so that the name reflects the fact that the invalidate arrangedSectionIndexTitles and arrangedSections.
 -(void)invalidateArrangedSections
 {
-    if (self.isUpdating)
-    {
-        self.hasChangesPending = YES;
-        //TODO: ensure that ALL setters trigger invalidateArrangedSections
-    }
-    
     self.arrangedSections = nil;
 }
 
@@ -347,14 +277,13 @@ enum EMKSectionControllerDelegateMethods
     if (shouldCalculateArrangedSections == NO) return;
 
     NSUInteger sectionCount = [self.sections count];
-    id<EMKSectionControllerDelegate> delegate = self.delegate;
 
     
     //1. store the sections so that we can efficently access them by sectionName
     NSMutableDictionary *sectionsBySectionName = [NSMutableDictionary dictionaryWithCapacity:sectionCount];
     for (id section in self.sections)
     {
-        NSString *sectionName = [delegate sectionController:self sectionNameForSection:section];
+        NSString *sectionName = [self sectionNameForSection:section];
         [sectionsBySectionName setObject:section forKey:sectionName];
     }
     
@@ -369,8 +298,7 @@ enum EMKSectionControllerDelegateMethods
     NSMutableArray *arrangedSectionIndexTitles = [NSMutableArray arrayWithCapacity:sectionCount];
 
     NSMutableIndexSet *availableIndexes = [NSMutableIndexSet indexSet];
-    NSMutableArray *availableSectionNames = [NSMutableArray arrayWithCapacity:sectionCount];
-    
+    NSMutableIndexSet *availableNonPassiveIndexes = [NSMutableIndexSet indexSet];
 
     int sectionIndex = 0;
     for (NSString *sectionName in arrangedSectionNames)
@@ -383,7 +311,11 @@ enum EMKSectionControllerDelegateMethods
             [arrangedSections addObject:section];
             
             [availableIndexes addIndex:sectionIndex];
-            [availableSectionNames addObject:sectionName];
+            if (![self.passiveStaticSectionNames containsObject:sectionName])
+            {
+                [availableNonPassiveIndexes addIndex:sectionIndex];
+            }
+            
         }
         else
         {
@@ -400,14 +332,22 @@ enum EMKSectionControllerDelegateMethods
     self.arrangedSectionIndexTitles = arrangedSectionIndexTitles;
     
     self.availableIndexes = availableIndexes;
-    self.availableSectionNames = availableSectionNames;
+    self.availableNonPassiveIndexes = availableNonPassiveIndexes;
 }
 
 
 
+#pragma mark sectionName method
+//this is fundamental
+-(NSString *)sectionNameForSection:(id)section
+{
+    //we don't check for that delegate responds because this is a required method
+    return [self.delegate sectionsController:self sectionNameForSection:section];    
+}
 
 
-#pragma mark data access
+
+#pragma mark sectionIndexTitle methods
 //table view related information about sections
 -(NSUInteger)sectionForSectionIndexTitleAtIndex:(NSUInteger)sectionIndex
 {
@@ -425,19 +365,12 @@ enum EMKSectionControllerDelegateMethods
     }
     else
     {
-        //'closest' means greatest index in the set 'avalibleIndexes smaller than requestIndex'
-        NSUInteger closestIndex = [availableIndexes indexLessThanIndex:sectionIndex];
-        NSUInteger indexFloor = [self.staticSectionNames indexOfObject:self.staticSectionNameForIndexTitleHeadSelectionSnapping];
-        //2. else if closest index is great than indexFloor use closest index
-        if (closestIndex > indexFloor && closestIndex != NSNotFound)
-        {
-            targetIndex = closestIndex;
-        }
-        else
-        {
-            //3. else use index floor
-            targetIndex = [availableIndexes indexGreaterThanOrEqualToIndex:indexFloor];
-        }
+        //'closest' means greatest index in the set 'nonPassiveAvailableIndexes that is smaller than requestIndex'
+        NSIndexSet *nonPassiveAvailableIndexes = self.availableNonPassiveIndexes;
+        NSUInteger closestIndex = [nonPassiveAvailableIndexes indexLessThanIndex:sectionIndex];
+
+        //2. if there is no 'closest index', use the lowest available non-passive index
+        targetIndex = (closestIndex != NSNotFound) ? closestIndex : [nonPassiveAvailableIndexes firstIndex];
     }
 
     //return the index of target section in arrangedSectionIndexTitles
@@ -453,12 +386,12 @@ enum EMKSectionControllerDelegateMethods
     NSString *sectionIndexTitle = nil;
     if (self.avalibleDelegateMethods & EMKSectionsControllerDelegateSectionIndexTitleForSectionMethod)
     {
-        sectionIndexTitle = [self.delegate sectionController:self sectionIndexTitleForSection:section];
+        sectionIndexTitle = [self.delegate sectionsController:self sectionIndexTitleForSection:section];
     }
 
     if (sectionIndexTitle) return sectionIndexTitle;
         
-    NSString *sectionName = [self.delegate sectionController:self sectionNameForSection:section];
+    NSString *sectionName = [self.delegate sectionsController:self sectionNameForSection:section];
         
     return [self defaultSectionIndexTitleForSectionName:sectionName];
 }
@@ -470,7 +403,7 @@ enum EMKSectionControllerDelegateMethods
     NSString *sectionIndexTitle = nil;
     if (self.avalibleDelegateMethods & EMKSectionsControllerDelegateSectionIndexTitleForStaticSectionNameMethod)
     {
-        sectionIndexTitle =  [self.delegate sectionController:self sectionIndexTitleForStaticSectionName:staticSectionName];
+        sectionIndexTitle =  [self.delegate sectionsController:self sectionIndexTitleForStaticSectionName:staticSectionName];
     }
 
     return (sectionIndexTitle) ?: [self defaultSectionIndexTitleForSectionName:staticSectionName];    
@@ -484,6 +417,8 @@ enum EMKSectionControllerDelegateMethods
 }
 
 
+
+#pragma mark facilitating object access
 //accessing sections and objects
 -(id)sectionAtIndex:(NSUInteger)section
 {
@@ -492,18 +427,41 @@ enum EMKSectionControllerDelegateMethods
 
 
 
+-(NSString *)sectionNameAtIndex:(NSUInteger)section
+{
+    return [self sectionNameForSection:[self sectionAtIndex:section]];
+}
+
+
+
+-(NSUInteger)numberOfRowsInSectionAtIndex:(NSUInteger)index
+{
+//    if ((self.avalibleDelegateMethods & EMKSectionsControllerDelegateNumberOfObjectsInSectionMethod) == 0) 
+//    {
+//		NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@:]: delegate does not respond to sectionsController:numberOfObjectsInSection:", NSStringFromClass([self class]), NSStringFromSelector(_cmd)];
+//        [[NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil] raise];
+//        return nil;
+//    }
+    
+    id section = [self sectionAtIndex:index];
+    
+    return [self.delegate sectionsController:self numberOfObjectsInSection:section];
+}
+
+
+
 -(id)objectAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((self.avalibleDelegateMethods & EMKSectionsControllerDelegateObjectAtIndexOfSectionMethod) == 0) 
-    {
-		NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@:]: delegate does not respond to sectionController:objectAtIndex:ofSection:", NSStringFromClass([self class]), NSStringFromSelector(_cmd)];
-        [[NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil] raise];
-        return nil;
-    }
+//    if ((self.avalibleDelegateMethods & EMKSectionsControllerDelegateObjectAtIndexOfSectionMethod) == 0) 
+//    {
+//		NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@:]: delegate does not respond to sectionsController:objectAtIndex:ofSection:", NSStringFromClass([self class]), NSStringFromSelector(_cmd)];
+//        [[NSException exceptionWithName:NSInvalidArgumentException reason:reason userInfo:nil] raise];
+//        return nil;
+//    }
     
-    id section = [self.arrangedSections objectAtIndex:indexPath.section];
+    id section = [self sectionAtIndex:indexPath.section];
     
-    return [self.delegate sectionController:self objectAtIndex:indexPath.row ofSection:section];
+    return [self.delegate sectionsController:self objectAtIndex:indexPath.row ofSection:section];
 }
 
 
