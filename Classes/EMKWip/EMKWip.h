@@ -14,19 +14,16 @@
 
 #import "EMKPantry.h"
 
-#import "EMKSetController.h"
-#import "EMKSetControllerObjectChangeDescription.h"
-#import "EMKSetControllerSection.h"
-#import "EMKSetControllerSectionChangeDescription.h"
-#import "EMKSetControllerSectionInfo.h"
-
+#import "EMKSectionsController.h"
+#import "EMKSectionsController+NSFetchedResultsControllerUpdate.h"
+#import "UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.h"
 
 #import "EMKStateArchiving.h"
 #import "EMKWebCacheController.h"
 #import "EMKObjectMappingTableViewController.h"
 #import "NSFileHandle+EMKTemporaryFile.h"
 
-#import "NSObject+EMKMethodReplacement.h"
+#import "NSObject+EMKMethodSwizzling.h"
 #import "NSObject+EMKRuntimeProperties.h"
 
 #import "UINavigationBar+EMKBackgroundView.h"
