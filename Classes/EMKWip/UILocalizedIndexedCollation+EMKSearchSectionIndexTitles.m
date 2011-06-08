@@ -8,6 +8,27 @@
 
 #import "UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.h"
 
-@implementation UILocalizedIndexedCollation (UILocalizedIndexedCollation_EMKSearchSectionIndexTitles)
+
+@implementation UILocalizedIndexedCollation (EMKSearchSectionIndexTitles)
+
+
+-(NSString *)EMK_searchIndexTitle
+{
+    static NSString * const searchIndexTitle = @"{search}";
+    
+    return searchIndexTitle;
+}
+
+
+
+-(NSArray *)EMK_sectionIndexTitlesWithSearch
+{
+    NSArray *search = [[NSArray alloc] initWithObjects:[self EMK_searchIndexTitle], nil];
+    NSArray *sectionIndexTitles = [search arrayByAddingObjectsFromArray:self.sectionIndexTitles];
+    [search release];
+    
+    return sectionIndexTitles;
+}
+
 
 @end

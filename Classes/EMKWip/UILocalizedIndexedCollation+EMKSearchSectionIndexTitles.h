@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UILocalizedIndexedCollation (UILocalizedIndexedCollation_EMKSearchSectionIndexTitles)
+@interface UILocalizedIndexedCollation (EMKSearchSectionIndexTitles)
+
+-(NSString *)EMK_searchIndexTitle;
+-(NSArray *)EMK_sectionIndexTitlesWithSearch;
+
 
 @end
