@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <SenTestingKit/SenTestingKit.h>
 
 @interface NSObject_EMKKVOSelectorTests : SenTestCase {
     

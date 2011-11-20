@@ -6,6 +6,7 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
+#import <SenTestingKit/SenTestingKit.h>
 #import <Foundation/Foundation.h>
 
 
