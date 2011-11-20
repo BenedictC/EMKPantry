@@ -94,7 +94,7 @@ NSString * const EMKMethodSwizzlingReplacementImplementations = @"EMKMethodSwizz
 
 
 
-+(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementationBlock:(void *(^)(id, SEL, ...))impBlock
++(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementationBlock:(id(^)(id, ...))impBlock
 {
     [self EMK_replaceInstanceMethodForSelector:selector withImplementation:imp_implementationWithBlock(impBlock)];
 }

@@ -19,7 +19,7 @@
 +(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementation:(IMP)newImplementation;
 +(IMP)EMK_instanceMethodForSelector:(SEL)selector replacedByImplementation:(IMP)laterImplementation;
 
-+(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementationBlock:(void *(^)(id, SEL, ...))impBlock;
++(void)EMK_replaceInstanceMethodForSelector:(SEL)selector withImplementationBlock:(id(^)(id, ...))impBlock;
 
 
 @end
