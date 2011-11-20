@@ -8,12 +8,11 @@
 
 #import "EMKRootViewController.h"
 
-#import "EMKSetControllerViewController.h"
 #import "EMKTypedArrayViewController.h"
 #import "EMKAssociateDelegateViewController.h"
 #import "EMKViewViewController.h"
 #import "EMKOperationAndInvocationViewController.h"
-
+#import "EMKViewAnimationSequencesViewController.h"
 
 @interface EMKRootViewController ()
 @property(readwrite, retain, nonatomic) NSDictionary *subVCs;
@@ -67,7 +66,7 @@
 
     //set up subvcs
     NSMutableDictionary *subVCs = [NSMutableDictionary dictionaryWithCapacity:10];
-    [subVCs setObject:[EMKSetControllerViewController class] forKey:@"EMKSetController (WIP)"];
+    [subVCs setObject:[EMKViewAnimationSequencesViewController class] forKey:@"EMKViewAnimationSequencesViewController"];
     [subVCs setObject:[EMKTypedArrayViewController class] forKey:@"EMKTypedArray"];
     [subVCs setObject:[EMKAssociateDelegateViewController class] forKey:@"EMKAssociateDelegate"];
     [subVCs setObject:[EMKViewViewController class] forKey:@"EMKView"];    

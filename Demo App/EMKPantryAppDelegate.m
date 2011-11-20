@@ -51,12 +51,30 @@
     EMKRootViewController *rootVC = [EMKRootViewController EMK_viewControllerWithDefaultNib];
     
     UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
+    navController.navigationBar.tintColor = [UIColor clearColor];
+    
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     
     self.viewController = navController;
 
+    NSLog(@"%i", [@"é" localizedCaseInsensitiveCompare:@"e"]);        
+    NSLog(@"%i", [@"ê" localizedCaseInsensitiveCompare:@"e"]);    
+    NSLog(@"%i", [@"e" localizedCaseInsensitiveCompare:@"e"]);        
     
+    NSLog(@"%i", [@"e" localizedCaseInsensitiveCompare:@"ƒ"]);    
+    NSLog(@"%i", [@"f" localizedCaseInsensitiveCompare:@"ƒ"]);
+    NSLog(@"%i", [@"g" localizedCaseInsensitiveCompare:@"ƒ"]);    
+    
+    NSLog(@"%i", [@"f" localizedCaseInsensitiveCompare:@"f"]);    
+
+    NSLog(@"%@",[[NSArray arrayWithObjects:@"ƒake", @"feck", @"full", nil] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);
+    NSLog(@"%@",[[NSArray arrayWithObjects:@"fake", @"ƒeck", @"ƒull", nil] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);    
+
+    
+    NSLog(@"%@",[[NSArray arrayWithObjects:[@"éake" decomposedStringWithCanonicalMapping], [@"feck" decomposedStringWithCanonicalMapping], [@"full" decomposedStringWithCanonicalMapping], nil] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);
+    NSLog(@"%@",[[NSArray arrayWithObjects:[@"fake" decomposedStringWithCanonicalMapping], [@"éeck" decomposedStringWithCanonicalMapping], [@"ull" decomposedStringWithCanonicalMapping], nil] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]);    
+
     
     return YES;
 }
