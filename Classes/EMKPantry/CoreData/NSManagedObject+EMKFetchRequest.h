@@ -6,9 +6,9 @@
 //  Copyright 2011 Benedict Cohen. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
-
+#ifdef NSCoreDataVersionNumber_iPhoneOS_3_0
 @interface NSManagedObject (EMKFetchRequest)
 
 +(NSFetchRequest *)EMK_fetchRequestForDefaultEntityWithSortKey:(NSString *)sortKey inContext:(NSManagedObjectContext *)context;
@@ -25,3 +25,4 @@
 +(NSString *)defaultEntityName; //informal protocol
 
 @end
+#endif
