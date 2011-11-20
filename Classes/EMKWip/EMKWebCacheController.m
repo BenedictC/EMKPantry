@@ -9,6 +9,17 @@
 #import "EMKWebCacheController.h"
 
 
+/*
+ 
+ What do I want this class to do?
+ 
+ - Rename to HTTP instead of Web
+ - Use a shared directory or allow multiple directories?
+ - Cache invalidation
+ 
+ */
+
+
 @interface EMKWebCacheController ()
 +(NSString *)cachePath;
 +(NSString *)cachePathForRemoteUrl:(NSURL *)url;
