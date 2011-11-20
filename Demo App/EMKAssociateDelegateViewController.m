@@ -56,7 +56,7 @@
     
     //fetch the associate delegate from the object
     EMKAssociateDelegate *delegate1 = [self.textField1 EMK_associateDelegate];
-    [delegate1 respondToSelector:selector typeEncoding:types usingBlock:^(id bSelf, UITextField *textField, NSRange range, NSString *replacementString)
+    [delegate1 respondToSelector:selector typeEncoding:types usingBlock:(id(^)(id, ...))^(id bSelf, UITextField *textField, NSRange range, NSString *replacementString)
      {
          //Numbers only
          return ([replacementString intValue] != 0 || [replacementString isEqualToString:@"0"] || [replacementString length] == 0);
@@ -65,7 +65,7 @@
     
     
     EMKAssociateDelegate *delegate2 = [self.textField2 EMK_associateDelegate];
-    [delegate2 respondToSelector:selector typeEncoding:types usingBlock:^(id bSelf, UITextField *textField, NSRange range, NSString *replacementString)
+    [delegate2 respondToSelector:selector typeEncoding:types usingBlock:(id(^)(id, ...))^(id bSelf, UITextField *textField, NSRange range, NSString *replacementString)
      {
          //Update title
          self.title = [NSString stringWithFormat:@"TextField 2 Length: %i", [[textField.text stringByReplacingCharactersInRange:range withString:replacementString] length]];
