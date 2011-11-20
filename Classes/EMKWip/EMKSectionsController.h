@@ -37,7 +37,7 @@
  - nil sections
  - Change comparator so that nil returns nil and the default comparator is never exposed
  
- 
+ Try putting search in the table header
  
 */
 
@@ -51,7 +51,10 @@
 @optional
 //indexTitle creation
 //the default implementation uses the first letter of the sectionName. Return nil to use the default sectionIndexTitle
+-(BOOL)sectionsController:(EMKSectionsController *)sectionsController shouldShowIndexTitleForSection:(id)section;
 -(NSString *)sectionsController:(EMKSectionsController *)sectionsController sectionIndexTitleForSection:(id)section;
+
+-(BOOL)sectionsController:(EMKSectionsController *)sectionsController shouldShowIndexTitleForStaticSectionName:(NSString *)staticSectionName;
 -(NSString *)sectionsController:(EMKSectionsController *)sectionsController sectionIndexTitleForStaticSectionName:(NSString *)staticSectionName;
 
 //facilitating object access
@@ -86,10 +89,8 @@
 @property(readwrite, nonatomic, copy) NSArray *staticSectionNames;
 @property(readwrite, nonatomic, copy) NSComparator sectionNameComparator;  //when set to nil (the default) returns a comparator that sorts on sectionName by staticSectionNames, then asscending by sectionName using localizedStandardCompare:
 
-//Index appearance and behaviour
-@property(readwrite, nonatomic, assign) BOOL hidesIndexTitleForStaticSectionNamesAbscentFromSections;
+//Index selection behaviour
 @property(readwrite, nonatomic, copy) NSArray *passiveStaticSectionNames;
-
 
 
 
@@ -100,6 +101,7 @@
 
 //get sectionNames
 -(NSString *)sectionNameForSection:(id)section; //calls thru to the 1 required delegate method
+-(BOOL)showsIndexTitleForSection:(id)section;
 
 //table view related information about sections
 // Specifies the section that should be scrolled to for the title at the given index.

@@ -13,5 +13,6 @@
 -(NSString *)EMK_searchIndexTitle;
 -(NSArray *)EMK_sectionIndexTitlesWithSearch;
 
+-(NSArray *)EMK_partitionObjects:(NSArray *)objects collationStringSelector:(SEL)selector;
 
 @end

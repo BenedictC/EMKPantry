@@ -26,5 +26,5 @@
 #import "NSObject+EMKMethodSwizzling.h"
 #import "NSObject+EMKRuntimeProperties.h"
 
-#import "UINavigationBar+EMKBackgroundView.h"
+//#import "UINavigationBar+EMKBackgroundView.h"
 #import "UIImage+EMKTintedImage.h"

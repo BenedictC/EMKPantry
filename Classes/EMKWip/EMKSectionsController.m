@@ -104,15 +104,15 @@ enum EMKSectionsControllerDelegateMethods
 
 
 
-@synthesize hidesIndexTitleForStaticSectionNamesAbscentFromSections = hidesIndexTitleForStaticSectionNamesAbscentFromSections_;
--(void)setHidesIndexTitleForStaticSectionNamesAbscentFromSections:(BOOL)hidesIndexTitleForStaticSectionNamesAbscentFromSections
-{
-    if (hidesIndexTitleForStaticSectionNamesAbscentFromSections == hidesIndexTitleForStaticSectionNamesAbscentFromSections_) return;
-    
-    [self invalidateArrangedSections];
-    
-    hidesIndexTitleForStaticSectionNamesAbscentFromSections_ = hidesIndexTitleForStaticSectionNamesAbscentFromSections;
-}
+//@synthesize hidesIndexTitleForStaticSectionNamesAbscentFromSections = hidesIndexTitleForStaticSectionNamesAbscentFromSections_;
+//-(void)setHidesIndexTitleForStaticSectionNamesAbscentFromSections:(BOOL)hidesIndexTitleForStaticSectionNamesAbscentFromSections
+//{
+//    if (hidesIndexTitleForStaticSectionNamesAbscentFromSections == hidesIndexTitleForStaticSectionNamesAbscentFromSections_) return;
+//    
+//    [self invalidateArrangedSections];
+//    
+//    hidesIndexTitleForStaticSectionNamesAbscentFromSections_ = hidesIndexTitleForStaticSectionNamesAbscentFromSections;
+//}
 
 
 @synthesize staticSectionNames = staticSectionNames_;
@@ -139,7 +139,7 @@ enum EMKSectionsControllerDelegateMethods
         NSUInteger index1 = [staticSectionNames indexOfObject:obj1];
         NSUInteger index2 = [staticSectionNames indexOfObject:obj2];
 
-        
+//        return (NSComparisonResult)[obj1 localizedStandardCompare:obj2];
         if (index1 != NSNotFound)
         {
             if (index2 != NSNotFound)
@@ -150,6 +150,8 @@ enum EMKSectionsControllerDelegateMethods
             else
             {
                 //Only index1 is in staticSectionNames
+                index2 = 1+[[UILocalizedIndexedCollation currentCollation] sectionForObject:obj2 collationStringSelector:@selector(description)];
+                return (index1 < index2) ? NSOrderedAscending : NSOrderedDescending;                
                 return NSOrderedAscending;
             }
         }
@@ -158,6 +160,8 @@ enum EMKSectionsControllerDelegateMethods
             if (index2 != NSNotFound)
             {
                 //Only index2 is in staticSectionNames
+                index1 = 1+[[UILocalizedIndexedCollation currentCollation] sectionForObject:obj1 collationStringSelector:@selector(description)];
+                return (index1 < index2) ? NSOrderedAscending : NSOrderedDescending;                
                 return NSOrderedDescending;
             }
             else
@@ -234,7 +238,7 @@ enum EMKSectionsControllerDelegateMethods
     clone->availableNonPassiveIndexes_ = [self.availableNonPassiveIndexes copy];
     
     clone->delegate_ = self.delegate;
-    clone->hidesIndexTitleForStaticSectionNamesAbscentFromSections_ = self.hidesIndexTitleForStaticSectionNamesAbscentFromSections;
+//    clone->hidesIndexTitleForStaticSectionNamesAbscentFromSections_ = self.hidesIndexTitleForStaticSectionNamesAbscentFromSections;
     clone->staticSectionNames_ = [self.staticSectionNames copy];
     clone->sections_ = [self.sections copy];
     clone->passiveStaticSectionNames_ = [self.passiveStaticSectionNames copy];
@@ -289,9 +293,7 @@ enum EMKSectionsControllerDelegateMethods
     
 
     //get the sectionNames for all the indexesTitles
-    NSArray *allSectionNames = (self.hidesIndexTitleForStaticSectionNamesAbscentFromSections) ? 
-                                 [sectionsBySectionName allKeys] 
-                               : [[NSSet setWithArray:[[sectionsBySectionName allKeys] arrayByAddingObjectsFromArray:self.staticSectionNames]] allObjects];
+    NSArray *allSectionNames = [[NSSet setWithArray:[[sectionsBySectionName allKeys] arrayByAddingObjectsFromArray:self.staticSectionNames]] allObjects];
     NSArray *arrangedSectionNames = [allSectionNames sortedArrayUsingComparator:self.sectionNameComparator];
     
     NSMutableArray *arrangedSections = [NSMutableArray arrayWithCapacity:sectionCount];
@@ -307,17 +309,24 @@ enum EMKSectionsControllerDelegateMethods
 
         if (section)
         {
-            [arrangedSectionIndexTitles addObject:[self sectionIndexTitleForSection:section]];
             [arrangedSections addObject:section];
+
+//            BOOL arf = [self.delegate sectionController:self shouldShowIndexTitleForSection:section];
+            BOOL arf = [self.staticSectionNames containsObject:sectionName];
             
-            [availableIndexes addIndex:sectionIndex];
-            if (![self.passiveStaticSectionNames containsObject:sectionName])
+            if (arf) 
             {
-                [availableNonPassiveIndexes addIndex:sectionIndex];
+                [arrangedSectionIndexTitles addObject:[self sectionIndexTitleForSection:section]];            
+                [availableIndexes addIndex:sectionIndex];
+                if (![self.passiveStaticSectionNames containsObject:sectionName])
+                {
+                    [availableNonPassiveIndexes addIndex:sectionIndex];
+                }
             }
             
+            
         }
-        else
+        else if (YES || [self.delegate sectionsController:self shouldShowIndexTitleForStaticSectionName:sectionName])
         {
             [arrangedSectionIndexTitles addObject:[self sectionIndexTitleForStaticSectionName:sectionName]];            
         }
@@ -346,13 +355,20 @@ enum EMKSectionsControllerDelegateMethods
 }
 
 
+-(BOOL)showsSectionInSectionIndex:(id)section
+{
+    return NO;
+//    return [self.delegate sectionController:self shouldShowSectionInIndex:section];
+}
+
+
 
 #pragma mark sectionIndexTitle methods
 //table view related information about sections
 -(NSUInteger)sectionForSectionIndexTitleAtIndex:(NSUInteger)sectionIndex
 {
     //if the index only shows avaible sections then it's a simple 1 to 1 mapping of index to sections
-    if (self.hidesIndexTitleForStaticSectionNamesAbscentFromSections) return sectionIndex;
+//    if (self.hidesIndexTitleForStaticSectionNamesAbscentFromSections) return sectionIndex;
 
     NSIndexSet *availableIndexes = self.availableIndexes;
     

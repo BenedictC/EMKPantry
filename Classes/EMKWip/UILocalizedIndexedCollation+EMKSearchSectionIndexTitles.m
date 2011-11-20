@@ -31,4 +31,31 @@
 }
 
 
+
+-(NSArray *)EMK_partitionObjects:(NSArray *)objects collationStringSelector:(SEL)selector
+{
+    NSInteger sectionCount = [[self sectionIndexTitles] count];
+    
+    NSMutableArray *unsortedSections = [NSMutableArray arrayWithCapacity:sectionCount];
+    for(int i = 0; i < sectionCount; i++)
+    {
+        [unsortedSections addObject:[NSMutableArray array]];
+    }
+    
+    for (id object in objects)
+    {
+        NSInteger index = [self sectionForObject:object collationStringSelector:selector];
+        [[unsortedSections objectAtIndex:index] addObject:object];
+    }
+    
+    NSMutableArray *sections = [NSMutableArray arrayWithCapacity:sectionCount];
+    for (NSMutableArray *section in unsortedSections)
+    {
+        [sections addObject:[self sortedArrayFromArray:section collationStringSelector:selector]];
+    }
+    
+    return sections;
+}
+
+
 @end
