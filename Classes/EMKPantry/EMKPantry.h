@@ -57,6 +57,6 @@
 #import "UIView+EMKViewSearching.h"
 #import "UIViewController+EMKInitializers.h"
 #import "UIApplication+EMKApplicationDocumentsDirectory.h"
-
+#import "UIView+EMKAnimationSequence.h"
 
 
