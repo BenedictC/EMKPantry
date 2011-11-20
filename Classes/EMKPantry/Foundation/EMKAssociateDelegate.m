@@ -38,7 +38,7 @@
 
 
 #pragma mark instance methods
--(void)respondToSelector:(SEL)aSelector typeEncoding:(const char *)types usingBlock:(void *)block
+-(void)respondToSelector:(SEL)aSelector typeEncoding:(const char *)types usingBlock:(id(^)(id, ...))block
 {
     //copy block to the heap and keep a reference to it
     void *copiedBlock = Block_copy(block);
@@ -46,10 +46,10 @@
     self.blocks = (blocks) ? [blocks arrayByAddingObject:copiedBlock] : [NSArray arrayWithObject:copiedBlock];
     Block_release(copiedBlock);
     
-    
+    const char *genericTypes = [NSMethodSignature EMK_typesForMethodWithReturnType:@encode(void) argumentTypes:@encode(id),NULL];
     //get the IMP of the block and add it as an instance methods to this class
     IMP blockImp = imp_implementationWithBlock(copiedBlock);
-    class_addMethod([self class], aSelector, blockImp, types);
+    class_addMethod([self class], aSelector, blockImp, genericTypes);
 }
 
 

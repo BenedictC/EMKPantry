@@ -13,7 +13,7 @@
 #ifdef __IPHONE_4_3
 @interface EMKAssociateDelegate : NSObject 
 
--(void)respondToSelector:(SEL)aSelector typeEncoding:(const char *)types usingBlock:(void *)block;
+-(void)respondToSelector:(SEL)aSelector typeEncoding:(const char *)types usingBlock:(id(^)(id, ...))block;
 //-(void)removeBlockForSelector:(SEL)aSelector;
 
 @end
