@@ -23,7 +23,7 @@ EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationO
     Block_release(heapBlock);
 }
 
-`
+
 
 
 @implementation UIView (EMKAnimationSequence)
