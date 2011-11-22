@@ -12,72 +12,48 @@
 #pragma mark block creation
 EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationOptions options, NSTimeInterval duration, void (^animations)(void))
 {
+    //TODO: is the memory management for this correct?    
+    void *heapBlock = Block_copy(animations);
     return Block_copy(^(UIViewAnimationOptions *optionsOut, NSTimeInterval *durationOut, void (^*animationsOut)(void)){
         *optionsOut = options;
         *durationOut = duration;
-        *animationsOut = animations;
+        *animationsOut = heapBlock;
     });
+    
+    Block_release(heapBlock);
 }
 
-
+`
 
 
 @implementation UIView (EMKAnimationSequence)
 
 #pragma mark colating methods
-+(void)EMK_animateSequenceWithAnimationDescriptionBlocks:(EMKAnimationDescriptionBlock)firstAnimationDescriptionBlock,...
-{
-    NSMutableArray *animationDescriptionBlocks = [NSMutableArray array];
-    
-    va_list animationBlocks;
-    va_start(animationBlocks, firstAnimationDescriptionBlock);
-    EMKAnimationDescriptionBlock animationDescriptionBlock = firstAnimationDescriptionBlock;
-    
-    while (animationDescriptionBlock != NULL)
-    {
-        animationDescriptionBlock = Block_copy(animationDescriptionBlock);
-        [animationDescriptionBlocks addObject:animationDescriptionBlock];
-        Block_release(animationDescriptionBlock);
-        
-        //fetch next block        
-        animationDescriptionBlock = va_arg(animationBlocks, EMKAnimationDescriptionBlock);
-    }
-    
-    
-    va_end(animationBlocks);
-    
-    [self EMK_animateSequence:animationDescriptionBlocks];
-}
-
-
-
-
 +(void)EMK_animateSequenceWithDuration:(NSTimeInterval)duration animations:(void(^)(void))firstAnimation, ...
 {
     NSMutableArray *animationDescriptions = [NSMutableArray array];
     
+    //the varag list will only contain animation blocks and a nil sentinal
     va_list animationBlocks;
     va_start(animationBlocks, firstAnimation);
-    
+
+    //default/first animation description block settings    
     void *animationBlock = firstAnimation;
-//    NSTimeInterval duration = duration;
-    UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionNone;    
+    //NSTimeInterval duration = duration;
+    const UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionNone;    
     
     while (animationBlock != NULL)
     {
-        id copiedBlock = Block_copy(animationBlock);
-        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, copiedBlock);
-        
+        //create animation description and add it to array
+        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, animationBlock);
         [animationDescriptions addObject:animationDescription];
-        
         Block_release(animationDescription);
-        Block_release(copiedBlock);
         
         //fetch next block        
         animationBlock = va_arg(animationBlocks, void *);
     }
-    
-    
+
+    //tidy up
     va_end(animationBlocks);
     
     [self EMK_animateSequence:animationDescriptions];
@@ -90,33 +66,32 @@ EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationO
 {
     NSMutableArray *animationDescriptions = [NSMutableArray array];
     
+    //the varag list will be animationBlocks1, duration1, animationBlock2, duration2, ... and a nil sentinal    
+    //the block must be first as duration can legitmatley by 0.0 which == nil
     va_list animationBlocks;
     va_start(animationBlocks, firstAnimation);
     
-    void (^animationBlock)(void) = firstAnimation;
+    //default/first animation description block settings    
+    void (^animationBlock)(void) = firstAnimation;        
     NSTimeInterval duration = 0;    
     UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionNone;
+
     
     while (animationBlock != NULL)
     {
         //fetch duration
         duration = va_arg(animationBlocks, NSTimeInterval);            
-        //move the animation onto the heap
-        id copiedBlock = Block_copy(animationBlock);
 
         //create and store the animation description
-        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, copiedBlock);
+        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, animationBlock);
         [animationDescriptions addObject:animationDescription];
-        
-        //tidy up
-        Block_release(copiedBlock);
         Block_release(animationDescription);
         
         //fetch next animation block        
-        animationBlock = va_arg(animationBlocks,  void(^)(void));
+        animationBlock = va_arg(animationBlocks, void(^)(void));
     }
     
-    
+    //tidy up    
     va_end(animationBlocks);
     
     [self EMK_animateSequence:animationDescriptions];
@@ -129,9 +104,12 @@ EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationO
 {
     NSMutableArray *animationDescriptions = [NSMutableArray array];
     
+    //the varag list will be animationBlocks1, duration1, animationBlock2, duration2, ... and a nil sentinal    
+    //the block must be first as duration can legitmatley by 0.0 which == nil    
     va_list animationBlocks;
     va_start(animationBlocks, firstAnimation);
     
+    //default/first animation description block settings        
     void (^animationBlock)(void) = firstAnimation;
     NSTimeInterval duration = 0;    
     UIViewAnimationOptions options = UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionNone;
@@ -141,23 +119,18 @@ EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationO
         //fetch duration & options
         duration = va_arg(animationBlocks, NSTimeInterval);            
         options = va_arg(animationBlocks, UIViewAnimationOptions);                    
-        //move the animation onto the heap
-        id copiedBlock = Block_copy(animationBlock);
-        
+
         //create and store the animation description
-        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, copiedBlock);
+        EMKAnimationDescriptionBlock animationDescription = EMKAnimationDescriptionBlockCreate(options, duration, animationBlock);
         [animationDescriptions addObject:animationDescription];
-        
-        //tidy up
-        Block_release(copiedBlock);
-        Block_release(animationDescription);
+        Block_release(animationDescription);        
         
         //fetch next animation block        
         animationBlock = va_arg(animationBlocks,  void(^)(void));
         
     }
     
-    
+    //tidy up    
     va_end(animationBlocks);
     
     [self EMK_animateSequence:animationDescriptions];
@@ -166,8 +139,36 @@ EMKAnimationDescriptionBlock EMKAnimationDescriptionBlockCreate(UIViewAnimationO
 
 
 
++(void)EMK_animateSequenceWithAnimationDescriptionBlocks:(EMKAnimationDescriptionBlock)firstAnimationDescriptionBlock,...
+{
+    NSMutableArray *animationDescriptionBlocks = [NSMutableArray array];
+    
+    //the varag list will only contain animationDescriptionBlocks and a nil sentinal    
+    va_list animationBlocks;
+    va_start(animationBlocks, firstAnimationDescriptionBlock);
+    EMKAnimationDescriptionBlock animationDescriptionBlock = firstAnimationDescriptionBlock;
+    
+    while (animationDescriptionBlock != NULL)
+    {
+        //ensure the block is on the heap and store it
+        animationDescriptionBlock = Block_copy(animationDescriptionBlock);
+        [animationDescriptionBlocks addObject:animationDescriptionBlock];
+        Block_release(animationDescriptionBlock);
+        
+        //fetch next block        
+        animationDescriptionBlock = va_arg(animationBlocks, EMKAnimationDescriptionBlock);
+    }
+    
+    //tidy up
+    va_end(animationBlocks);
+    
+    [self EMK_animateSequence:animationDescriptionBlocks];
+}
 
 
+
+
+#pragma mark animation method
 +(void)EMK_animateSequence:(NSArray *)animationDescriptionBlocks
 {
     NSInteger count = [animationDescriptionBlocks count];
