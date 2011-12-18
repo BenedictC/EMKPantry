@@ -10,9 +10,11 @@
 
 @interface UILocalizedIndexedCollation (EMKSearchSectionIndexTitles)
 
+//section index
 -(NSString *)EMK_searchIndexTitle;
 -(NSArray *)EMK_sectionIndexTitlesWithSearch;
 
+//group and sort objects by section index
 -(NSArray *)EMK_partitionObjects:(NSArray *)objects collationStringSelector:(SEL)selector;
 
 @end
