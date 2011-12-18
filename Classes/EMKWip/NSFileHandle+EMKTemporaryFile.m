@@ -14,19 +14,34 @@
 
 +(NSFileHandle *)EMK_fileHandleForWritingToTemporaryFile:(NSURL**)temporaryFilePath
 {
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
-    NSString *path;
+    
+    //create a random path from the temp dir and a random number
+    NSString *temporaryDirectory = NSTemporaryDirectory();
+    NSString *path = nil;
     do 
     {
-        path = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld", random()]];
+        path = [temporaryDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld", random()]];
     } while ([fileManager fileExistsAtPath:path]);
 
-    [fileManager createFileAtPath:path contents:nil attributes:nil];
+    //TODO: theoretically another thread could create the file
     
-    *temporaryFilePath = [NSURL fileURLWithPath:path];
-    return [NSFileHandle fileHandleForWritingAtPath:path];
+    
+    // attempt to create the file
+    if ([fileManager createFileAtPath:path contents:nil attributes:nil])
+    {
+        //return the path and the file handle
+        *temporaryFilePath = [NSURL fileURLWithPath:path];
+        return [NSFileHandle fileHandleForWritingAtPath:path];        
+    }
+    else
+    {    
+        //we failed!
+        *temporaryFilePath = nil;
+        return nil;
+    }
+    
 }
 
 
