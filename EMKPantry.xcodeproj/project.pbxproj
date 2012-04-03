@@ -27,7 +27,6 @@
 		B56B1878135EF10900184810 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B1877135EF10900184810 /* SenTestingKit.framework */; };
 		B58A1513138BEE1F00A9A82B /* NSObject+EMKAccessors.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A1511138BEE1F00A9A82B /* NSObject+EMKAccessors.h */; };
 		B58A1515138BEE9F00A9A82B /* NSObject+EMKAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A1512138BEE1F00A9A82B /* NSObject+EMKAccessors.m */; };
-		B58A921F138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91F8138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.h */; };
 		B58A9221138BD89A00C7BEC3 /* EMKPantry.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */; };
 		B58A9222138BD89A00C7BEC3 /* EMKAssociateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FC138BD89A00C7BEC3 /* EMKAssociateDelegate.h */; };
 		B58A9224138BD89A00C7BEC3 /* EMKMutableTypedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B58A91FE138BD89A00C7BEC3 /* EMKMutableTypedArray.h */; };
@@ -66,11 +65,9 @@
 		B58A92A2138BDA0800C7BEC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58A92A0138BDA0800C7BEC3 /* InfoPlist.strings */; };
 		B58A92A3138BDC6F00C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */; };
 		B58A92A4138BDC7300C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */; };
-		B58C275A138BE8DE00BCC18B /* EMKWebCacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */; };
 		B58C275B138BE8E300BCC18B /* NSFileHandle+EMKTemporaryFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9256138BD8A600C7BEC3 /* NSFileHandle+EMKTemporaryFile.m */; };
 		B58C275C138BE8F000BCC18B /* EMKObjectMappingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9246138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.m */; };
 		B58C2761138BE8F000BCC18B /* EMKStateArchiving.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9251138BD8A600C7BEC3 /* EMKStateArchiving.m */; };
-		B58C2762138BE95500BCC18B /* NSManagedObject+EMKFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91F9138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.m */; };
 		B58C2763138BE95500BCC18B /* EMKAssociateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91FD138BD89A00C7BEC3 /* EMKAssociateDelegate.m */; };
 		B58C2764138BE95500BCC18B /* EMKMutableTypedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A91FF138BD89A00C7BEC3 /* EMKMutableTypedArray.m */; };
 		B58C2765138BE95500BCC18B /* EMKTypedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B58A9201138BD89A00C7BEC3 /* EMKTypedArray.m */; };
@@ -91,6 +88,8 @@
 		B5ADEC7B139E473500E36783 /* UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ADEC79139E473400E36783 /* UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.m */; };
 		B5B51833142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B51831142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.h */; };
 		B5B51834142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B51832142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.m */; };
+		B5B5C088149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B5C086149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.h */; };
+		B5B5C089149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B5C087149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.m */; };
 		B5DC1F0E1393F67C0033EB6B /* NSObject+EMKRuntimeProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DC1F061393F67B0033EB6B /* NSObject+EMKRuntimeProperties.m */; };
 		B5DC1F0F1393F67C0033EB6B /* NSObject+EMKRuntimeProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DC1F071393F67B0033EB6B /* NSObject+EMKRuntimeProperties.h */; };
 		B5DC1F101393F67C0033EB6B /* NSObject+EMKMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DC1F081393F67C0033EB6B /* NSObject+EMKMethodSwizzling.m */; };
@@ -152,8 +151,6 @@
 		B58A1512138BEE1F00A9A82B /* NSObject+EMKAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSObject+EMKAccessors.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B58A91AD138BD59800C7BEC3 /* libcom.electricmuffinkitchen.emkpantry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcom.electricmuffinkitchen.emkpantry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58A91BB138BD5B400C7BEC3 /* libcom.electricmuffinkitchen.emkwip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcom.electricmuffinkitchen.emkwip.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B58A91F8138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSManagedObject+EMKFetchRequest.h"; sourceTree = "<group>"; };
-		B58A91F9138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSManagedObject+EMKFetchRequest.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EMKPantry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B58A91FC138BD89A00C7BEC3 /* EMKAssociateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EMKAssociateDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B58A91FD138BD89A00C7BEC3 /* EMKAssociateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EMKAssociateDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -191,8 +188,6 @@
 		B58A9246138BD8A600C7BEC3 /* EMKObjectMappingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKObjectMappingTableViewController.m; sourceTree = "<group>"; };
 		B58A9250138BD8A600C7BEC3 /* EMKStateArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EMKStateArchiving.h; sourceTree = "<group>"; };
 		B58A9251138BD8A600C7BEC3 /* EMKStateArchiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EMKStateArchiving.m; sourceTree = "<group>"; };
-		B58A9252138BD8A600C7BEC3 /* EMKWebCacheController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKWebCacheController.h; sourceTree = "<group>"; };
-		B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKWebCacheController.m; sourceTree = "<group>"; };
 		B58A9254138BD8A600C7BEC3 /* EMKWip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EMKWip.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B58A9255138BD8A600C7BEC3 /* NSFileHandle+EMKTemporaryFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSFileHandle+EMKTemporaryFile.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B58A9256138BD8A600C7BEC3 /* NSFileHandle+EMKTemporaryFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSFileHandle+EMKTemporaryFile.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -240,6 +235,10 @@
 		B5ADEC79139E473400E36783 /* UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.m"; sourceTree = "<group>"; };
 		B5B51831142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+EMKApplicationDocumentsDirectory.h"; sourceTree = "<group>"; };
 		B5B51832142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+EMKApplicationDocumentsDirectory.m"; sourceTree = "<group>"; };
+		B5B5C086149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EMKFetchRequest.h"; sourceTree = "<group>"; };
+		B5B5C087149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EMKFetchRequest.m"; sourceTree = "<group>"; };
+		B5B5C08A149E3E2300EF3412 /* EMKWebCacheController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMKWebCacheController.h; sourceTree = "<group>"; };
+		B5B5C08B149E3E2300EF3412 /* EMKWebCacheController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMKWebCacheController.m; sourceTree = "<group>"; };
 		B5DC1F061393F67B0033EB6B /* NSObject+EMKRuntimeProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EMKRuntimeProperties.m"; sourceTree = "<group>"; };
 		B5DC1F071393F67B0033EB6B /* NSObject+EMKRuntimeProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EMKRuntimeProperties.h"; sourceTree = "<group>"; };
 		B5DC1F081393F67C0033EB6B /* NSObject+EMKMethodSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EMKMethodSwizzling.m"; sourceTree = "<group>"; };
@@ -455,22 +454,12 @@
 			isa = PBXGroup;
 			children = (
 				B58A91FA138BD89A00C7BEC3 /* EMKPantry.h */,
-				B58A91F7138BD89A00C7BEC3 /* CoreData */,
 				B58A91FB138BD89A00C7BEC3 /* Foundation */,
 				B58A920C138BD89A00C7BEC3 /* UIKit */,
 			);
 			name = EMKPantry;
 			path = Classes/EMKPantry;
 			sourceTree = SOURCE_ROOT;
-		};
-		B58A91F7138BD89A00C7BEC3 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				B58A91F8138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.h */,
-				B58A91F9138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.m */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
 		};
 		B58A91FB138BD89A00C7BEC3 /* Foundation */ = {
 			isa = PBXGroup;
@@ -500,9 +489,9 @@
 			children = (
 				B5F5B323147521C400972913 /* UIView+EMKAnimationSequence.h */,
 				B5F5B324147521C400972913 /* UIView+EMKAnimationSequence.m */,
-				B58A920D138BD89A00C7BEC3 /* EMKTableViewCell.h */,
 				B5B51831142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.h */,
 				B5B51832142768AA0054FAE9 /* UIApplication+EMKApplicationDocumentsDirectory.m */,
+				B58A920D138BD89A00C7BEC3 /* EMKTableViewCell.h */,
 				B58A920E138BD89A00C7BEC3 /* EMKTableViewCell.m */,
 				B58A920F138BD89A00C7BEC3 /* EMKView.h */,
 				B58A9210138BD89A00C7BEC3 /* EMKView.m */,
@@ -528,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				B58A9254138BD8A600C7BEC3 /* EMKWip.h */,
+				B5B5C085149E3DEE00EF3412 /* CoreData */,
 				B5DC1F1A139454DF0033EB6B /* Foundation */,
 				B5DC1F1B139454FF0033EB6B /* UIKit */,
 			);
@@ -538,6 +528,8 @@
 		B5ADEC6A139E172500E36783 /* Trash */ = {
 			isa = PBXGroup;
 			children = (
+				B5B5C08A149E3E2300EF3412 /* EMKWebCacheController.h */,
+				B5B5C08B149E3E2300EF3412 /* EMKWebCacheController.m */,
 				B532280D1444A50100FCA2A4 /* UINavigationBar+EMKBackgroundView.h */,
 				B532280E1444A50200FCA2A4 /* UINavigationBar+EMKBackgroundView.m */,
 				B5ADEC6B139E172500E36783 /* EMKSetController.h */,
@@ -552,6 +544,15 @@
 			);
 			name = Trash;
 			path = ../EMKPantry/Classes/Trash;
+			sourceTree = "<group>";
+		};
+		B5B5C085149E3DEE00EF3412 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B5B5C086149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.h */,
+				B5B5C087149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.m */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B5DA0F4512EC5D40005735D2 /* View Controllers */ = {
@@ -592,8 +593,6 @@
 		B5DC1F1A139454DF0033EB6B /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				B58A9252138BD8A600C7BEC3 /* EMKWebCacheController.h */,
-				B58A9253138BD8A600C7BEC3 /* EMKWebCacheController.m */,
 				B58A9255138BD8A600C7BEC3 /* NSFileHandle+EMKTemporaryFile.h */,
 				B58A9256138BD8A600C7BEC3 /* NSFileHandle+EMKTemporaryFile.m */,
 				B5DC1F071393F67B0033EB6B /* NSObject+EMKRuntimeProperties.h */,
@@ -630,7 +629,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58A921F138BD89A00C7BEC3 /* NSManagedObject+EMKFetchRequest.h in Headers */,
 				B58A9221138BD89A00C7BEC3 /* EMKPantry.h in Headers */,
 				B58A9222138BD89A00C7BEC3 /* EMKAssociateDelegate.h in Headers */,
 				B58A9224138BD89A00C7BEC3 /* EMKMutableTypedArray.h in Headers */,
@@ -663,6 +661,7 @@
 				B501589A139D6B7800292508 /* EMKSectionsController.h in Headers */,
 				B54FAADE139D8103001BD0D2 /* EMKSectionsController+NSFetchedResultsControllerUpdate.h in Headers */,
 				B5ADEC7A139E473500E36783 /* UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.h in Headers */,
+				B5B5C088149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,7 +850,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58C2762138BE95500BCC18B /* NSManagedObject+EMKFetchRequest.m in Sources */,
 				B58C2763138BE95500BCC18B /* EMKAssociateDelegate.m in Sources */,
 				B58C2764138BE95500BCC18B /* EMKMutableTypedArray.m in Sources */,
 				B58C2765138BE95500BCC18B /* EMKTypedArray.m in Sources */,
@@ -881,13 +879,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58C275A138BE8DE00BCC18B /* EMKWebCacheController.m in Sources */,
 				B58C275B138BE8E300BCC18B /* NSFileHandle+EMKTemporaryFile.m in Sources */,
 				B58C275C138BE8F000BCC18B /* EMKObjectMappingTableViewController.m in Sources */,
 				B58C2761138BE8F000BCC18B /* EMKStateArchiving.m in Sources */,
 				B501589B139D6B7800292508 /* EMKSectionsController.m in Sources */,
 				B54FAADF139D8103001BD0D2 /* EMKSectionsController+NSFetchedResultsControllerUpdate.m in Sources */,
 				B5ADEC7B139E473500E36783 /* UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.m in Sources */,
+				B5B5C089149E3DEE00EF3412 /* NSManagedObject+EMKFetchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,9 @@
+- Check that uncommitted files are a good idea then delete or commit
+- Check method sigs for guideline conformity
+- Check that EMKView couldn't be done via KVC
+- Check that UIView(EMKNibLoading) doesn't replicate UINib
+- Implement EMKObjectMappingTableViewController
+- Implement EMKSetController section methods
+- Merge EMKSetController files into 1 header
+- See if NSObject(EMKKVOSelector) can be improved
+- Implement truely unique dynamic subclass names for EMKAssociateDelegate

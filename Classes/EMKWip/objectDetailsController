@@ -1,0 +1,118 @@
+Tables we want to replicate
+Contacts.app contact details table (Remember edit mode! How do the rows get shortened to make space for the image?)
+
+
+@protocol EMKValueController
+-(id)value; //required
+-(UITableViewCell *)cellAtIndex; //required
+
+-(BOOL)shouldFlashSelectionOfRowAtIndex; //defaults to NO
+
+-(int)numberOfRows;
+-(float)heightForRowAtIndex:(int)index;
+@end
+
+
+
+
+
+
+@interface EMKObjectDetailsTableViewController
+
+-(id)object;
+-(id)delegate;
+
+//How do we add valueControllers? //addValueController:forKeyPath:
+//How do we group valueControllers into sections?
+//How do we reorder rows?
+
+
+//retrieving
+-(NSString *)keyPathForValueController:(id<EMKValueController>)valueController;
+    
+@end
+
+
+
+
+
+
+@protocol EMKObjectDetailsTableViewControllerDelegate
+-(void)detailsController:willDisplayCell:forIndex:ofValueController:
+
+@end
+
+
+
+
+
+
+UITableViewDataSource
+=====================
+//Mine! Mine! Mine!
+– tableView:cellForRowAtIndexPath:  required method
+– numberOfSectionsInTableView:
+– tableView:numberOfRowsInSection:  required method
+
+
+//consume these and give the delegate the change to override our response
+– tableView:titleForHeaderInSection: 
+– tableView:titleForFooterInSection:
+
+
+//Hmm. No idea!
+– sectionIndexTitlesForTableView:
+– tableView:sectionForSectionIndexTitle:atIndex:
+
+
+//Hmmm. We need to handle this, but how?
+Inserting or Deleting Table Rows
+– tableView:commitEditingStyle:forRowAtIndexPath:
+– tableView:canEditRowAtIndexPath:
+Reordering Table Rows
+– tableView:canMoveRowAtIndexPath:
+– tableView:moveRowAtIndexPath:toIndexPath:
+
+
+
+
+
+
+
+
+UITableViewDelegate
+===================
+Configuring Rows for the Table View
+– tableView:heightForRowAtIndexPath:
+– tableView:indentationLevelForRowAtIndexPath:
+– tableView:willDisplayCell:forRowAtIndexPath:
+
+
+Managing Accessory Views
+– tableView:accessoryButtonTappedForRowWithIndexPath:
+
+
+Managing Selections
+– tableView:willSelectRowAtIndexPath:
+– tableView:didSelectRowAtIndexPath:
+– tableView:willDeselectRowAtIndexPath:
+– tableView:didDeselectRowAtIndexPath:
+
+
+Modifying the Header and Footer of Sections
+– tableView:viewForHeaderInSection:
+– tableView:viewForFooterInSection:
+– tableView:heightForHeaderInSection:
+– tableView:heightForFooterInSection:
+
+
+Editing Table Rows
+– tableView:willBeginEditingRowAtIndexPath:
+– tableView:didEndEditingRowAtIndexPath:
+– tableView:editingStyleForRowAtIndexPath:
+– tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:
+– tableView:shouldIndentWhileEditingRowAtIndexPath:
+
+
+Reordering Table Rows
+– tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:

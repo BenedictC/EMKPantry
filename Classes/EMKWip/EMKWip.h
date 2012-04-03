@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #endif
 
+
 #import "EMKPantry.h"
 
 #import "EMKSectionsController.h"
@@ -19,7 +20,6 @@
 #import "UILocalizedIndexedCollation+EMKSearchSectionIndexTitles.h"
 
 #import "EMKStateArchiving.h"
-#import "EMKWebCacheController.h"
 #import "EMKObjectMappingTableViewController.h"
 #import "NSFileHandle+EMKTemporaryFile.h"
 
@@ -28,3 +28,11 @@
 
 //#import "UINavigationBar+EMKBackgroundView.h"
 #import "UIImage+EMKTintedImage.h"
+
+
+//CoreData.framework
+//==================
+//#ifdef _COREDATADEFINES_H
+#import "NSManagedObject+EMKFetchRequest.h"
+//#endif
+

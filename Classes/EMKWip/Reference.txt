@@ -1,0 +1,69 @@
+http://stackoverflow.com/questions/813529/documentation-generator-for-objective-c
+
+
+
+EMKCompositeView.h:@interface EMKCompositeView : UIView
+EMKCompositeView.h:@interface EMKCompositeCell : UITableViewCell
+================================================================
+
+These classes simplify the loading of views from nibs. Example usage:
+
+ExampleCompositeViews.h
+-----------------------
+
+//The interface need only list the properties. CompositeViews should not contain any additional methods. Composite views are very dumb. If functionality needs to be added to a UIView subclass then the subclass should be created in the normal way (ie with its own header and implementation files). The methods in UIView(EMKNibLoading) can be used to simplify the loading of any UIView.
+
+@interface UploadPhotoTableSectionHeader : EMKCompositeView
+@property(readwrite, retain) IBOutlet UILabel *sectionTitle;
+@property(readwrite, retain) IBOutlet UIProgressIndicator *uploadProgress;
++(UploadPhotoTableSectionHeader)view;
+@end
+
+//Include all composite views in one file. The only reason these files need exist is due to limitation of the language/framework.
+
+@interface photoUploadCell : EMKCompositeCell
+@property(readwrite, retain) IBOutlet UIImageView *thumbnail;
+@property(readwrite, retain) IBOutlet UILabel *title;
+@property(readwrite, retain) IBOutlet UIProgressIndicator *progress;
++(photoUploadCell)view;
+@end
+
+
+
+ExampleCompositeViews.m
+-----------------------
+//Implementation is perform via macros. The first argument is the class name, the following arguments are the properties. If there are no properties use ???????? instead of ????????.
+
+COMPOSITE_VIEW_WITH_PROPERTIES(EMKCompositeView, sectionTitle, progress)
+
+
+
+UploadPhotoTableSectionHeader.xib
+---------------------------------
+Set the class of the view to UploadPhotoTableSectionHeader. Add the subviews to the view and connect the referencing outlets from the root view.
+
+
+photoUploadCell.xib
+-------------------
+When creating a EMKCompositeCell it is wise to implement the reuseIdentifier too.
+
+
+
+PhotoUploadViewController.m
+---------------------------
+//TODO: Add example implementations of the table view delegate methods for headers (ie height and view) and cellForIndexPath:
+
+
+
+
+
+
+
+EMKCoreDataHelper.h:@interface EMKCoreDataHelper : NSObject 
+NSInvocation(EMKActionInitializer).h:@interface NSInvocation (EMKActionInitializer)
+NSObject(EMKAccessors).h:@interface NSObject (EMKAccessors)
+NSOperationQueue(EMKDefaultQueue).h:@interface NSOperationQueue (EMKDefaultQueue)
+UIApplication(EMKNetworkActivityParticipation).h:@interface UIApplication (EMKNetworkActivityParticipation)
+UILabel(EMKResizing).h:@interface UILabel (EMKResizing)
+UIView(EMKNibLoading).h:@interface UIView (EMKNibLoading)
+UIViewController(EMKInitializers).h:@interface UIViewController (EMKInitializers)

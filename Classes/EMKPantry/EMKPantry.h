@@ -10,7 +10,6 @@
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 #endif
 
 
@@ -35,13 +34,6 @@
 //iOS 4.3+ and Mac ?
 #import "EMKAssociateDelegate.h"
 
-
-
-//CoreData.framework
-//==================
-//#ifdef _COREDATADEFINES_H
-#import "NSManagedObject+EMKFetchRequest.h"
-//#endif
 
 
 
